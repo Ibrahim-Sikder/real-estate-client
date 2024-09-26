@@ -1,0 +1,224 @@
+.navItems li {
+  padding: 10px;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.4, 0.43, 0.54, 0.54);
+}
+.navItems li:hover .dropdownMenu li a {
+  color: white !important;
+}
+.navItems li:hover .dropdownMenu li a {
+  color: black !important;
+}
+.dropdownMenu {
+  background: #fff;
+  color: #111 !important;
+  width: 200px;
+  height: 340px;
+  border-radius: 5px;
+  position: absolute;
+  top: 75px;
+  box-shadow: 0 5px 15px #00000026;
+  transform-origin: top;
+  transition: all 0.5s cubic-bezier(0.44, 0.47, 0.64, 0.65);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 3px solid red;
+  transform: scaleY(0);
+  opacity: 0;
+  visibility: hidden;
+}
+.submenu {
+  width: 230px;
+  height: 140px;
+  margin-top: 2px;
+}
+.submenu2 {
+  width: 210px !important;
+  height: 140px;
+  margin-top: 5px;
+  position: absolute;
+  right: 0px;
+}
+.dropdownMenuWrap {
+  position: relative;
+}
+.dropdownMenuWrap:hover .dropdownMenu {
+  opacity: 1;
+  transform: scaleY(1);
+  visibility: visible;
+  color: #111;
+}
+.dropdownMenu li {
+  border-bottom: 1px solid #ddd;
+  padding: 5px 0;
+}
+.dropdownMenu li:last-child {
+  border-bottom: none;
+}
+.dropdownMenu li a {
+  padding: 20px 20px;
+  transition: all 0.5s ease-in-out;
+}
+@media only screen and (max-width: 1024px) {
+  .navItems {
+    background: #cb2d2e;
+    position: absolute;
+    left: -400px;
+    display: block;
+    width: 220px;
+    top: 0px;
+    height: 100vh;
+    padding: 20px;
+    transition: all 0.5s cubic-bezier(0.43, 0.38, 0.68, 0.63);
+    z-index: 999;
+  }
+  .activeMenu {
+    left: 0px;
+    transition: all 0.5s cubic-bezier(0.43, 0.38, 0.68, 0.63);
+    z-index: 999;
+  }
+  .navItems li {
+    color: #fff;
+  }
+  .activeBar,
+  .bar1 {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 28px;
+    right: 6px;
+    transition: all 0.5s cubic-bezier(0.43, 0.38, 0.68, 0.63);
+  }
+  .bar2 {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 35px;
+    right: 4px;
+    transition: all 0.5s cubic-bezier(0.43, 0.38, 0.68, 0.63);
+  }
+  .activeBar span,
+  .bar1 span {
+    width: 25px;
+    height: 2px;
+    background: #111;
+    display: block;
+    margin-bottom: 5px;
+    transition: all 0.5s cubic-bezier(0.43, 0.38, 0.68, 0.63);
+  }
+  .activeBar span:nth-child(3) {
+    rotate: -45deg;
+    top: 0px;
+    position: absolute;
+    transition: all 0.5s cubic-bezier(0.43, 0.38, 0.68, 0.63);
+  }
+  .activeBar span:nth-child(1) {
+    rotate: 45deg;
+    transition: all 0.5s cubic-bezier(0.43, 0.38, 0.68, 0.63);
+  }
+  .activeBar span:nth-child(2) {
+    display: none;
+  }
+}
+
+
+
+.navItems li:hover .dropdownMenu li a {
+  color: black !important;
+}
+.dropdownMenu {
+  background: #fff;
+  color: #111 !important;
+  width: 200px;
+  height: 340px;
+  border-radius: 5px;
+  position: absolute;
+  top: 75px;
+  box-shadow: 0 5px 15px #00000026;
+  transform-origin: top;
+  transition: all 0.5s cubic-bezier(0.44, 0.47, 0.64, 0.65);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 3px solid red;
+  transform: scaleY(0);
+  opacity: 0;
+  visibility: hidden;
+  margin-left: -20px;
+}
+.submenu {
+  width: 230px;
+  height: 140px;
+  margin-top: 0px;
+}
+.dropdownMenuWrap {
+  position: relative;
+}
+.dropdownMenuWrap:hover .dropdownMenu {
+  opacity: 1;
+  transform: scaleY(1);
+  visibility: visible;
+  color: #111;
+}
+.dropdownMenu li {
+  border-bottom: 1px solid #ddd;
+  padding: 5px 0;
+}
+.dropdownMenu li:last-child {
+  border-bottom: none;
+}
+.dropdownMenu li a {
+  padding: 20px 20px;
+  transition: all 0.5s ease-in-out;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+  .activeBar,
+  .bar1 {
+    top: 29px;
+    right: 9px;
+  }
+  .dropdownMenu {   
+    top: 55px;    
+    margin-left: -20px;
+  }
+
+  .submenu2 {
+    width: 210px !important;
+    height: 340px;
+    top: 55px;
+    position: absolute;
+    right: 0px;
+  }
+  .dropdownMenu li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .activeBar,
+  .bar1 {
+    top: 29px;
+    right: 9px;
+  }
+  .dropdownMenu {   
+    top: 70px;    
+    margin-left: -20px;
+  }
+
+  .submenu2 {
+    width: 210px !important;
+    height: 340px;
+    margin-top: -5px;
+    position: absolute;
+    right: 0px;
+  }
+  .dropdownMenu li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+}

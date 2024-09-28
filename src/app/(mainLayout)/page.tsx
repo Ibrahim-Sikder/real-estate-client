@@ -1,16 +1,19 @@
 "use client";
 import React from "react";
 import About from "@/components/About/About";
-import RecentProperties from "@/components/RecentProperties/RecentProperties";
+import Properties from "@/components/Properties/Properties";
 import Slider from "@/components/share/Slider/Slider";
-
+// import FeaturedProperties from "@/components/FeaturedProperties/FeaturedProperties";
+// import SearchBar from "@/components/SearchBar/SearchBar";
 
 const Home = () => {
   return (
     <div>
       <Slider />
+      {/* <SearchBar/> */}
       <About />
-      <RecentProperties />
+      <Properties />
+      {/* <FeaturedProperties /> */}
     </div>
   );
 };

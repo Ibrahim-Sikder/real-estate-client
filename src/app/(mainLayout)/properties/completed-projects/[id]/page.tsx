@@ -5,6 +5,7 @@ import Overview from "../_components/Overview";
 import Contact from "../_components/Contact";
 import Map from "../_components/Map";
 import Concept from "../_components/Concept";
+import Floor from "../_components/Floor";
 
 const PropertyDetails = () => {
   const [activeTab, setActiveTab] = useState("tab1");
@@ -67,7 +68,7 @@ const PropertyDetails = () => {
         <div className="w-full">
           {activeTab === "tab1" && <Overview />}
           {activeTab === "tab2" && <Concept />}
-          {activeTab === "tab3" && <div>Tab 3</div>}
+          {activeTab === "tab3" && <Floor />}
           {activeTab === "tab4" && <Map />}
           {activeTab === "tab5" && <div>Tab 5</div>}
           {activeTab === "tab6" && <Contact />}

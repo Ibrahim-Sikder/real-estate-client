@@ -1,27 +1,43 @@
-import Image from "next/image";
 import React from "react";
-import image from "../../../../../../src/assets/images/map/map.jpg";
+import floor1 from "../../../../../../src/assets/images/floor/1.jpg";
+import floor2 from "../../../../../../src/assets/images/floor/2.jpg";
+import floor3 from "../../../../../../src/assets/images/floor/3.jpg";
+import floor4 from "../../../../../../src/assets/images/floor/4.jpg";
+import floor5 from "../../../../../../src/assets/images/floor/5.jpg";
+import floor6 from "../../../../../../src/assets/images/floor/6.jpg";
+import floor7 from "../../../../../../src/assets/images/floor/7.jpg";
+import floor8 from "../../../../../../src/assets/images/floor/8.jpg";
+import Image from "next/image";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-const Map = () => {
+const Floor = () => {
+    const floor = [
+        { id: 1, image: floor1, title: 'Assure Murshed Heights Ground Floor Plan' },
+        { id: 2, image: floor2, title: 'FAssure Murshed Heights Rooftop Plan' },
+        { id: 3, image: floor3, title: 'Assure Murshed Heights Floor Plan Type-A' },
+        { id: 4, image: floor4, title: 'Assure Murshed Heights 1st Floor Plan' },
+        { id: 5, image: floor5, title: 'Assure Murshed Heights Axonometric View Type-A' },
+        { id: 6, image: floor6, title: 'Assure Murshed Heights Axonometric View Type-B' },
+        { id: 7, image: floor7, title: 'Assure Murshed Heights Floor Plan Type-B' },
+        { id: 8, image: floor8, title: 'Assure Murshed Heights Typical Floor Plan Plan Option 01' }
+      ];
+      
+
   return (
     <div>
-      <div className="mb-10">
-        <h4 className="text-center text-[#135F4A]">Assure Group</h4>
-        <h2 className="uppercase text-center">
-          Assure Murshed Heights Location
-        </h2>
-      </div>
-      <Image src={image} alt="" className="w-full" />
-      <div className="mt-10 border">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1075.1518268683578!2d90.42238324968673!3d23.820644750680454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c700ff992a63%3A0xbdcb1d9ae66b2d5c!2sSoftypi%20Technology!5e0!3m2!1sen!2sbd!4v1711790838610!5m2!1sen!2sbd"
-          className="map w-full h-[450px]"
-          style={{ border: "0" }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
+     <div className="mb-10">
+     <h4 className="text-center text-[#135F4A]">Assure Group</h4>
+      <h2 className="uppercase text-center">
+        Assure Murshed Heights Floor Plan
+      </h2>
+     </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-center">
+        {floor.map((data) => (
+          <div key={data.id}>
+            <Image src={data.image} alt="" className="w-full" />
+            <p className="bg-[#135F4A] text-white p-3 text-center">{data.title}</p>
+          </div>
+        ))}
       </div>
       <div className="mt-10 border shadow-lg p-5">
         <h2 className="uppercase">Buy an Apartment on Easy Installments</h2>
@@ -104,4 +120,4 @@ const Map = () => {
   );
 };
 
-export default Map;
+export default Floor;

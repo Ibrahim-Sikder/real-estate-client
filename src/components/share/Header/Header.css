@@ -1,6 +1,6 @@
 @media screen and (max-width: 1024px) {
   .nav-items {
-    background-color: #135f4a;
+    background-color: #76b486;
     width: 200px;
     height: 100vh;
     position: absolute;
@@ -16,7 +16,7 @@
   }
 
   .nav-items li {
-    color: #fff;
+    /* color: #fff; */
     padding: 10px;
     font-size: 12px;
   }

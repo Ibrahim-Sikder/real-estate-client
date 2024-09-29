@@ -3,12 +3,8 @@
 @tailwind utilities;
 
 body {
-  overflow-x: hidden;
-  font-size: 16px;
-  font-family: var(--noto-sans-bengali), sans-serif;
-  background: #EEF6F8;
+  font-family: "Hind Siliguri", sans-serif;
 }
-
 
 @layer base {
   h1 {
@@ -25,19 +21,5 @@ body {
 
   h4 {
     @apply text-sm md:text-xl font-semibold;
-  }
-}
-
-.sectionMargin {
-  margin-top: 80px;
-}
-
-.custom-clip-path {
-  clip-path: polygon(0 0, 100% 16%, 100% 100%, 0 100%);
-}
-
-@media only screen and (max-width: 500px) {
-  .sectionMargin {
-    margin-top: 40px;
   }
 }

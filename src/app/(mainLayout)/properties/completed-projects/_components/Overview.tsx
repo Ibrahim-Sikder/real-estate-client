@@ -1,6 +1,7 @@
 import React from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import PropertyGallery from "./PropertyGallery";
+import Common from "@/components/Common/Common";
 
 const Overview = () => {
   return (
@@ -238,6 +239,7 @@ const Overview = () => {
           </ul>
         </div>
       </div>
+      <Common/>
     </>
   );
 };

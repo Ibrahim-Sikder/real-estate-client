@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-types */
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 
 import { USER_ROLE } from "@/constant/role";
 import { SvgIconTypeMap } from "@mui/material";
@@ -19,19 +18,19 @@ export interface DrawerItem {
   title: string;
   path: string;
   parentPath?: string;
-  icon?: OverridableComponent<SvgIconTypeMap< {} , "svg">> & { muiName: string };
+  icon?: OverridableComponent<SvgIconTypeMap< unknown , "svg">> & { muiName: string };
   child?: DrawerItem[];
 }
 
 export type ResponseSuccessType = {
-  data: any;
+  data: unknown;
   meta?: IMeta;
 };
 
 export type IGenericErrorResponse = {
   success: boolean;
   message: string;
-  error: any;
+  error: unknown;
 };
 
 export type IGenericErrorMessage = {

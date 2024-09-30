@@ -4,7 +4,7 @@ import bannerImage from "../../../../../src/assets/images/about/bg.jpg";
 
 const AboutBanner = () => {
   return (
-    <div className="relative w-full h-[300px] lg:h-[300px]">
+    <div className="relative w-full h-[300px] lg:h-[400px]">
       {/* Background Image */}
       <Image
         src={bannerImage}
@@ -15,7 +15,7 @@ const AboutBanner = () => {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-75"></div>
+      <div className="absolute inset-0 bg-black opacity-30"></div>
 
       {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">

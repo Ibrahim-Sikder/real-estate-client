@@ -9,11 +9,11 @@ const Tabs = () => {
   const [activeTab, setActiveTab] = useState("tab1");
 
   return (
-    <Container>
+    <Container className="my-20">
       {/* Tab Header */}
-      <div className="lg:w-[800px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+      <div className="lg:w-[700px] mx-auto grid grid-cols-3 mb-10 bg-[#76B486]">
         <button
-          className={`p-2 text-center uppercase text-gray-600 border border-[#135F4A] ${
+          className={`py-3 lg:text-sm text-xs text-center border-r ${
             activeTab === "tab1"
               ? "bg-[#135F4A] text-white"
               : "hover:bg-[#135F4A] hover:text-white"
@@ -23,7 +23,7 @@ const Tabs = () => {
           On Going Projects
         </button>
         <button
-          className={`p-2 text-center uppercase text-gray-600 border border-[#135F4A] ${
+          className={`py-3 lg:text-sm text-xs text-center border-r ${
             activeTab === "tab2"
               ? "bg-[#135F4A] text-white"
               : "hover:bg-[#135F4A] hover:text-white"
@@ -33,7 +33,7 @@ const Tabs = () => {
           Completed Projects
         </button>
         <button
-          className={`p-2 text-center uppercase text-gray-600 border border-[#135F4A] ${
+          className={`py-3 lg:text-sm text-xs text-center ${
             activeTab === "tab3"
               ? "bg-[#135F4A] text-white"
               : "hover:bg-[#135F4A] hover:text-white"

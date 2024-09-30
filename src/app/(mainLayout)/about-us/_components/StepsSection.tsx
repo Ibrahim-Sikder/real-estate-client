@@ -3,6 +3,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import Image from "next/image";
 import img1 from "../../../../../src/assets/images/about/3.jpg";
 import img2 from "../../../../../src/assets/images/about/4.jpg";
+import About from "@/components/About/About";
 
 const StepsSection = () => {
   const steps = [
@@ -41,6 +42,7 @@ const StepsSection = () => {
           </div>
         ))}
       </div>
+      <About/>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mt-20">
         <div>
           <div className="space-y-5">

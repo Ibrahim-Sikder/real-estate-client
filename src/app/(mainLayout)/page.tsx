@@ -1,15 +1,13 @@
 "use client";
 import React from "react";
-import About from "@/components/About/About";
 import Properties from "@/components/Properties/Properties";
-// import Slider from "@/components/share/Slider/Slider";
+import Banner from "@/components/share/Banner/Banner";
 import FeaturedProperties from "@/components/FeaturedProperties/FeaturedProperties";
 
 const Home = () => {
   return (
     <div>
-      {/* <Slider /> */}
-      <About />
+      <Banner />
       <Properties />
       <FeaturedProperties />
     </div>

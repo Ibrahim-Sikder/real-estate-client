@@ -1,19 +1,21 @@
 "use client";
 import React from "react";
-import About from "@/components/About/About";
 import Properties from "@/components/Properties/Properties";
-import Slider from "@/components/share/Slider/Slider";
-// import FeaturedProperties from "@/components/FeaturedProperties/FeaturedProperties";
-// import SearchBar from "@/components/SearchBar/SearchBar";
+import Banner from "@/components/share/Banner/Banner";
+import FeaturedProperties from "@/components/FeaturedProperties/FeaturedProperties";
+import CoffeeSection from "@/components/Coffee/Coffee";
+import Testimonials from "@/components/Testimonial/Testimonial";
+import MortgageCalculator from "@/components/MortgageCalculator/MortgageCalculator";
 
 const Home = () => {
   return (
     <div>
-      <Slider />
-      {/* <SearchBar/> */}
-      <About />
+      <Banner />
       <Properties />
-      {/* <FeaturedProperties /> */}
+      <FeaturedProperties />
+      <MortgageCalculator />
+      <CoffeeSection />
+      <Testimonials />
     </div>
   );
 };

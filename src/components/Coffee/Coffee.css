@@ -1,0 +1,10 @@
+  .coffee-bg {
+    background-image: url("../../../src/assets/images/banner/banner5.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+  

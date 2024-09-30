@@ -8,7 +8,7 @@ import Container from "../share/Container";
 
 const About = () => {
   return (
-    <Container>
+    <Container className="px-0">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center my-20">
         <div className="w-full">
           <Image src={img1} alt="" className="lg:h-60 w-full" />

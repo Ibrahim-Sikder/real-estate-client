@@ -40,16 +40,16 @@ const Header = () => {
             <Link href="/#">
               <li>HOME</li>
             </Link>
-            <Link href="/#">
+            <Link href="/about-us">
               <li>ABOUT</li>
             </Link>
-            <Link href="/#">
+            <Link href="/projects">
               <li>PROJECTS</li>
             </Link>
             <Link href="/#">
               <li>BLOG</li>
             </Link>
-            <Link href="/#">
+            <Link href="/contact">
               <li>CONTACT</li>
             </Link>
             <Link href="/#">

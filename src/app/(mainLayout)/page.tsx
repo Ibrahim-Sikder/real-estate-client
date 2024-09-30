@@ -2,18 +2,16 @@
 import React from "react";
 import About from "@/components/About/About";
 import Properties from "@/components/Properties/Properties";
-import Slider from "@/components/share/Slider/Slider";
-// import FeaturedProperties from "@/components/FeaturedProperties/FeaturedProperties";
-// import SearchBar from "@/components/SearchBar/SearchBar";
+// import Slider from "@/components/share/Slider/Slider";
+import FeaturedProperties from "@/components/FeaturedProperties/FeaturedProperties";
 
 const Home = () => {
   return (
     <div>
-      <Slider />
-      {/* <SearchBar/> */}
+      {/* <Slider /> */}
       <About />
       <Properties />
-      {/* <FeaturedProperties /> */}
+      <FeaturedProperties />
     </div>
   );
 };

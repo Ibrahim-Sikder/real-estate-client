@@ -29,8 +29,8 @@ const FeaturedProperties = () => {
   ];
 
   return (
-    <div className="bg my-20 py-10">
-      <Container>
+    <Container>
+      <div className="bg my-20 py-10">
         <div className="flex justify-center py-5">
           <h2 className="text-center mb-8 text-white z-10 absolute uppercase">
             Featured Properties
@@ -75,8 +75,8 @@ const FeaturedProperties = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
 };
 

@@ -40,13 +40,13 @@ const CoffeeSection = () => {
   };
 
   return (
-    <section className="py-20 my-20 text-white text-center coffee-bg relative">
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-80 z-10"></div>
+    <Container>
+      <div className="my-20 p-5 lg:py-20 text-white text-center coffee-bg relative">
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black bg-opacity-80 z-10"></div>
 
-      {/* Content inside the section */}
-      <div className="relative z-20">
-        <Container className="content">
+        {/* Content inside the section */}
+        <div className="relative z-20">
           <div>
             <h2 className="text-2xl font-bold mb-4">Would You Like To</h2>
             <h1 className="text-4xl font-bold mb-8">
@@ -103,7 +103,7 @@ const CoffeeSection = () => {
           </div>
 
           {/* Book appointment button */}
-          <div className="flex justify-center mt-5">
+          <div className="flex justify-center mt-8">
             <button
               className="bg-[#135F4A] px-6 py-2 text-white uppercase"
               onClick={handleClickOpen}
@@ -181,9 +181,9 @@ const CoffeeSection = () => {
               </button>
             </DialogActions>
           </Dialog>
-        </Container>
+        </div>
       </div>
-    </section>
+    </Container>
   );
 };
 

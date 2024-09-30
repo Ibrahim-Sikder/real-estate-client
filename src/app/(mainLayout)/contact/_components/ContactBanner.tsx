@@ -4,7 +4,7 @@ import bannerImage from "../../../../../src/assets/images/about/bg.jpg";
 
 const ContactBanner = () => {
   return (
-    <div className="relative w-full h-[300px] lg:h-[300px]">
+    <div className="relative w-full h-[300px] lg:h-[400px]">
       {/* Background Image */}
       <Image
         src={bannerImage}

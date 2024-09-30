@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "./Styles.css";
-import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
+import { Autoplay, EffectCoverflow } from "swiper/modules";
 import Image from "next/image";
 import img1 from "../../../src/assets/images/featured/1.jpg";
 import img2 from "../../../src/assets/images/featured/2.jpg";
@@ -66,7 +66,7 @@ const FeaturedProperties = () => {
               slidesPerView: 3, // Desktops
             },
           }}
-          modules={[EffectCoverflow, Pagination, Autoplay]}
+          modules={[EffectCoverflow, Autoplay]}
           className="mySwiper"
         >
           {featured.map((data) => (

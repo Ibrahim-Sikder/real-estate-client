@@ -49,7 +49,7 @@ const Header = () => {
             <Link href="/#">
               <li>BLOG</li>
             </Link>
-            <Link href="/#">
+            <Link href="/contact">
               <li>CONTACT</li>
             </Link>
             <Link href="/#">

@@ -12,7 +12,7 @@ const page = () => {
     <div>
       <AboutBanner />
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-36 gap-10 items-center mt-20 mb-40">
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-36 gap-10 items-center mt-20 lg:mb-40 mb-20">
           <div className="space-y-5">
             <h4 className="uppercase text-[#135F4A]">trusted By thousands</h4>
             <h2 className="uppercase">

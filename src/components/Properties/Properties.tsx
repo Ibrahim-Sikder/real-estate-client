@@ -10,6 +10,19 @@ const Tabs = () => {
 
   return (
     <Container className="my-20">
+      <div className="mb-7">
+        <h4 className="uppercase text-center text-[#135F4A] mb-3">
+          Our Projects
+        </h4>
+        <h2 className="text-center">
+          Properties ( Home | Residential | Commercial ) in the City
+        </h2>
+        <p className="lg:w-[400px] mx-auto text-center mt-5">
+          We offer a wide variety of residential and commercial properties in
+          Dhaka. Find your dream home or commercial space from the pull of
+          nicely built properties.
+        </p>
+      </div>
       {/* Tab Header */}
       <div className="lg:w-[700px] mx-auto grid grid-cols-3 mb-10 bg-[#76B486]">
         <button

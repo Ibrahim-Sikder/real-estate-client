@@ -71,7 +71,7 @@ const Testimonials = () => {
             <Slider {...settings}>
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="">
-                  <div className="w-full lg:flex">
+                  <div className="w-full lg:flex items-center">
                     <div className="lg:border-r lg:border-dashed lg:border-gray-500 lg:w-[600px] flex flex-col content-center items-center justify-center text-center space-x-3">
                       <Image
                         src={testimonial.image}

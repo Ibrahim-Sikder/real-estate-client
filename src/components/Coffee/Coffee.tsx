@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Container from "../share/Container";
 import HomeIcon from "@mui/icons-material/Home";
 import TerrainIcon from "@mui/icons-material/Terrain";
 import ApartmentIcon from "@mui/icons-material/Apartment";
@@ -40,7 +39,7 @@ const CoffeeSection = () => {
   };
 
   return (
-    <Container>
+    <>
       <div className="my-20 p-5 lg:py-20 text-white text-center coffee-bg relative">
         {/* Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-80 z-10"></div>
@@ -136,6 +135,14 @@ const CoffeeSection = () => {
               />
               <TextField
                 margin="dense"
+                id="phone"
+                label="Your Number"
+                type="email"
+                fullWidth
+                variant="outlined"
+              />
+              <TextField
+                margin="dense"
                 id="date"
                 label="Date"
                 type="date"
@@ -183,7 +190,7 @@ const CoffeeSection = () => {
           </Dialog>
         </div>
       </div>
-    </Container>
+    </>
   );
 };
 

@@ -7,20 +7,20 @@ import CoffeeSection from "@/components/Coffee/Coffee";
 import Testimonials from "@/components/Testimonial/Testimonial";
 import ShareBuy from "@/components/ShareBuy/ShareBuy";
 import Affiliation from "@/components/Affiliation/Affiliation";
-import FAQ from "@/components/FAQ/FAQ";
+import Trusted from "@/components/Trusted/Trusted";
 
 
 const Home = () => {
   return (
     <div>
       <Slider />
+      <Trusted/>
       <Properties />
       <FeaturedProperties />
       <Affiliation/>
       <CoffeeSection />
       <Testimonials />
       <ShareBuy />
-      <FAQ/>
     </div>
   );
 };

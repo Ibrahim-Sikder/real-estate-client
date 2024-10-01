@@ -20,9 +20,11 @@ const Header = () => {
     <div className="bg-white shadow-md sticky top-0 z-50 lg:py-0 py-2">
       <Container>
         <div className="flex justify-between items-center">
-          <div className="w-28">
-            <Image src={logo} alt="Logo" />
-          </div>
+          <Link href="/">
+            <div className="w-28">
+              <Image src={logo} alt="Logo" />
+            </div>
+          </Link>
 
           <div className="lg:hidden block cursor-pointer" onClick={toggleMenu}>
             {isMenuOpen ? (

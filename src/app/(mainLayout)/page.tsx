@@ -7,6 +7,7 @@ import CoffeeSection from "@/components/Coffee/Coffee";
 import Testimonials from "@/components/Testimonial/Testimonial";
 import ShareBuy from "@/components/ShareBuy/ShareBuy";
 import Affiliation from "@/components/Affiliation/Affiliation";
+import FAQ from "@/components/FAQ/FAQ";
 
 
 const Home = () => {
@@ -19,6 +20,7 @@ const Home = () => {
       <CoffeeSection />
       <Testimonials />
       <ShareBuy />
+      <FAQ/>
     </div>
   );
 };

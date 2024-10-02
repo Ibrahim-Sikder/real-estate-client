@@ -15,13 +15,11 @@ const Trusted = () => {
             Delivering High Quality Projects property valuation
           </h2>
           <p className="text-justify">
-            Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam.
-          </p>
-          <p className="text-justify">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam,
+            Anaa Developers Limited is a prominent real estate company
+            specializing in the sale of land shares across various projects. Our
+            mission is to offer high-quality, strategically located land options
+            for clients who are looking to invest in property for future
+            development or personal use.
           </p>
           <button className="bg-[#135F4A] px-4 py-2 text-white uppercase">
             Read More <EastIcon />

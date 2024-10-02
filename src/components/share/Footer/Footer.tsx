@@ -5,10 +5,12 @@ import logo from "../../../../src/assets/images/logo/logo.png";
 import softy from "../../../../src/assets/images/logo/softy.png";
 import Container from "../Container";
 
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import XIcon from "@mui/icons-material/X";
+import facebook from "../../../../src/assets/images/icon/facebook.png";
+import instagram from "../../../../src/assets/images/icon/instagram.png";
+import linkedin from "../../../../src/assets/images/icon/linkedin.png";
+import twitter from "../../../../src/assets/images/icon/twitter.png";
+import youtube from "../../../../src/assets/images/icon/youtube.png";
+
 import CallIcon from "@mui/icons-material/Call";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -22,30 +24,29 @@ const Footer = () => {
             {/* Social Media Icons */}
             <div className="flex lg:justify-start justify-center">
               <div className="lg:mt-0 mt-10">
-                <Image src={logo} alt="" className="w-28" />
-                <h4 className="mt-5">Connect Wit Us</h4>
-                <ul className="flex lg:justify-start justify-center gap-5 mt-3">
-                  <li>
-                    <Link href="#">
-                      <FacebookIcon />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#">
-                      <InstagramIcon />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#">
-                      <LinkedInIcon />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#">
-                      <XIcon />
-                    </Link>
-                  </li>
-                </ul>
+                <div className="flex lg:justify-start justify-center">
+                  <Image src={logo} alt="" className="w-28" />
+                </div>
+                <h4 className="mt-5 lg:text-start text-center">
+                  Connect Wit Us
+                </h4>
+                <div className="flex justify-center space-x-3 mt-5">
+                  <Link href="https://www.facebook.com/AnaaDevelopersLtd">
+                    <Image src={facebook} alt="" className="w-7" />
+                  </Link>
+                  <Link href="#">
+                    <Image src={instagram} alt="" className="w-7" />
+                  </Link>
+                  <Link href="#">
+                    <Image src={linkedin} alt="" className="w-7" />
+                  </Link>
+                  <Link href="#">
+                    <Image src={twitter} alt="" className="w-7" />
+                  </Link>
+                  <Link href="https://youtube.com/@anaadevelopersltd?si=sSn6G0hth6Xw2znd">
+                    <Image src={youtube} alt="" className="w-7" />
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -55,10 +56,10 @@ const Footer = () => {
                 <h4 className="mb-3 lg:text-start text-center">Contact</h4>
                 <ul className="space-y-3 lg:text-start text-center">
                   <li>
-                    <CallIcon /> 01XXXXXXXXXX
+                    <CallIcon /> +8801738399899
                   </li>
                   <li>
-                    <MailOutlineIcon /> example@gmail.com
+                    <MailOutlineIcon /> anaadevelopersltd@gmail.com
                   </li>
                   <li>
                     <LocationOnIcon /> Dhaka, Bangladesh
@@ -72,16 +73,16 @@ const Footer = () => {
               <div className="lg:mt-0 mt-10">
                 <h4 className="lg:text-start text-center">Company</h4>
                 <ul className="mt-3 space-y-2 lg:text-start text-center">
-                  <Link href="/faq">
+                  <Link href="#">
                     <li>FAQ</li>
                   </Link>
-                  <Link href="/about">
+                  <Link href="#">
                     <li>About us</li>
                   </Link>
-                  <Link href="/terms">
+                  <Link href="#">
                     <li>Terms & Condition</li>
                   </Link>
-                  <Link href="/privacy">
+                  <Link href="#">
                     <li>Privacy Policy</li>
                   </Link>
                 </ul>

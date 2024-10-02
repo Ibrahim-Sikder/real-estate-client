@@ -3,9 +3,9 @@ import chairman from "../../../../../src/assets/images/profile/1.jpg";
 import facebook from "../../../../../src/assets/images/icon/facebook.png";
 import instagram from "../../../../../src/assets/images/icon/instagram.png";
 import linkedin from "../../../../../src/assets/images/icon/linkedin.png";
-import whatsApp from "../../../../../src/assets/images/icon/chat3.png";
+import youtube from "../../../../../src/assets/images/icon/youtube.png";
 import twitter from "../../../../../src/assets/images/icon/twitter.png";
-import EastIcon from '@mui/icons-material/East';
+import EastIcon from "@mui/icons-material/East";
 
 export default function Statement() {
   return (
@@ -45,14 +45,18 @@ export default function Statement() {
 
           {/* Find Out More Link */}
           <div className="flex lg:gap-10 gap-5 items-center">
-            <p> Connect To <EastIcon fontSize="small" className="text-[#135F4A]" /></p>
-          <div className="flex space-x-3">
-            <Image src={facebook} alt="" className="w-7"/>
-            <Image src={instagram} alt="" className="w-7"/>
-            <Image src={linkedin} alt="" className="w-7"/>
-            <Image src={whatsApp} alt="" className="w-7"/>
-            <Image src={twitter} alt="" className="w-7"/>
-          </div>
+            <p>
+              {" "}
+              Connect To{" "}
+              <EastIcon fontSize="small" className="text-[#135F4A]" />
+            </p>
+            <div className="flex space-x-3">
+              <Image src={facebook} alt="" className="w-7" />
+              <Image src={instagram} alt="" className="w-7" />
+              <Image src={linkedin} alt="" className="w-7" />
+              <Image src={youtube} alt="" className="w-7" />
+              <Image src={twitter} alt="" className="w-7" />
+            </div>
           </div>
         </div>
       </div>

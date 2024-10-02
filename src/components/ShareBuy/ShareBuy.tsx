@@ -46,7 +46,7 @@ const ShareBuy = () => {
   return (
     <>
       <div className="donationWraps my-16 rounded overflow-hidden contributionWrap ">
-        <div className="bg-image flex justify-center items-center lg:px-0 px-5">
+        <div className="bg-image lg:h-[700px] h-[300px] flex justify-center items-center">
           <div className="animationIcon">
             <Image src={animation} alt="animation" />
           </div>
@@ -77,7 +77,7 @@ const ShareBuy = () => {
           <div className="animationIcon10">
             <Image src={animation9} alt="animation" />
           </div>
-          <div className="absolute z-10">
+          <div className="absolute z-10 px-5">
             <div className="lg:max-w-2xl mx-auto">
               <h1 className=" text-center text-3xl md:text-5xl text-[#CB2D2E]">
                 Affordable Project Shares for Sale

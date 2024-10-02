@@ -7,6 +7,7 @@ import logo4 from "../../../src/assets/images/partner/4.png";
 import logo5 from "../../../src/assets/images/partner/5.png";
 import bgImage from "../../../src/assets/images/testimonial/map.png";
 import Container from "../share/Container";
+import Marquee from "react-fast-marquee";  // Marquee প্যাকেজ ইমপোর্ট
 
 const Affiliation = () => {
   const affiliations = [
@@ -16,6 +17,7 @@ const Affiliation = () => {
     { id: 4, logo: logo4 },
     { id: 5, logo: logo5 },
   ];
+
   return (
     <div
       className="w-auto lg:w-full h-full bg-bottom lg:bg-right bg-no-repeat py-24"
@@ -29,19 +31,23 @@ const Affiliation = () => {
           We are proud to be associated with these reputable organizations in
           the real estate industry.
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
-          {affiliations.map((affiliation) => (
-            <div key={affiliation.id} className="flex justify-center">
-              <Image
-                src={affiliation.logo}
-                alt=""
-                width={150}
-                height={60}
-                className="hover:scale-105 transform transition duration-300"
-              />
-            </div>
-          ))}
-        </div>
+
+        {/* Marquee implementation */}
+        <Marquee gradient={false} speed={50}>
+          <div className="flex justify-center gap-10">
+            {affiliations.map((affiliation) => (
+              <div key={affiliation.id} className="flex justify-center">
+                <Image
+                  src={affiliation.logo}
+                  alt="Affiliation logo"
+                  width={200}
+                  height={60}
+                  className="hover:scale-105 transform transition duration-300"
+                />
+              </div>
+            ))}
+          </div>
+        </Marquee>
       </Container>
     </div>
   );

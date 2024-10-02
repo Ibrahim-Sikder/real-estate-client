@@ -15,8 +15,9 @@ const ProblemSolve = () => {
               We Can Be a Solution For House Developer
             </h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              We believe in creating opportunities for all types of investors,
+              making land ownership accessible and affordable, while promoting
+              sustainable development.
             </p>
           </div>
           <div className="flex items-center gap-5 bg-[#76B486] p-5 border-l-8 border-[#135F4A] mt-5">
@@ -25,7 +26,10 @@ const ProblemSolve = () => {
             </span>
             <div>
               <h3>Professional Team Work</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p>
+                Feel free to adjust any details as needed for your specific
+                business goals!
+              </p>
             </div>
           </div>
           <button className="bg-[#135F4A] px-6 py-2 text-white mt-5">

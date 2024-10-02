@@ -2,9 +2,10 @@ import Image from "next/image";
 import facebook from "../../../../../src/assets/images/icon/facebook.png";
 import instagram from "../../../../../src/assets/images/icon/instagram.png";
 import linkedin from "../../../../../src/assets/images/icon/linkedin.png";
-import whatsApp from "../../../../../src/assets/images/icon/chat3.png";
 import twitter from "../../../../../src/assets/images/icon/twitter.png";
+import youtube from "../../../../../src/assets/images/icon/youtube.png";
 import user1 from "../../../../../src/assets/images/profile/1.jpg";
+import Link from "next/link";
 
 const teamMembers = [
   {
@@ -56,12 +57,22 @@ export default function TeamSection() {
             </h3>
             <p className="text-center text-gray-600">{member.role}</p>
             <div className="flex justify-center space-x-3 mt-5">
-              <Image src={facebook} alt="" className="w-5" />
-              <Image src={instagram} alt="" className="w-5" />
-              <Image src={linkedin} alt="" className="w-5" />
-              <Image src={whatsApp} alt="" className="w-5" />
-              <Image src={twitter} alt="" className="w-5" />
-            </div>
+                  <Link href="https://www.facebook.com/AnaaDevelopersLtd">
+                    <Image src={facebook} alt="" className="w-5" />
+                  </Link>
+                  <Link href="#">
+                    <Image src={instagram} alt="" className="w-5" />
+                  </Link>
+                  <Link href="#">
+                    <Image src={linkedin} alt="" className="w-5" />
+                  </Link>
+                  <Link href="#">
+                    <Image src={twitter} alt="" className="w-5" />
+                  </Link>
+                  <Link href="https://youtube.com/@anaadevelopersltd?si=sSn6G0hth6Xw2znd">
+                    <Image src={youtube} alt="" className="w-5" />
+                  </Link>
+                </div>
           </div>
         ))}
       </div>

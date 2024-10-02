@@ -48,8 +48,8 @@ const Header = () => {
             <Link href="/projects">
               <li>PROJECTS</li>
             </Link>
-            <Link href="/#">
-              <li>BLOG</li>
+            <Link href="/gallery">
+              <li>GALLERY</li>
             </Link>
             <Link href="/contact">
               <li>CONTACT</li>

@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import Image from "next/image";
-import banner from "../../../../src/assets/images/banner/adl2.jpg";
+import banner from "../../../../src/assets/images/banner/adl.jpg";
 
 
 import "./Slider.css";

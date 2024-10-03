@@ -61,12 +61,11 @@ const page = () => {
 
             {/* Right Side: Contact Info */}
             <div className="p-8">
-              <h2 className="text-3xl font-bold text-[#135F4A]  mb-6">
+              <h3 className="text-[#135F4A] uppercase mb-6">
                 Let&apos;s Get In Touch With Our Professionals Team
-              </h2>
+              </h3>
               <p className="text-gray-600 mb-8">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-                tellus, luctus nec ullamcorper mattis.
+              Anaa Developers Limited is a prominent real estate company specializing in the sale of land shares across various projects.
               </p>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
@@ -75,7 +74,7 @@ const page = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold">Head Quarter</h3>
-                    <p>Gresik United East Java Number 123 Block M</p>
+                    <p>Dhaka, Bangladesh</p>
                   </div>
                 </div>
 
@@ -85,7 +84,7 @@ const page = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold">Contact Us</h3>
-                    <p>Hello@email.com</p>
+                    <p>anaadevelopersltd@gmail.com</p>
                   </div>
                 </div>
 
@@ -95,7 +94,7 @@ const page = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold">Phone</h3>
-                    <p>+880 123 456789</p>
+                    <p>+8801738399899</p>
                   </div>
                 </div>
               </div>

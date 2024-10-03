@@ -24,19 +24,19 @@ export default function Statement() {
         {/* Chairman's Statement */}
         <div className="md:w-2/3 w-full md:pl-10 text-center md:text-left">
           <h2 className="text-3xl font-bold text-gray-800 mb-2">
-            Md. Sheikh Shadi
+            Mr. Don Williams
           </h2>
           <p className="text-lg font-semibold text-gray-500 mb-4">
             Founder & Chairman
             <br />
-            Assure Group
+            Anaa Developer Ltd.
           </p>
 
           <p className="text-base text-gray-600 mb-5 text-justify">
-            <strong className="font-bold">ASSURE GROUP</strong> drives forward
-            to provide superior quality real-estate products under the energetic
-            and capable leadership of the Founder & Chairman,{" "}
-            <strong>Md. Sheikh Shadi</strong>.
+            <strong className="font-bold">Anaa Developer Ltd.</strong> drives
+            forward to provide superior quality real-estate products under the
+            energetic and capable leadership of the Founder & Chairman,{" "}
+            <strong>Mr. Don Williams</strong>.
           </p>
           <p className="text-base text-gray-600 mb-5 text-justify">
             His journey into real estate began when he realized that there was a

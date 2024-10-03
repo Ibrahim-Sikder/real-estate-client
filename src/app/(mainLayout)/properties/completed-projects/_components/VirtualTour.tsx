@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ReactPlayer from "react-player";
+import Modal from "@/components/share/Modal/Modal";
 
 const VirtualTour = () => {
   const videos = [
@@ -20,6 +21,16 @@ const VirtualTour = () => {
       videoUrl: "https://youtu.be/3cYBfuphkuE",
     },
   ];
+
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
 
   return (
     <div>
@@ -69,12 +80,12 @@ const VirtualTour = () => {
             <CheckCircleIcon className="text-[#135F4A] mr-2" /> Many More
           </li>
         </ul>
-        <div className="flex md:gap-5 gap-2 mt-5">
-          <button className="bg-[#135F4A] px-4 py-2 text-white">
+        <div className="mt-5">
+          <button
+            onClick={handleOpenModal}
+            className="bg-[#135F4A] px-4 py-2 text-white"
+          >
             Buy This Apartment
-          </button>
-          <button className="bg-[#135F4A] px-4 py-2 text-white">
-            Price Quote
           </button>
         </div>
       </div>
@@ -122,6 +133,7 @@ const VirtualTour = () => {
           </ul>
         </div>
       </div>
+      <Modal open={openModal} onClose={handleCloseModal} />
     </div>
   );
 };

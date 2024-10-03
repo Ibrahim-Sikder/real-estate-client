@@ -9,9 +9,10 @@ import img6 from "../../../../src/assets/images/properties/p6.jpg";
 import img7 from "../../../../src/assets/images/properties/p7.jpg";
 import img8 from "../../../../src/assets/images/properties/p8.jpg";
 import Container from "@/components/share/Container";
+import Banner from "@/components/share/Banner/Banner";
 
 // Banner Image
-import bannerImg from "../../../../src/assets/images/banner/banner1.jpg";
+// import bannerImg from "../../../../src/assets/images/banner/banner1.jpg";
 
 const Gallery = () => {
   const images = [
@@ -28,7 +29,7 @@ const Gallery = () => {
   return (
     <>
       {/* Banner Section */}
-      <div className="relative w-full h-[400px]">
+      {/* <div className="relative w-full h-[400px]">
         <Image
           src={bannerImg}
           alt="Banner Image"
@@ -39,8 +40,8 @@ const Gallery = () => {
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <h1 className="uppercase text-white">Gallery</h1>
         </div>
-      </div>
-
+      </div> */}
+      <Banner />
       {/* Gallery Section */}
       <Container className="my-20">
         <h1 className="text-center text-3xl font-bold text-[#135F4A] mb-10 uppercase">

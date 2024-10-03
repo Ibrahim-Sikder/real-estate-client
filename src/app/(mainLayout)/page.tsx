@@ -8,6 +8,7 @@ import ShareBuy from "@/components/ShareBuy/ShareBuy";
 import Affiliation from "@/components/Affiliation/Affiliation";
 import Trusted from "@/components/Trusted/Trusted";
 import Banner from "@/components/share/Banner/Banner";
+import FAQ from "@/components/FAQ/FAQ";
 
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
       <CoffeeSection />
       <Testimonials />
       <ShareBuy />
+      <FAQ/>
     </div>
   );
 };

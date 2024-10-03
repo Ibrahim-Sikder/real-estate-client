@@ -1,5 +1,5 @@
 import React from "react";
-import banner from "../../../../src/assets/images/banner/banner.jpg";
+import banner from "../../../../src/assets/images/banner/adl2.jpg";
 import Image from "next/image";
 import Container from "../Container";
 

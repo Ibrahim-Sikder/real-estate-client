@@ -17,8 +17,8 @@ const page = () => {
         <ProblemSolve />
         <MissionVision />
         <TeamSection />
-        <FAQ />
         <Affiliation />
+        <FAQ />
       </Container>
     </div>
   );

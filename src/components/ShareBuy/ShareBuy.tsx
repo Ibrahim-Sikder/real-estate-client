@@ -60,7 +60,7 @@ const ShareBuy = () => {
           </div>
           <div className="absolute z-10 px-5">
             <div className="lg:max-w-2xl mx-auto">
-              <h1 className=" text-center text-3xl md:text-5xl text-[#CB2D2E]">
+              <h1 className=" text-center text-[#135F4A]">
                 Affordable Project Shares for Sale
               </h1>
               <p className="mt-5 text-center">

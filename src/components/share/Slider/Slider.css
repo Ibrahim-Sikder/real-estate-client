@@ -12,3 +12,29 @@
     display: none !important;
     /* Hide navigation buttons */
 }
+
+@media screen and (min-width: 400px) {
+    .swiper-slide {
+        height: 300px;
+    }
+    .slider-image {
+        height: 400px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .swiper-slide {
+        height: 300px;
+    }
+    .slider-image {
+        height: 400px;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .swiper-slide {
+        height: 500px;
+    }
+    .slider-image {
+        height: 600px;
+    }
+}

@@ -34,27 +34,28 @@ const Slider = () => {
         <>
             <Container>
                 <div className="slider-container">
-                <Swiper
-            autoplay={{
-              delay: 6000,
-              disableOnInteraction: false,
-            }}
-            spaceBetween={0}
-            navigation={true}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Autoplay, Navigation, Pagination]}
-            className="mySwiper"
-          >
+                    <Swiper
+                        autoplay={{
+                            delay: 6000,
+                            disableOnInteraction: false,
+                        }}
+                        spaceBetween={0}
+                        navigation={true}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        modules={[Autoplay, Navigation, Pagination]}
+                        className="mySwiper"
+                    >
                         {slides.map((slide, index) => (
                             <SwiperSlide key={index}>
-                                <div className="relative w-full ">
+                                <div className="relative w-full lg:h-[600px] md:[400px] h-[300px] ">
                                     <Image
                                         src={slide.img}
                                         alt={`Slide ${index + 1}`}
                                         // layout="fill"
-                                        objectFit="cover"                                        
+                                        // objectFit="cover"
+                                        className="lg:h-[600px] md:[400px] h-[300px] slider-image"
                                     />
                                 </div>
                             </SwiperSlide>

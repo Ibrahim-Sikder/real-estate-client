@@ -51,10 +51,13 @@ const Header = () => {
             <Link href="/gallery">
               <li>GALLERY</li>
             </Link>
+            <Link href="/services">
+              <li>SERVICES</li>
+            </Link>
             <Link href="/contact">
               <li>CONTACT</li>
             </Link>
-            <Link href="/#">
+            <Link href="/login">
               <li className="lg:hidden block">
                 LOGIN <LoginIcon />
               </li>
@@ -62,9 +65,11 @@ const Header = () => {
           </ul>
 
           <div className="hidden lg:block">
+            <Link href="/login">
             <button className="bg-[#135F4A] px-6 py-2 text-white text-sm font-semibold">
               LOGIN <LoginIcon />
             </button>
+            </Link>
           </div>
         </div>
       </Container>

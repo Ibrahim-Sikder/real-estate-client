@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import PropertyGallery from "./PropertyGallery";
 import Common from "@/components/Common/Common";
+import Modal from "@/components/share/Modal/Modal";
 
 const Overview = () => {
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
+
   return (
     <>
       <div className="lg:w-[1000px] lg:mt-0 mt-10">
@@ -186,12 +197,12 @@ const Overview = () => {
             <CheckCircleIcon className="text-[#135F4A] mr-2" /> Many More
           </li>
         </ul>
-        <div className="flex md:gap-5 gap-2 mt-5">
-          <button className="bg-[#135F4A] px-4 py-2 text-white">
+        <div className="mt-5">
+          <button
+            onClick={handleOpenModal}
+            className="bg-[#135F4A] px-4 py-2 text-white"
+          >
             Buy This Apartment
-          </button>
-          <button className="bg-[#135F4A] px-4 py-2 text-white">
-            Price Quote
           </button>
         </div>
       </div>
@@ -239,7 +250,8 @@ const Overview = () => {
           </ul>
         </div>
       </div>
-      <Common/>
+      <Common />
+      <Modal open={openModal} onClose={handleCloseModal} />
     </>
   );
 };

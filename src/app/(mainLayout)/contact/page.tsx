@@ -1,14 +1,14 @@
 import React from "react";
-import ContactBanner from "./_components/ContactBanner";
 import Container from "@/components/share/Container";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import CallIcon from "@mui/icons-material/Call";
+import Banner from "@/components/share/Banner/Banner";
 
 const page = () => {
   return (
     <div>
-      <ContactBanner />
+      <Banner />
       <div className="bg-gray-100 py-20">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
@@ -60,7 +60,7 @@ const page = () => {
 
             {/* Right Side: Contact Info */}
             <div className="p-8">
-              <h2 className="text-3xl font-bold text-green-900 mb-6">
+              <h2 className="text-3xl font-bold text-[#135F4A]  mb-6">
                 Let&apos;s Get In Touch With Our Professionals Team
               </h2>
               <p className="text-gray-600 mb-8">
@@ -69,7 +69,7 @@ const page = () => {
               </p>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <div className="bg-amber-600 p-4 rounded-full text-white">
+                  <div className="bg-[#135F4A]  p-4 rounded-full text-white">
                     <LocationOnIcon fontSize="large" />
                   </div>
                   <div>
@@ -79,7 +79,7 @@ const page = () => {
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="bg-amber-600 p-4 rounded-full text-white">
+                  <div className="bg-[#135F4A]  p-4 rounded-full text-white">
                     <MailOutlineIcon fontSize="large" />
                   </div>
                   <div>
@@ -89,7 +89,7 @@ const page = () => {
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="bg-amber-600 p-4 rounded-full text-white">
+                  <div className="bg-[#135F4A]  p-4 rounded-full text-white">
                     <CallIcon fontSize="large" />
                   </div>
                   <div>

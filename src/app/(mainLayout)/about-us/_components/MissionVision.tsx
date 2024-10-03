@@ -11,6 +11,7 @@ export default function MissionVision() {
           <h2 className="text-3xl font-bold text-gray-800 mb-4 uppercase">
             Our Mission
           </h2>
+          <div className="lg:w-28 h-1 bg-[#135F4A] rounded-full mt-2 mb-7" />
           <p className="text-lg text-gray-600 mb-5 text-justify">
             Our mission is to create value and make a difference by delivering
             exceptional services and solutions in the real estate industry. We
@@ -41,6 +42,7 @@ export default function MissionVision() {
           <h2 className="text-3xl font-bold text-gray-800 mb-4 uppercase">
             Our Vision
           </h2>
+          <div className="lg:w-28 h-1 bg-[#135F4A] rounded-full mt-2 mb-7" />
           <p className="text-lg text-gray-600 mb-5 text-justify">
             Our vision is to become the most trusted real estate company by
             setting the benchmark for quality, innovation, and customer

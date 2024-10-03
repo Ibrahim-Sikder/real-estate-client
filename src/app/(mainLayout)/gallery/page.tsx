@@ -1,67 +1,109 @@
 import React from "react";
-import Image from "next/image"; // If using Next.js
-import img1 from "../../../../src/assets/images/properties/p1.jpg";
-import img2 from "../../../../src/assets/images/properties/p2.jpg";
-import img3 from "../../../../src/assets/images/properties/p3.jpg";
-import img4 from "../../../../src/assets/images/properties/p4.jpg";
-import img5 from "../../../../src/assets/images/properties/p5.jpg";
-import img6 from "../../../../src/assets/images/properties/p6.jpg";
-import img7 from "../../../../src/assets/images/properties/p7.jpg";
-import img8 from "../../../../src/assets/images/properties/p8.jpg";
+import Image from "next/image";
+import img1 from "../../../../src/assets/images/projects/04 twin tower hajaribag.jpg";
+import img2 from "../../../../src/assets/images/projects/Jolchaya 04.jpg";
+import img3 from "../../../../src/assets/images/projects/Pubayan City_01.jpg";
+import img4 from "../../../../src/assets/images/projects/SHOPNODEEP UTTARA  (3).jpg";
+import img5 from "../../../../src/assets/images/projects/Jolchaya 07.jpg";
+import img6 from "../../../../src/assets/images/projects/SHOPNODEEP.jpg";
+import img7 from "../../../../src/assets/images/projects/Pubayan City_03.jpg";
+import img8 from "../../../../src/assets/images/projects/05 bagan bilash mirpur.jpg";
 import Container from "@/components/share/Container";
-import Banner from "@/components/share/Banner/Banner";
-
-// Banner Image
-// import bannerImg from "../../../../src/assets/images/banner/banner1.jpg";
+import GalleryBanner from "./GalleryBanner";
+import Affiliation from "@/components/Affiliation/Affiliation";
 
 const Gallery = () => {
-  const images = [
-    { id: 1, title: "Beautiful House 1", src: img1 },
-    { id: 2, title: "Modern Apartment 2", src: img2 },
-    { id: 3, title: "Luxury Villa 3", src: img3 },
-    { id: 4, title: "Cozy Cottage 4", src: img4 },
-    { id: 5, title: "Spacious Condo 5", src: img5 },
-    { id: 6, title: "Elegant Mansion 6", src: img6 },
-    { id: 7, title: "Rustic Farmhouse 7", src: img7 },
-    { id: 8, title: "Stylish Penthouse 8", src: img8 },
+  const gallery = [
+    {
+      id: 1,
+      image: img1,
+      title: "Twin Tower",
+      date: "09/26/2024",
+      price: "10000",
+      location: "Hazaribag",
+    },
+    {
+      id: 2,
+      image: img2,
+      title: "Jolchaya",
+      date: "09/24/2024",
+      rating: "4.7",
+      location: "Hazaribag",
+    },
+    {
+      id: 3,
+      image: img3,
+      title: "Pubayan City",
+      date: "09/24/2024",
+      location: "Shatarkul Badda",
+    },
+    {
+      id: 4,
+      image: img4,
+      title: "Shopnodeep",
+      date: "09/24/2024",
+      location: "Uttara",
+    },
+    {
+      id: 5,
+      image: img5,
+      title: "Twin Tower",
+      date: "09/26/2024",
+      price: "10000",
+      location: "Hazaribag",
+    },
+    {
+      id: 6,
+      image: img6,
+      title: "Jolchaya",
+      date: "09/24/2024",
+      rating: "4.7",
+      location: "Hazaribag",
+    },
+    {
+      id: 7,
+      image: img7,
+      title: "Pubayan City",
+      date: "09/24/2024",
+      location: "Shatarkul Badda",
+    },
+    {
+      id: 8,
+      image: img8,
+      title: "Shopnodeep",
+      date: "09/24/2024",
+      location: "Uttara",
+    },
   ];
 
   return (
     <>
-      {/* Banner Section */}
-      {/* <div className="relative w-full h-[400px]">
-        <Image
-          src={bannerImg}
-          alt="Banner Image"
-          layout="fill"
-          objectFit="cover"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <h1 className="uppercase text-white">Gallery</h1>
-        </div>
-      </div> */}
-      <Banner />
-      {/* Gallery Section */}
+      <GalleryBanner />
       <Container className="my-20">
         <h1 className="text-center text-3xl font-bold text-[#135F4A] mb-10 uppercase">
           Property Gallery
         </h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
-          {images.map((image) => (
-            <div key={image.id} className="relative group">
+          {gallery.map((data) => (
+            <div key={data.id} className="relative group">
               <Image
-                src={image.src}
-                alt={image.title}
+                src={data.image}
+                alt={data.title}
                 className="w-full h-[350px] object-cover"
               />
               <p className="text-lg text-center text-white bg-[#135F4A] py-2">
-                {image.title}
+                {data.title}
               </p>
             </div>
           ))}
         </div>
+        <div className="flex justify-center mt-7">
+          <button className="bg-[#135F4A] px-6 py-2 text-white">
+            Load More
+          </button>
+        </div>
+        <Affiliation/>
       </Container>
     </>
   );

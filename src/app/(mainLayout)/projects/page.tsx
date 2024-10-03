@@ -1,80 +1,85 @@
 import Container from "@/components/share/Container";
 import React from "react";
-import img1 from "../../../../src/assets/images/properties/p5.jpg";
-import img2 from "../../../../src/assets/images/properties/p6.jpg";
-import img3 from "../../../../src/assets/images/properties/p7.jpg";
-import img4 from "../../../../src/assets/images/properties/p8.jpg";
+import img1 from "../../../../src/assets/images/projects/04 twin tower hajaribag.jpg";
+import img2 from "../../../../src/assets/images/projects/Jolchaya 04.jpg";
+import img3 from "../../../../src/assets/images/projects/Pubayan City_01.jpg";
+import img4 from "../../../../src/assets/images/projects/SHOPNODEEP UTTARA  (3).jpg";
+import img5 from "../../../../src/assets/images/projects/Jolchaya 07.jpg";
+import img6 from "../../../../src/assets/images/projects/SHOPNODEEP.jpg";
+import img7 from "../../../../src/assets/images/projects/Pubayan City_03.jpg";
+import img8 from "../../../../src/assets/images/projects/05 bagan bilash mirpur.jpg";
 import Image from "next/image";
 import EastIcon from "@mui/icons-material/East";
 import Link from "next/link";
-import Banner from "@/components/share/Banner/Banner";
+import ProjectsBanner from "./ProjectsBanner";
+import Affiliation from "@/components/Affiliation/Affiliation";
 
 const page = () => {
   const properties = [
     {
       id: 1,
       image: img1,
-      title: "Villa on Grand Avenue",
+      title: "Twin Tower",
       date: "09/26/2024",
       price: "10000",
-      location: "Mirpur",
+      location: "Hazaribag",
     },
     {
       id: 2,
       image: img2,
-      title: "Home in Coral Gables",
+      title: "Jolchaya",
       date: "09/24/2024",
       rating: "4.7",
-      location: "Gulshan",
+      location: "Hazaribag",
     },
     {
       id: 3,
       image: img3,
-      title: "Home in Coral Gables",
+      title: "Pubayan City",
       date: "09/24/2024",
-      location: "Banani",
+      location: "Shatarkul Badda",
     },
     {
       id: 4,
       image: img4,
-      title: "Home in Coral Gables",
+      title: "Shopnodeep",
       date: "09/24/2024",
       location: "Uttara",
     },
     {
       id: 5,
-      image: img1,
-      title: "Villa on Grand Avenue",
+      image: img5,
+      title: "Twin Tower",
       date: "09/26/2024",
       price: "10000",
-      location: "Mirpur",
+      location: "Hazaribag",
     },
     {
       id: 6,
-      image: img2,
-      title: "Home in Coral Gables",
+      image: img6,
+      title: "Jolchaya",
       date: "09/24/2024",
       rating: "4.7",
-      location: "Gulshan",
+      location: "Hazaribag",
     },
     {
       id: 7,
-      image: img3,
-      title: "Home in Coral Gables",
+      image: img7,
+      title: "Pubayan City",
       date: "09/24/2024",
-      location: "Banani",
+      location: "Shatarkul Badda",
     },
     {
       id: 8,
-      image: img4,
-      title: "Home in Coral Gables",
+      image: img8,
+      title: "Shopnodeep",
       date: "09/24/2024",
       location: "Uttara",
     },
   ];
   return (
     <div>
-      <Banner />
+      <ProjectsBanner />
       <Container>
         <div className="my-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -109,7 +114,13 @@ const page = () => {
               </div>
             ))}
           </div>
+          <div className="flex justify-center mt-7">
+            <button className="bg-[#135F4A] px-6 py-2 text-white">
+              Load More
+            </button>
+          </div>
         </div>
+        <Affiliation/>
       </Container>
     </div>
   );

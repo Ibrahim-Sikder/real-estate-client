@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import img1 from "../../../src/assets/images/properties/p5.jpg";
-import img2 from "../../../src/assets/images/properties/p6.jpg";
-import img3 from "../../../src/assets/images/properties/p7.jpg";
+import img1 from "../../../src/assets/images/projects/04 twin tower hajaribag.jpg";
+import img2 from "../../../src/assets/images/projects/Jolchaya 04.jpg";
+import img3 from "../../../src/assets/images/projects/Pubayan City_01.jpg";
 import Link from "next/link";
 import EastIcon from "@mui/icons-material/East";
 
@@ -11,25 +11,25 @@ const Common = () => {
     {
       id: 1,
       image: img1,
-      title: "Villa on Grand Avenue",
+      title: "Twin Tower",
       date: "09/26/2024",
       price: "10000",
-      location: "Mirpur",
+      location: "Hazaribag",
     },
     {
       id: 2,
       image: img2,
-      title: "Home in Coral Gables",
+      title: "Jolchaya",
       date: "09/24/2024",
       rating: "4.7",
-      location: "Gulshan",
+      location: "Hazaribag",
     },
     {
       id: 3,
       image: img3,
-      title: "Home in Coral Gables",
+      title: "Pubayan City",
       date: "09/24/2024",
-      location: "Banani",
+      location: "Shatarkul Badda",
     },
   ];
 
@@ -52,7 +52,7 @@ const Common = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.8)] via-transparent to-transparent"></div>
 
               {/* Content */}
-              <div className="absolute lg:top-80 md:top-96 top-80 left-10">
+              <div className="absolute lg:top-[370px] md:top-96 top-80 left-10">
                 <h3 className="text-white text-lg font-semibold">
                   {data.title}
                 </h3>

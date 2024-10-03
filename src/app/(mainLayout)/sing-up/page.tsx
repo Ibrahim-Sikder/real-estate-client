@@ -18,7 +18,7 @@ export default function Login() {
         {/* Right Side - Login Form */}
         <div className="w-full md:w-1/2 p-8 bg-white shadow-lg">
           <h2 className="text-2xl font-semibold text-center text-gray-700">
-            Welcome Back
+            Please Sign Up !
           </h2>
           <form className="mt-6">
             <div className="mb-4">

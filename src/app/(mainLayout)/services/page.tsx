@@ -1,14 +1,14 @@
 import React from "react";
 import Image from "next/image";
-import img1 from "../../../../src/assets/images/collage/image (1).jpg";
-import img2 from "../../../../src/assets/images/banner/banner2.jpg";
-import img3 from "../../../../src/assets/images/banner/banner3.jpg";
-import img4 from "../../../../src/assets/images/banner/banner4.jpg";
-import img5 from "../../../../src/assets/images/banner/banner5.jpg";
+import img1 from "../../../../src/assets/images/services/image (1).jpg";
+import img2 from "../../../../src/assets/images/services/image (2).jpg";
+import img3 from "../../../../src/assets/images/services/image (3).jpg";
+import img4 from "../../../../src/assets/images/services/image (4).jpg";
+import img5 from "../../../../src/assets/images/services/image (5).jpg";
 import Container from "@/components/share/Container";
-import Banner from "@/components/share/Banner/Banner";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Affiliation from "@/components/Affiliation/Affiliation";
+import ServiceBanner from "./ServiceBanner";
 
 // Service Data Array
 const services = [
@@ -41,7 +41,7 @@ const services = [
 const page = () => {
   return (
     <div className="bg-gray-100">
-      <Banner />
+      <ServiceBanner />
       <Container className="py-20">
         {/* Services We Offer Header */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 shadow-lg rounded p-5 bg-white">
@@ -54,6 +54,7 @@ const page = () => {
           </div>
           <div className="text-center mb-12">
             <h2 className="text-[#135F4A] uppercase">Services We Offer</h2>
+            <div className="lg:w-28 mx-auto h-1 bg-[#135F4A] rounded-full mt-2 mb-7" />
             <p className="mt-6 text-gray-600 text-justify">
               Assure Group offers construction and interior services that meet
               the requirements of the clients and at the same time, maintain
@@ -117,7 +118,7 @@ const page = () => {
           ))}
         </div>
       </Container>
-      <Affiliation/>
+      <Affiliation />
     </div>
   );
 };

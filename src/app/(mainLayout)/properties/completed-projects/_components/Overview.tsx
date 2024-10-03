@@ -1,19 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import PropertyGallery from "./PropertyGallery";
 import Common from "@/components/Common/Common";
+import Modal from "@/components/share/Modal/Modal";
 
 const Overview = () => {
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
+
   return (
     <>
       <div className="lg:w-[1000px] lg:mt-0 mt-10">
         <div className="space-y-5">
           <h2 className="uppercase text-[#135F4A]">
-            Assure Murshed Heights Overview
+            ANAA Jolchaya Heights Overview
           </h2>
           <p className="text-justify">
             Gulshan is one of the best residential areas in the heart of the
-            capital Dhaka. Assure Murshed Heights, is a lucrative residential
+            capital Dhaka. ANAA Jolchaya Heights, is a lucrative residential
             property for sale in North Gulshan, Dhaka. This property is
             definately the best place for you to live.
           </p>
@@ -21,7 +32,7 @@ const Overview = () => {
             A Lucrative Residential Property in Gulshan
           </h2>
           <p className="text-justify">
-            Assure Murshed Heights is a luxury residential project by Assure
+            ANAA Jolchaya Heights is a luxury residential project by ANAA
             Group comprising spacious 3 BHK apartments conveniently located at
             North Gulshan, Dhaka. With every detail planned keeping you in mind,
             this development encapsulates contemporary aesthetics and indulgent
@@ -30,7 +41,7 @@ const Overview = () => {
           <p className="text-justify">
             The City Dhaka is expanding day by day. Gulshan is one of the areas
             located in Dhaka where all kinds of universal civic facilities are
-            available easily. Here is our “Assure Murshed Heights ” project
+            available easily. Here is our “ANAA Jolchaya Heights ” project
             overview in details:
           </p>
         </div>
@@ -186,12 +197,12 @@ const Overview = () => {
             <CheckCircleIcon className="text-[#135F4A] mr-2" /> Many More
           </li>
         </ul>
-        <div className="flex md:gap-5 gap-2 mt-5">
-          <button className="bg-[#135F4A] px-4 py-2 text-white">
+        <div className="mt-5">
+          <button
+            onClick={handleOpenModal}
+            className="bg-[#135F4A] px-4 py-2 text-white"
+          >
             Buy This Apartment
-          </button>
-          <button className="bg-[#135F4A] px-4 py-2 text-white">
-            Price Quote
           </button>
         </div>
       </div>
@@ -239,7 +250,8 @@ const Overview = () => {
           </ul>
         </div>
       </div>
-      <Common/>
+      <Common />
+      <Modal open={openModal} onClose={handleCloseModal} />
     </>
   );
 };

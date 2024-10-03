@@ -11,34 +11,34 @@ import bgImage from "../../../src/assets/images/testimonial/map.png";
 
 const testimonials = [
   {
-    name: "John Doe",
+    name: "Mr. Moshad Alam",
     company: "Homebuyers Realty",
-    location: "New York",
+    location: "Dhaka",
     rating: 5,
     image: profile1,
-    reviewTitle: "Exceptional Service and Smooth Transaction",
+    reviewTitle: "Exceptional Quality and Professionalism",
     review:
-      "Working with this real estate company was a pleasure from start to finish. They guided me through every step of buying my first home, and I couldn't be happier with the outcome!",
+      "Anaa Developers Ltd. exceeded my expectations as a flat buyer. From the initial inquiry to the handover, the team was professional, transparent, and always responsive. The quality of construction is top-notch, and the attention to detail in every aspect of the project is commendable. I highly recommend them for anyone looking to invest in real estate in Bangladesh.",
   },
   {
-    name: "Sarah Johnson",
+    name: "Mr. Ibrahim",
     company: "Elite Homes",
-    location: "California",
+    location: "Comilla",
     rating: 4,
     image: profile2,
-    reviewTitle: "Professional and Responsive",
+    reviewTitle: "A Trustworthy Developer You Can Rely On",
     review:
-      "I sold my house with their help, and they made the entire process stress-free. Their marketing and communication were top-notch, and they helped me get the best price for my property.",
+      "As a share buyer in one of Anaa Developers Ltd.'s projects, I was initially concerned about transparency and deadlines. However, they proved to be reliable and trustworthy throughout the entire process. The company's commitment to delivering on time, along with excellent customer service, has made me a satisfied investor. I am confident in their future projects and would not hesitate to invest again.",
   },
   {
-    name: "Michael Smith",
+    name: "Mr. AHM Anowar",
     company: "Luxury Estates",
-    location: "Miami",
+    location: "Chittagong",
     rating: 5,
     image: profile3,
-    reviewTitle: "Outstanding Attention to Detail",
+    reviewTitle: "Top-Notch Construction and Great Value",
     review:
-      "They truly understand the luxury market. Their attention to detail and personalized service made my experience of purchasing a high-end property seamless and enjoyable.",
+      "I purchased a flat from Anaa Developers Ltd. and couldn't be happier with my decision. The construction quality is excellent, and the design of the apartment makes great use of space. They offer incredible value for the price, and their customer service team was always available to address my concerns. If you're looking for a hassle-free home-buying experience in Bangladesh, Anaa Developers Ltd. is the company to go with.",
   },
 ];
 
@@ -72,7 +72,7 @@ const Testimonials = () => {
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="">
                   <div className="w-full lg:flex items-center">
-                    <div className="lg:border-r lg:border-dashed lg:border-gray-500 lg:w-[600px] flex flex-col content-center items-center justify-center text-center space-x-3">
+                    <div className="lg:border-r lg:border-dashed lg:border-gray-500 lg:w-[900px] flex flex-col content-center items-center justify-center text-center space-x-3">
                       <Image
                         src={testimonial.image}
                         alt={testimonial.name}

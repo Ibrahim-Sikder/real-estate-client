@@ -11,6 +11,7 @@ const FAQ = () => {
   return (
     <Container className="my-20">
       <h2 className="text-center mb-5">FREQUENTLY ASKED QUESTIONS</h2>
+      <div className="lg:w-28 mx-auto h-1 bg-[#135F4A] rounded-full mt-2 mb-7" />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <div className="lg:order1 order-2">
           <Accordion>

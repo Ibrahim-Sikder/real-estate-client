@@ -4,6 +4,7 @@ import img2 from "../../../src/assets/images/about/2.jpg";
 import Image from "next/image";
 import EastIcon from "@mui/icons-material/East";
 import Container from "../share/Container";
+import Link from "next/link";
 
 const Trusted = () => {
   return (
@@ -21,9 +22,13 @@ const Trusted = () => {
             for clients who are looking to invest in property for future
             development or personal use.
           </p>
+          <div className="mt-5">
+          <Link href="/about-us">
           <button className="bg-[#135F4A] px-4 py-2 text-white uppercase">
             Read More <EastIcon />
           </button>
+          </Link>
+          </div>
         </div>
         <div className="lg:relative space-y-5">
           <Image src={img1} alt="" className="border-2 border-[#135F4A]" />

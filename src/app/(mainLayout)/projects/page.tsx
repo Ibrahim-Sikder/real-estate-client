@@ -1,6 +1,5 @@
 import Container from "@/components/share/Container";
 import React from "react";
-import ProjectsBanner from "./_components/ProjectsBanner";
 import img1 from "../../../../src/assets/images/properties/p5.jpg";
 import img2 from "../../../../src/assets/images/properties/p6.jpg";
 import img3 from "../../../../src/assets/images/properties/p7.jpg";
@@ -8,6 +7,7 @@ import img4 from "../../../../src/assets/images/properties/p8.jpg";
 import Image from "next/image";
 import EastIcon from "@mui/icons-material/East";
 import Link from "next/link";
+import Banner from "@/components/share/Banner/Banner";
 
 const page = () => {
   const properties = [
@@ -74,7 +74,7 @@ const page = () => {
   ];
   return (
     <div>
-      <ProjectsBanner />
+      <Banner />
       <Container>
         <div className="my-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">

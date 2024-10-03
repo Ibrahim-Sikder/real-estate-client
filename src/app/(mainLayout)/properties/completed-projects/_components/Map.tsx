@@ -1,15 +1,25 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import image from "../../../../../../src/assets/images/map/map.jpg";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import Modal from "@/components/share/Modal/Modal";
 
 const Map = () => {
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
   return (
     <div>
       <div className="mb-10">
-        <h4 className="text-center text-[#135F4A]">Assure Group</h4>
+        <h4 className="text-center text-[#135F4A]">ANAA Developers Limited</h4>
         <h2 className="uppercase text-center">
-          Assure Murshed Heights Location
+          ANAA Jolchaya Heights Location
         </h2>
       </div>
       <Image src={image} alt="" className="w-full" />
@@ -47,12 +57,12 @@ const Map = () => {
             <CheckCircleIcon className="text-[#135F4A] mr-2" /> Many More
           </li>
         </ul>
-        <div className="flex md:gap-5 gap-2 mt-5">
-          <button className="bg-[#135F4A] px-4 py-2 text-white">
+        <div className="mt-5">
+          <button
+            onClick={handleOpenModal}
+            className="bg-[#135F4A] px-4 py-2 text-white"
+          >
             Buy This Apartment
-          </button>
-          <button className="bg-[#135F4A] px-4 py-2 text-white">
-            Price Quote
           </button>
         </div>
       </div>
@@ -100,6 +110,7 @@ const Map = () => {
           </ul>
         </div>
       </div>
+      <Modal open={openModal} onClose={handleCloseModal} />
     </div>
   );
 };

@@ -37,10 +37,11 @@ const teamMembers = [
 export default function TeamSection() {
   return (
     <div className="my-20">
-      <h2 className="text-center text-gray-800 mb-8 uppercase">
+      <h2 className="text-center text-gray-800 uppercase">
         Meet Our Team
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+      <div className="lg:w-28 mx-auto h-1 bg-[#135F4A] rounded-full mt-2 mb-7" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 mt-10">
         {teamMembers.map((member) => (
           <div key={member.id} className="bg-white p-5 shadow-md">
             <div className="flex justify-center">

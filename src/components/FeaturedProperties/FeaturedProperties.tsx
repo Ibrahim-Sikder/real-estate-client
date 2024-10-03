@@ -6,14 +6,13 @@ import "swiper/css/pagination";
 import "./Styles.css";
 import { Autoplay, EffectCoverflow } from "swiper/modules";
 import Image from "next/image";
-import img1 from "../../../src/assets/images/featured/1.jpg";
-import img2 from "../../../src/assets/images/featured/2.jpg";
-import img3 from "../../../src/assets/images/featured/3.jpg";
-import img4 from "../../../src/assets/images/featured/4.jpg";
-import img5 from "../../../src/assets/images/featured/5.jpg";
-import img6 from "../../../src/assets/images/featured/6.jpg";
-import img7 from "../../../src/assets/images/featured/7.jpg";
-import img8 from "../../../src/assets/images/featured/8.jpg";
+import img1 from "../../../src/assets/images/featured/image (1).jpg";
+import img2 from "../../../src/assets/images/featured/image (2).jpg";
+import img3 from "../../../src/assets/images/featured/image (3).jpg";
+import img4 from "../../../src/assets/images/featured/image (4).jpg";
+import img5 from "../../../src/assets/images/featured/image (5).jpg";
+import img6 from "../../../src/assets/images/featured/image (6).jpg";
+import img7 from "../../../src/assets/images/featured/image (7).jpg";
 
 const FeaturedProperties = () => {
   const featured = [
@@ -24,7 +23,6 @@ const FeaturedProperties = () => {
     { id: 5, image: img5 },
     { id: 6, image: img6 },
     { id: 7, image: img7 },
-    { id: 8, image: img8 },
   ];
 
   return (
@@ -70,7 +68,11 @@ const FeaturedProperties = () => {
         >
           {featured.map((data) => (
             <SwiperSlide key={data.id}>
-              <Image src={data.image} alt={`Featured ${data.id}`} />
+              <Image
+                src={data.image}
+                className="h-full"
+                alt={`Featured ${data.id}`}
+              />
             </SwiperSlide>
           ))}
         </Swiper>

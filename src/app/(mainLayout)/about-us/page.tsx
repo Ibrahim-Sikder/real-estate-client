@@ -6,12 +6,13 @@ import Statement from "./_components/Statement";
 import MissionVision from "./_components/MissionVision";
 import ProblemSolve from "./_components/ProblemSolve";
 import FAQ from "./_components/FAQ";
-import Banner from "@/components/share/Banner/Banner";
+import AboutBanner from "./_components/AboutBanner";
+
 
 const page = () => {
   return (
     <div className="bg-gray-100">
-      <Banner/>
+      <AboutBanner/>
       <Container>
         <Statement />
         <ProblemSolve />

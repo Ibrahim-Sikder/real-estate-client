@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import img1 from "../../../../../../src/assets/images/properties/p1.jpg";
-import img2 from "../../../../../../src/assets/images/properties/p2.jpg";
-import img3 from "../../../../../../src/assets/images/properties/p3.jpg";
-import img4 from "../../../../../../src/assets/images/properties/p4.jpg";
+import img4 from "../../../../../../src/assets/images/projects/04 twin tower hajaribag.jpg";
+import img3 from "../../../../../../src/assets/images/projects/Jolchaya 04.jpg";
+import img2 from "../../../../../../src/assets/images/projects/Pubayan City_01.jpg";
+import img1 from "../../../../../../src/assets/images/projects/SHOPNODEEP UTTARA  (3).jpg";
 import Link from "next/link";
 import EastIcon from "@mui/icons-material/East";
 import Container from "@/components/share/Container";
@@ -14,30 +14,30 @@ const page = () => {
     {
       id: 1,
       image: img1,
-      title: "Villa on Grand Avenue",
+      title: "Twin Tower",
       date: "09/26/2024",
       price: "10000",
-      location: "Mirpur",
+      location: "Hazaribag",
     },
     {
       id: 2,
       image: img2,
-      title: "Home in Coral Gables",
+      title: "Jolchaya",
       date: "09/24/2024",
       rating: "4.7",
-      location: "Gulshan",
+      location: "Hazaribag",
     },
     {
       id: 3,
       image: img3,
-      title: "Home in Coral Gables",
+      title: "Pubayan City",
       date: "09/24/2024",
-      location: "Banani",
+      location: "Shatarkul Badda",
     },
     {
       id: 4,
       image: img4,
-      title: "Home in Coral Gables",
+      title: "Shopnodeep",
       date: "09/24/2024",
       location: "Uttara",
     },

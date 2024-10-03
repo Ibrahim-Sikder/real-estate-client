@@ -3,12 +3,13 @@ import Container from "@/components/share/Container";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import CallIcon from "@mui/icons-material/Call";
-import Banner from "@/components/share/Banner/Banner";
+import ContactBanner from "./ContactBanner";
+import Affiliation from "@/components/Affiliation/Affiliation";
 
 const page = () => {
   return (
     <div>
-      <Banner />
+      <ContactBanner />
       <div className="bg-gray-100 py-20">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
@@ -110,6 +111,7 @@ const page = () => {
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
+          <Affiliation/>
         </Container>
       </div>
     </div>

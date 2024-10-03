@@ -20,7 +20,7 @@ const Overview = () => {
       <div className="lg:w-[1000px] lg:mt-0 mt-10">
         <div className="space-y-5">
           <h2 className="uppercase text-[#135F4A]">
-            ANAA Jolchaya Heights Overview
+            Anaa Developer Ltd Pubayan City
           </h2>
           <p className="text-justify">
             Gulshan is one of the best residential areas in the heart of the

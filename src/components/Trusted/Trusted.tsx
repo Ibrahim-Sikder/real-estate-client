@@ -1,6 +1,6 @@
 import React from "react";
-import img1 from "../../../src/assets/images/about/1.jpg";
-import img2 from "../../../src/assets/images/about/2.jpg";
+import img1 from "../../../src/assets/images/gallery/gallery (1).jpg";
+import img2 from "../../../src/assets/images/gallery/gallery (2).jpg";
 import Image from "next/image";
 import EastIcon from "@mui/icons-material/East";
 import Container from "../share/Container";

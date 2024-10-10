@@ -1,0 +1,8 @@
+.homeBannerWrap{
+    background-image: url(../../../../assets/images/banner/slider.jpg);
+    width:100%;
+    height:600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

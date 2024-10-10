@@ -8,7 +8,7 @@ const layout = ({ children }: { children: ReactNode }) => {
   return (
     <LandingPageProvider>
       <Suspense fallback={<div>Loading...</div>}>
-        <Header />
+        {/* <Header /> */}
         {children}
         <Footer />
       </Suspense>

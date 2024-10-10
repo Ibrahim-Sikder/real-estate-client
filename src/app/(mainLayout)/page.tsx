@@ -9,22 +9,21 @@ import Affiliation from "@/components/Affiliation/Affiliation";
 import Trusted from "@/components/Trusted/Trusted";
 // import Banner from "@/components/share/Banner/Banner";
 import FAQ from "@/components/FAQ/FAQ";
-import Slider from "@/components/share/Slider/Slider";
-
+import HomeBanner from "@/components/ui/HomePage/HomeBanner/HomeBanner";
 
 const Home = () => {
   return (
     <div>
-      <Slider/>
-      {/* <Banner /> */}
-      <Trusted/>
+      {/* <Slider/> */}
+      <HomeBanner />
+      <Trusted />
       <Properties />
       <FeaturedProperties />
-      <Affiliation/>
+      <Affiliation />
       <CoffeeSection />
       <Testimonials />
       <ShareBuy />
-      <FAQ/>
+      <FAQ />
     </div>
   );
 };

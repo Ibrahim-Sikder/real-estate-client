@@ -1,8 +1,54 @@
-.homeBannerWrap{
+.homeBannerWrap {
     background-image: url(../../../../assets/images/banner/slider.jpg);
-    width:100%;
-    height:600px;
+    width: 100%;
+    height: 600px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    position: relative;
+}
+
+.homeBannerWrap::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #002E51;
+    opacity: 0.7;
+    mix-blend-mode: multiply;
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+
+.menuWraps {
+    width: 100%;
+    border-bottom: 1px solid #fff;
+}
+
+.menuItemWrap {
+    position: absolute;
+    z-index: 8;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.menuItems {
+    display: flex;
+    justify-content: space-between;
+    width: 1300px;
+    align-items: center;
+    color: #fff;
+    padding: 15px 0px;
+
+
+}
+
+.bannerContent {
+    position: absolute;
+    z-index: 8;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    top: 50%;
+    text-align: center;
+    width: 700px;
 }

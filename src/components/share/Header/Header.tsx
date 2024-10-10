@@ -17,7 +17,7 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-white shadow-md sticky top-0 z-50 lg:py-0 py-2">
+    <div className=" ">
       <Container>
         <div className="flex justify-between items-center">
           <Link href="/">
@@ -35,7 +35,7 @@ const Header = () => {
           </div>
 
           <ul
-            className={`lg:flex justify-between gap-10 lg:p-7 text-sm lg:font-semibold nav-items ${
+            className={`lg:flex justify-between gap-x-3  text-sm lg:font-semibold nav-items ${
               isMenuOpen ? "open" : "hidden"
             }`}
           >

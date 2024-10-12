@@ -10,12 +10,14 @@ import Trusted from "@/components/Trusted/Trusted";
 // import Banner from "@/components/share/Banner/Banner";
 import FAQ from "@/components/FAQ/FAQ";
 import HomeBanner from "@/components/ui/HomePage/HomeBanner/HomeBanner";
+import PropertySearch from "@/components/ui/HomePage/PropertySearch/PropertySearch";
 
 const Home = () => {
   return (
     <div>
       {/* <Slider/> */}
       <HomeBanner />
+      <PropertySearch />
       <Trusted />
       <Properties />
       <FeaturedProperties />

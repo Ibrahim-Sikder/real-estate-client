@@ -17,7 +17,7 @@ type TInputProps = {
   onSubmit: SubmitHandler<FieldValues>;
 } & TFormConfig;
 
-const KTForm = ({
+const ADForm = ({
   children,
   onSubmit,
   resolver,
@@ -46,4 +46,4 @@ const KTForm = ({
   );
 };
 
-export default KTForm;
+export default ADForm;

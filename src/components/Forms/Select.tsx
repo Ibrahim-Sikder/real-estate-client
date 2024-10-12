@@ -16,12 +16,12 @@ interface ITextField {
   onChange?: (value: any) => void;
 }
 
-const KTSelect = ({
+const ADSelect = ({
   items,
   name,
   label,
   size = "small",
-  margin = "normal",
+  margin = "none",
   required,
   fullWidth = true,
   sx,
@@ -65,4 +65,4 @@ const KTSelect = ({
   );
 };
 
-export default KTSelect;
+export default ADSelect;

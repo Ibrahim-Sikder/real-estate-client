@@ -1,0 +1,18 @@
+.propertyCard {
+    width: 1000px;
+    height: 150px;
+    background: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 5px;
+    padding: 30px;
+    margin-top: -24px;
+    z-index: 9999;
+    align-items: center;
+
+}
+
+.properyWrap {
+    position: relative;
+    z-index: 999;
+    top: -120px;
+}

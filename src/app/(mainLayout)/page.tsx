@@ -13,6 +13,7 @@ import HomeBanner from "@/components/ui/HomePage/HomeBanner/HomeBanner";
 import PropertySearch from "@/components/ui/HomePage/PropertySearch/PropertySearch";
 
 const Home = () => {
+  
   return (
     <div>
       {/* <Slider/> */}

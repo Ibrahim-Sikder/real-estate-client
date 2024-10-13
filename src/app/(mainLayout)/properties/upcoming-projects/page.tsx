@@ -1,11 +1,13 @@
+import Header from "@/components/share/Header/Header";
 import UpcomingProjects from "@/components/UpcomingProjects/UpcomingProjects";
 import React from "react";
 
 const page = () => {
   return (
-    <div>
+    <>
+    <Header/>
       <UpcomingProjects />
-    </div>
+    </>
   );
 };
 

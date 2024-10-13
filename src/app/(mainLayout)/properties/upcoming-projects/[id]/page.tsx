@@ -2,12 +2,15 @@
 import Container from "@/components/share/Container";
 import React, { useState } from "react";
 import Overview from "../_components/Overview";
+import Header from "@/components/share/Header/Header";
 
 const PropertyDetails = () => {
   const [activeTab, setActiveTab] = useState("tab1");
 
   return (
-    <Container className="my-20">
+    <>
+      <Header/>
+      <Container className="my-20">
       <div className="flex items-center gap-10">
         <div className="lg:w-[400px] h-full mx-auto grid grid-cols-1 gap-3">
           <button
@@ -83,6 +86,7 @@ const PropertyDetails = () => {
         </div>
       </div>
     </Container>
+    </>
   );
 };
 

@@ -8,6 +8,7 @@ import Link from "next/link";
 import EastIcon from "@mui/icons-material/East";
 import Container from "@/components/share/Container";
 import Banner from "../_components/Banner";
+import Header from "@/components/share/Header/Header";
 
 const page = () => {
   const properties = [
@@ -45,6 +46,7 @@ const page = () => {
 
   return (
     <>
+      <Header />
       <Banner />
       <Container className="my-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">

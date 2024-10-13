@@ -17,7 +17,7 @@ const Header = () => {
   };
 
   return (
-    <div className=" ">
+    <div className="bg-white shadow-md sticky top-0 z-50 lg:py-0 py-2">
       <Container>
         <div className="flex justify-between items-center">
           <Link href="/">
@@ -35,7 +35,7 @@ const Header = () => {
           </div>
 
           <ul
-            className={`lg:flex justify-between gap-x-3  text-sm lg:font-semibold nav-items ${
+            className={`lg:flex justify-between gap-10 lg:p-7 text-sm lg:font-semibold nav-items ${
               isMenuOpen ? "open" : "hidden"
             }`}
           >
@@ -64,13 +64,13 @@ const Header = () => {
             </Link>
           </ul>
 
-          <div className="hidden lg:block">
+          {/* <div className="hidden lg:block">
             <Link href="/login">
             <button className="bg-[#135F4A] px-6 py-2 text-white text-sm font-semibold">
               LOGIN <LoginIcon />
             </button>
             </Link>
-          </div>
+          </div> */}
         </div>
       </Container>
     </div>

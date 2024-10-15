@@ -13,7 +13,6 @@ import EastIcon from "@mui/icons-material/East";
 import Link from "next/link";
 import ProjectsBanner from "./ProjectsBanner";
 import Affiliation from "@/components/Affiliation/Affiliation";
-import Header from "@/components/share/Header/Header";
 
 const page = () => {
   const properties = [
@@ -80,7 +79,6 @@ const page = () => {
   ];
   return (
     <div>
-      <Header />
       <ProjectsBanner />
       <Container>
         <div className="my-10">

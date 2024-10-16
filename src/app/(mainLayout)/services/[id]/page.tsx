@@ -6,7 +6,30 @@ import img1 from "../../../../..//src/assets/images/services/image (1).jpg";
 import Image from "next/image";
 import Header from "@/components/share/Header/Header";
 
-const page = () => {
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+const page = async ({ params }: PageProps) => {
+
+ 
+  const { id } = params;
+  console.log('.............service id here',id)
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/service/${id}`, {
+    cache: "no-store",
+  });
+  const serviceData = await res.json();
+
+  if (!serviceData) {
+    return <h1 className="mt-10 flex items-center justify-center text-3xl capitalize ">Oops! Blog data not found! </h1>
+
+  }
+
+  console.log(serviceData)
+
+
   return (
     <>
       <Header />

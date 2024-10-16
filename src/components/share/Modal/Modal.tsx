@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client'
 import {
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
-  TextField,
-  Select,
-  MenuItem,
-  InputLabel,
-  FormControl,
 } from "@mui/material";
+import ADForm from "@/components/Forms/Form";
+import { FieldValues } from "react-hook-form";
+import { useAppointmentMutation } from "@/redux/api/allApi";
+import { toast } from "sonner";
+import ADInput from "@/components/Forms/Input";
+import ADSelect from "@/components/Forms/Select";
+import ADDatePicker from "@/components/Forms/DatePicker";
+import { appointmentBook } from "@/constant";
+
 
 interface ModalProps {
   open: boolean;
@@ -17,82 +22,68 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
-  const [category, setCategory] = useState("");
+  const [appointment] = useAppointmentMutation()
 
-  const handleCategoryChange = (event: { target: { value: string } }) => {
-    setCategory(event.target.value);
-  };
+
+  const handleSubmit = async (data: FieldValues) => {
+ 
+    try {
+      const res = await appointment(data).unwrap()
+      console.log(res)
+      if (res) {
+        toast.success('Appointment book successfully!')
+        onClose()
+      }
+
+    } catch (err: any) {
+      toast.error(err?.message || 'Something went to wrong')
+    }
+  }
+
 
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Book an Appointment</DialogTitle>
-      <DialogContent>
-        <TextField
-          autoFocus
-          margin="dense"
-          id="name"
-          label="Your Name"
-          type="text"
-          fullWidth
-          variant="outlined"
-        />
-        <TextField
-          margin="dense"
-          id="email"
-          label="Your Email"
-          type="email"
-          fullWidth
-          variant="outlined"
-        />
-        <TextField
-          margin="dense"
-          id="phone"
-          label="Your Number"
-          type="text"
-          fullWidth
-          variant="outlined"
-        />
-        <TextField
-          margin="dense"
-          id="date"
-          label="Date"
-          type="date"
-          fullWidth
-          InputLabelProps={{ shrink: true }}
-          variant="outlined"
-        />
-        <FormControl fullWidth margin="dense">
-          <InputLabel id="category-label">Category</InputLabel>
-          <Select
-            labelId="category-label"
-            id="category"
-            value={category}
-            label="Category"
-            onChange={handleCategoryChange}
-            variant="outlined"
+      <ADForm onSubmit={handleSubmit}>
+        <DialogTitle>Book an Appointment</DialogTitle>
+        <DialogContent>
+          <ADInput
+            label="Your Name"
+            name="name"
+            fullWidth
+          />
+          <ADInput
+            label="Your Email"
+            name="email"
+            fullWidth
+          />
+          <ADInput
+            label="Your Number"
+            name="phone"
+            fullWidth
+          />
+          <ADDatePicker
+            label="Date"
+            name="dob"
+            fullWidth
+          />
+
+          <ADSelect name="category" label="Category " items={appointmentBook} />
+        </DialogContent>
+        <DialogActions>
+          <button
+            onClick={onClose}
+            className="bg-[#135F4A] px-6 py-2 text-white uppercase text-sm"
           >
-            <MenuItem value="Buy Property Share">Buy Property Share</MenuItem>
-            <MenuItem value="Land Wanted">Land Wanted</MenuItem>
-            <MenuItem value="Buy Flat or Floor">Buy Flat or Floor</MenuItem>
-            <MenuItem value="Interior Design">Interior Design</MenuItem>
-            <MenuItem value="Construction">Construction</MenuItem>
-          </Select>
-        </FormControl>
-      </DialogContent>
-      <DialogActions>
-        <button
-          onClick={onClose}
-          className="bg-[#135F4A] px-6 py-2 text-white uppercase text-sm"
-        >
-          Cancel
-        </button>
-        <button
-          onClick={onClose}
-          className="bg-[#135F4A] px-6 py-2 text-white uppercase text-sm"
-        >
-          Submit
-        </button>
-      </DialogActions>
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="bg-[#135F4A] px-6 py-2 text-white uppercase text-sm"
+          >
+            Submit
+          </button>
+        </DialogActions>
+      </ADForm>
     </Dialog>
   );
 };

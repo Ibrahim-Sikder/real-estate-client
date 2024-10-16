@@ -50,24 +50,28 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
             label="Your Name"
             name="name"
             fullWidth
+            size="medium"
           />
           <ADInput
             label="Your Email"
             name="email"
             fullWidth
+            size="medium"
           />
           <ADInput
             label="Your Number"
             name="phone"
             fullWidth
+            size="medium"
           />
           <ADDatePicker
             label="Date"
             name="dob"
             fullWidth
+            size="medium"
           />
 
-          <ADSelect name="category" label="Category " items={appointmentBook} />
+          <ADSelect size="medium" name="category" label="Category " items={appointmentBook} />
         </DialogContent>
         <DialogActions>
           <button

@@ -21,7 +21,7 @@ const ADSelect = ({
   name,
   label,
   size = "small",
-  margin = "none",
+  margin = "normal",
   required,
   fullWidth = true,
   sx,

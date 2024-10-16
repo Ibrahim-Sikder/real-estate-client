@@ -19,37 +19,6 @@
     transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
 }
 
-.headers {
-    border-bottom: .5px solid #fff;
-    width: 100%;
-    height: 85px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    z-index: 99999999999;
-}
-
-
-
-.menuItemWrap {
-    position: absolute;
-    z-index: 8;
-    left: 50%;
-    transform: translate(-50%);
-}
-
-.menuItems {
-    display: flex;
-    justify-content: space-between;
-    width: 1300px;
-    align-items: center;
-    color: #fff;
-    padding: 15px 0px;
-
-
-}
-
 .bannerContent {
     position: absolute;
     z-index: 8;

@@ -7,18 +7,13 @@ import Testimonials from "@/components/Testimonial/Testimonial";
 import ShareBuy from "@/components/ShareBuy/ShareBuy";
 import Affiliation from "@/components/Affiliation/Affiliation";
 import Trusted from "@/components/Trusted/Trusted";
-// import Banner from "@/components/share/Banner/Banner";
 import FAQ from "@/components/FAQ/FAQ";
 import HomeBanner from "@/components/ui/HomePage/HomeBanner/HomeBanner";
 
-
 const Home = () => {
-  
   return (
     <div>
-      {/* <Slider/> */}
-      <HomeBanner/>
-     
+      <HomeBanner />
       <Trusted />
       <Properties />
       <FeaturedProperties />

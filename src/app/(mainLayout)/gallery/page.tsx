@@ -11,7 +11,6 @@ import img8 from "../../../../src/assets/images/projects/05 bagan bilash mirpur.
 import Container from "@/components/share/Container";
 import GalleryBanner from "./GalleryBanner";
 import Affiliation from "@/components/Affiliation/Affiliation";
-import Header from "@/components/share/Header/Header";
 
 const Gallery = () => {
   const gallery = [
@@ -79,7 +78,6 @@ const Gallery = () => {
 
   return (
     <>
-    <Header/>
       <GalleryBanner />
       <Container className="my-20">
         <h1 className="text-center text-3xl font-bold text-[#135F4A] mb-10 uppercase">

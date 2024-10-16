@@ -5,13 +5,11 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import CallIcon from "@mui/icons-material/Call";
 import ContactBanner from "./ContactBanner";
 import Affiliation from "@/components/Affiliation/Affiliation";
-import Header from "@/components/share/Header/Header";
 import ContactForm from "./_components/ContactForm";
 
 const page = () => {
   return (
     <div>
-      <Header />
       <ContactBanner />
       <div className="bg-gray-100 py-20">
         <Container>

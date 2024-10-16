@@ -9,7 +9,7 @@ import Container from "@/components/share/Container";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Affiliation from "@/components/Affiliation/Affiliation";
 import ServiceBanner from "./ServiceBanner";
-import Header from "@/components/share/Header/Header";
+import Link from "next/link";
 
 // Service Data Array
 const services = [
@@ -42,7 +42,6 @@ const services = [
 const page = () => {
   return (
     <>
-      <Header />
       <div className="bg-gray-100">
         <ServiceBanner />
         <Container className="py-20">
@@ -59,12 +58,12 @@ const page = () => {
               <h2 className="text-[#135F4A] uppercase">Services We Offer</h2>
               <div className="lg:w-28 mx-auto h-1 bg-[#135F4A] rounded-full mt-2 mb-7" />
               <p className="mt-6 text-gray-600 text-justify">
-                ANAA Developers Limited offers construction and interior services that meet
-                the requirements of the clients and at the same time, maintain
-                superior quality. The company has provided construction and
-                interior services to a significant number of clients in the
-                country and has already achieved the trust of them by rendering
-                quality service.
+                ANAA Developers Limited offers construction and interior
+                services that meet the requirements of the clients and at the
+                same time, maintain superior quality. The company has provided
+                construction and interior services to a significant number of
+                clients in the country and has already achieved the trust of
+                them by rendering quality service.
               </p>
               {/* Services We Offer - Icon List */}
               <div className="flex justify-center items-center gap-10 mt-10">
@@ -92,7 +91,8 @@ const page = () => {
                     Handover
                   </li>
                   <li>
-                    <CheckCircleIcon className="text-[#135F4A]" /> Budget Friendly
+                    <CheckCircleIcon className="text-[#135F4A]" /> Budget
+                    Friendly
                   </li>
                 </ul>
               </div>
@@ -107,15 +107,24 @@ const page = () => {
                 className="bg-white shadow-lg grid grid-cols-1 md:grid-cols-2 gap-5 p-5 rounded"
               >
                 <div>
-                  <Image src={service.image} alt="" className="h-full rounded" />
+                  <Image
+                    src={service.image}
+                    alt=""
+                    className="h-full rounded"
+                  />
                 </div>
                 <div>
                   <h3 className="mt-4 text-2xl font-semibold text-[#135F4A]">
                     {service.title}
                   </h3>
                   <p className="mt-2 text-gray-700 text-justify">
-                    {service.description}
+                    {service.description.slice(0, 120)}
                   </p>
+                  <Link href="/services/id">
+                    <button className="bg-[#135F4A] text-white px-4 py-2 rounded mt-4 text-sm">
+                      See Details
+                    </button>
+                  </Link>
                 </div>
               </div>
             ))}

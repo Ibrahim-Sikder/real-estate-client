@@ -21,7 +21,7 @@ type TInputProps = {
   
 };
 
-const KTInput = ({
+const ADInput = ({
   name,
   label,
   size = "small",
@@ -74,4 +74,4 @@ const KTInput = ({
   );
 };
 
-export default KTInput;
+export default ADInput;

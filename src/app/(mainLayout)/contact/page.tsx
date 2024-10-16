@@ -6,6 +6,7 @@ import CallIcon from "@mui/icons-material/Call";
 import ContactBanner from "./ContactBanner";
 import Affiliation from "@/components/Affiliation/Affiliation";
 import Header from "@/components/share/Header/Header";
+import ContactForm from "./_components/ContactForm";
 
 const page = () => {
   return (
@@ -16,50 +17,7 @@ const page = () => {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             {/* Left Side: Contact Form */}
-            <div className="bg-white p-8 shadow-md">
-              <form className="grid grid-cols-2 gap-6">
-                <div className="col-span-2 sm:col-span-1">
-                  <label className="block text-gray-700">First Name</label>
-                  <input
-                    type="text"
-                    placeholder="First Name"
-                    className="w-full mt-2 p-3 border border-[#135F4A] focus:outline-none text-sm"
-                  />
-                </div>
-                <div className="col-span-2 sm:col-span-1">
-                  <label className="block text-gray-700">Last Name</label>
-                  <input
-                    type="text"
-                    placeholder="Last Name"
-                    className="w-full mt-2 p-3 border border-[#135F4A] focus:outline-none text-sm"
-                  />
-                </div>
-                <div className="col-span-2">
-                  <label className="block text-gray-700">Email</label>
-                  <input
-                    type="email"
-                    placeholder="Email address"
-                    className="w-full mt-2 p-3 border border-[#135F4A] focus:outline-none text-sm"
-                  />
-                </div>
-                <div className="col-span-2">
-                  <label className="block text-gray-700">Message</label>
-                  <textarea
-                    placeholder="Your message here..."
-                    className="w-full mt-2 p-3 border border-[#135F4A] focus:outline-none text-sm"
-                    rows={4}
-                  />
-                </div>
-                <div className="col-span-2">
-                  <button
-                    type="submit"
-                    className="w-full py-3 bg-[#135F4A] text-white font-semibold"
-                  >
-                    SEND
-                  </button>
-                </div>
-              </form>
-            </div>
+            <ContactForm />
 
             {/* Right Side: Contact Info */}
             <div className="p-8">
@@ -67,7 +25,7 @@ const page = () => {
                 Let&apos;s Get In Touch With Our Professionals Team
               </h3>
               <p className="text-gray-600 mb-8">
-              Anaa Developers Limited is a prominent real estate company specializing in the sale of land shares across various projects.
+                Anaa Developers Limited is a prominent real estate company specializing in the sale of land shares across various projects.
               </p>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
@@ -112,7 +70,7 @@ const page = () => {
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-          <Affiliation/>
+          <Affiliation />
         </Container>
       </div>
     </div>

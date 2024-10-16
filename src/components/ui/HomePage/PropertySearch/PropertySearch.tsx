@@ -83,7 +83,7 @@ export default function PropertySearch() {
                             sx={tabStyle}
                         />
                         <Tab
-                            label="For Rent"
+                            label="Land Share"
                             {...a11yProps(1)}
                             sx={tabStyle}
                         />

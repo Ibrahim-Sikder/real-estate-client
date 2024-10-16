@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <div>
       {/* <Slider/> */}
-      <HomeBanner />
+      <HomeBanner/>
      
       <Trusted />
       <Properties />

@@ -13,7 +13,7 @@ type TTextareaProps = {
   borderColor?: string; 
 };
 
-const KTTextArea = ({
+const ADTextarea = ({
   name,
   placeholder,
   minRows = 2, 
@@ -53,4 +53,4 @@ const KTTextArea = ({
   );
 };
 
-export default KTTextArea;
+export default ADTextarea;

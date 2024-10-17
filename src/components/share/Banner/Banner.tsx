@@ -7,13 +7,9 @@ import Container from "../Container";
 const Banner = () => {
   return (
     <Container>
-
-      
-     
       <div className="lg:h-[400px]">
         <Image src={banner} alt="" className="h-full w-full" />
       </div>
-      
     </Container>
   );
 };

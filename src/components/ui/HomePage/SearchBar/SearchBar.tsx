@@ -20,11 +20,11 @@ const SearchBar = () => {
             sx={{ flexWrap: { xs: "wrap", md: "nowrap" } }}
           >
             <Grid item xs={12} md={6} lg={3}>
-              <label className="mb-1 block uppercase text-sm ">
-                LOOKIN FOR
+              <label className="block uppercase lg:text-sm text-xs">
+                LOOKING FOR
               </label>
               <ADSelect
-                size="medium"
+                size="small"
                 name="looking_for"
                 label="Looking For"
                 items={loginFor}
@@ -32,9 +32,11 @@ const SearchBar = () => {
               />
             </Grid>
             <Grid item xs={12} md={6} lg={3}>
-              <label className="mb-1 block uppercase text-sm ">Location</label>
+              <label className="block uppercase lg:text-sm text-xs">
+                Location
+              </label>
               <ADSelect
-                size="medium"
+                size="small"
                 name="location"
                 label="Location"
                 items={location}
@@ -42,11 +44,11 @@ const SearchBar = () => {
               />
             </Grid>
             <Grid item xs={12} md={6} lg={3}>
-              <label className="mb-1 block uppercase text-sm ">
+              <label className="block uppercase lg:text-sm text-xs">
                 Property Size
               </label>
               <ADSelect
-                size="medium"
+                size="small"
                 name="property_size"
                 label="Property Size"
                 items={propertySize}
@@ -54,11 +56,11 @@ const SearchBar = () => {
               />
             </Grid>
             <Grid item xs={12} md={6} lg={3}>
-              <label className="mb-1 block uppercase text-sm ">
+              <label className="block uppercase lg:text-sm text-xs">
                 Your budget
               </label>
               <ADSelect
-                size="medium"
+                size="small"
                 name="budget"
                 label="Your budget"
                 items={budget}
@@ -75,7 +77,7 @@ const SearchBar = () => {
                 justifyContent: {
                   xs: "center",
                   md: "flex-end",
-                  marginTop: 22,
+                  marginTop: 28,
                 },
                 alignItems: "center",
               }}
@@ -84,7 +86,7 @@ const SearchBar = () => {
                 variant="contained"
                 disableElevation
                 sx={{
-                  height: { xs: "auto", md: "56px" },
+                  height: "40px",
                   px: 4,
                   backgroundColor: "#eeb808",
                   color: "white",

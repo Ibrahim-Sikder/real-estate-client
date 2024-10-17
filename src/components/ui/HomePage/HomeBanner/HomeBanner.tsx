@@ -19,7 +19,7 @@ const HomeBanner = () => {
   };
 
   return (
-    <section className="homeBannerWrap">
+    <section className="homeBannerWrap lg:h-[600px] h-[400px]">
       <div className="fixed w-full z-50 text-white border-b lg:pb-0 pb-2">
         <Container>
           <div className="flex justify-between items-center">
@@ -80,8 +80,7 @@ const HomeBanner = () => {
           sustainable development.
         </p>
       </div>
-
-      <Tab/>
+      <Tab />
     </section>
   );
 };

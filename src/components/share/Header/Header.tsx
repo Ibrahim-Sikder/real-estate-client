@@ -63,14 +63,6 @@ const Header = () => {
               </li>
             </Link>
           </ul>
-
-          {/* <div className="hidden lg:block">
-            <Link href="/login">
-            <button className="bg-[#135F4A] px-6 py-2 text-white text-sm font-semibold">
-              LOGIN <LoginIcon />
-            </button>
-            </Link>
-          </div> */}
         </div>
       </Container>
     </div>

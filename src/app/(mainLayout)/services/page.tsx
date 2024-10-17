@@ -1,9 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import Image from "next/image";
-import img1 from "../../../../src/assets/images/services/image (1).jpg";
-
 import Container from "@/components/share/Container";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Affiliation from "@/components/Affiliation/Affiliation";
 import ServiceBanner from "./ServiceBanner";
 import Link from "next/link";
@@ -53,16 +51,7 @@ const renderContent = (content: string) => {
       );
     }
 
-    // else if (element.type === "img") {
-    //   return (
-    //     <img
-    //       key={index}
-    //       className="w-full h-auto object-cover mb-4 hidden "
-    //       src={element.props.src}
-    //       alt="Blog Image"
-    //     />
-    //   );
-    // }
+
     else if (
       element.type === "div" &&
       element.props.className === "ql-align-center"
@@ -113,62 +102,11 @@ const page = async () => {
       <div className="bg-gray-100">
         <ServiceBanner />
         <Container className="py-20">
-          {/* Services We Offer Header */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 shadow-lg rounded p-5 bg-white">
-            <div>
-              <Image
-                src={img1}
-                alt="Construction Services"
-                className="h-full rounded"
-              />
-            </div>
-            <div className="text-center mb-12">
-              <h2 className="text-[#135F4A] uppercase">Services We Offer</h2>
-              <div className="lg:w-28 mx-auto h-1 bg-[#135F4A] rounded-full mt-2 mb-7" />
-              <p className="mt-6 text-gray-600 text-justify">
-                ANAA Developers Limited offers construction and interior
-                services that meet the requirements of the clients and at the
-                same time, maintain superior quality. The company has provided
-                construction and interior services to a significant number of
-                clients in the country and has already achieved the trust of
-                them by rendering quality service.
-              </p>
-              {/* Services We Offer - Icon List */}
-              <div className="flex justify-center items-center gap-10 mt-10">
-                <ul className="text-left space-y-4">
-                  <li>
-                    <CheckCircleIcon className="text-[#135F4A]" /> Expert
-                    Professionals
-                  </li>
-                  <li>
-                    <CheckCircleIcon className="text-[#135F4A]" /> Latest
-                    Technologies
-                  </li>
-                  <li>
-                    <CheckCircleIcon className="text-[#135F4A]" /> Quality
-                    Assurance
-                  </li>
-                </ul>
-                <ul className="text-left space-y-4">
-                  <li>
-                    <CheckCircleIcon className="text-[#135F4A]" /> Contemporary
-                    Aesthetics
-                  </li>
-                  <li>
-                    <CheckCircleIcon className="text-[#135F4A]" /> On Time
-                    Handover
-                  </li>
-                  <li>
-                    <CheckCircleIcon className="text-[#135F4A]" /> Budget
-                    Friendly
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Construction, Interior, and Additional Services */}
-          <div className="grid md:grid-cols-2 gap-8 mt-20">
+          <h1 className="text-3xl font-bold text-center uppercase">
+            Our Services
+          </h1>
+          <div className="lg:w-28 mx-auto h-1 bg-[#135F4A] rounded-full mt-2 mb-7" />
+          <div className="grid md:grid-cols-2 gap-8 mt-10">
             {serviceData?.data?.services?.map((service: TServices, index: number) => (
               <div
                 key={index}

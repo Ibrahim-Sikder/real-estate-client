@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import Container from "@/components/share/Container";
@@ -19,7 +20,7 @@ const Projects = () => {
         });
         const data = await response.json();
         setProjectData(data);
-        console.log(data); // Now projectData should log to console
+        console.log(data); 
       } catch (err:any) {
         setError("Failed to fetch project data.");
       } finally {

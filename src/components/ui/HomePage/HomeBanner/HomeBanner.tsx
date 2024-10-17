@@ -18,6 +18,12 @@ const HomeBanner = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => {
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
     <section className="homeBannerWrap lg:h-[600px] h-[400px]">
       <div className="fixed w-full z-50 text-white border-b lg:pb-0 pb-2">
@@ -45,22 +51,22 @@ const HomeBanner = () => {
                 isMenuOpen ? "open" : "hidden"
               }`}
             >
-              <Link href="/#">
+              <Link href="/#" onClick={closeMenu}>
                 <li>HOME</li>
               </Link>
-              <Link href="/about-us">
+              <Link href="/about-us" onClick={closeMenu}>
                 <li>ABOUT</li>
               </Link>
-              <Link href="/projects">
+              <Link href="/projects" onClick={closeMenu}>
                 <li>PROJECTS</li>
               </Link>
-              <Link href="/gallery">
+              <Link href="/gallery" onClick={closeMenu}>
                 <li>GALLERY</li>
               </Link>
-              <Link href="/services">
+              <Link href="/services" onClick={closeMenu}>
                 <li>SERVICES</li>
               </Link>
-              <Link href="/contact">
+              <Link href="/contact" onClick={closeMenu}>
                 <li>CONTACT</li>
               </Link>
               <li className="flex gap-x-1  items-center">

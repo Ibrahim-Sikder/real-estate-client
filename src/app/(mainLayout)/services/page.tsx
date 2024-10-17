@@ -102,7 +102,6 @@ const page = async () => {
   });
   const serviceData = await response.json()
 
-  console.log(serviceData)
 
   if (!serviceData) {
     return <h1 className="mt-10 flex items-center justify-center text-3xl capitalize ">Oops! Review data not found! </h1>

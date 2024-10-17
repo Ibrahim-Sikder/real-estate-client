@@ -1,5 +1,5 @@
 import Image from "next/image";
-import img from "../../../../../../src/assets/images/contact/contact.png";
+import img from "../../../../assets/images/contact/contact.png";
 
 const Contact = () => {
   return (

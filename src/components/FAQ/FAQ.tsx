@@ -22,8 +22,6 @@ const FAQ = async () => {
   });
   const faqData = await response.json()
 
-  console.log(faqData)
-
   if (!faqData) {
     return <h1 className="mt-10 flex items-center justify-center text-3xl capitalize ">Oops! Review data not found! </h1>
 

@@ -7,7 +7,7 @@ import img4 from "../../../../../../src/assets/images/projects/SHOPNODEEP UTTARA
 import Link from "next/link";
 import EastIcon from "@mui/icons-material/East";
 import Container from "@/components/share/Container";
-import Banner from "../_components/Banner";
+import Banner from "../../../projects/_components/Banner";
 
 const page = () => {
   const properties = [

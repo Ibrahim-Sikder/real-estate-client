@@ -8,11 +8,11 @@ import "swiper/css/thumbs";
 import "./PropertyGallery.css";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import Image from "next/image";
-import img1 from "../../../../../../src/assets/images/gallery/gallery (1).jpg";
-import img2 from "../../../../../../src/assets/images/gallery/gallery (2).jpg";
-import img3 from "../../../../../../src/assets/images/gallery/gallery (3).jpg";
-import img4 from "../../../../../../src/assets/images/gallery/gallery (4).jpg";
-import img5 from "../../../../../../src/assets/images/gallery/gallery (5).jpg";
+import img1 from "../../../../assets/images/gallery/gallery (1).jpg";
+import img2 from "../../../../assets/images/gallery/gallery (2).jpg";
+import img3 from "../../../../assets/images/gallery/gallery (3).jpg";
+import img4 from "../../../../assets/images/gallery/gallery (4).jpg";
+import img5 from "../../../../assets/images/gallery/gallery (5).jpg";
 import { Swiper as SwiperType } from "swiper";
 
 const slides = [

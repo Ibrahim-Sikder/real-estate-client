@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import image from "../../../../../../src/assets/images/map/map.jpg";
+import image from "../../../../assets/images/map/map.jpg";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Modal from "@/components/share/Modal/Modal";
 

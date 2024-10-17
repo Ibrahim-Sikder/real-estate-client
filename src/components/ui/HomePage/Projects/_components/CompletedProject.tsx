@@ -1,13 +1,17 @@
 import React from "react";
 import Image from "next/image";
-import img1 from "../../../src/assets/images/projects/04 twin tower hajaribag.jpg";
-import img2 from "../../../src/assets/images/projects/Jolchaya 04.jpg";
-import img3 from "../../../src/assets/images/projects/Pubayan City_01.jpg";
-import img4 from "../../../src/assets/images/projects/SHOPNODEEP UTTARA  (3).jpg";
+import img1 from "../../../../../../src/assets/images/projects/04 twin tower hajaribag.jpg";
+import img2 from "../../../../../../src/assets/images/projects/Jolchaya 04.jpg";
+import img3 from "../../../../../../src/assets/images/projects/Pubayan City_01.jpg";
+import img4 from "../../../../../../src/assets/images/projects/SHOPNODEEP UTTARA  (3).jpg";
+
 import Link from "next/link";
 import EastIcon from "@mui/icons-material/East";
 
-const CompetedProjects = () => {
+const CompletedProject = async ({projectData}) => {
+console.log('complete', projectData)
+
+
   const properties = [
     {
       id: 1,
@@ -45,7 +49,7 @@ const CompetedProjects = () => {
     <>
       <div className="my-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {properties.map((data) => (
+          {projectData?.data?.projects.map((data) => (
             <div key={data.id} className="relative group">
               <Image
                 src={data.image}
@@ -66,7 +70,7 @@ const CompetedProjects = () => {
 
               {/* Button with background color */}
               <Link
-                href={`/properties/completed-projects/${data.id}`}
+                href={`/projects/${data.id}`}
                 className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               >
                 <button className="text-white bg-transparent group-hover:bg-[rgba(0,0,0,0.7)] transition duration-300 p-2 rounded-full">
@@ -88,4 +92,4 @@ const CompetedProjects = () => {
   );
 };
 
-export default CompetedProjects;
+export default CompletedProject;

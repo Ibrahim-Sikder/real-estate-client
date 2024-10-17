@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import img from "../../../../../../src/assets/images/banner/adl2.jpg";
+import img from "../../../../assets/images/banner/adl2.jpg";
 
-const Banner = () => {
+
+const CommonBanner = () => {
   return (
     <div className="relative h-[300px] md:h-[400px] w-full">
       <Image src={img} alt="" layout="fill" className="object-cover" />
@@ -16,4 +17,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default CommonBanner;

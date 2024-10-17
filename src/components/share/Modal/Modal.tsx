@@ -29,7 +29,6 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
  
     try {
       const res = await appointment(data).unwrap()
-      console.log(res)
       if (res) {
         toast.success('Appointment book successfully!')
         onClose()

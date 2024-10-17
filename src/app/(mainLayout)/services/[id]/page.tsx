@@ -12,10 +12,7 @@ interface PageProps {
   };
 }
 const page = async ({ params }: PageProps) => {
-
- 
   const { id } = params;
-  console.log('.............service id here',id)
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/service/${id}`, {
     cache: "no-store",
@@ -26,8 +23,6 @@ const page = async ({ params }: PageProps) => {
     return <h1 className="mt-10 flex items-center justify-center text-3xl capitalize ">Oops! Blog data not found! </h1>
 
   }
-
-  console.log(serviceData)
 
 
   return (

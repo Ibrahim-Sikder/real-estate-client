@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import { Grid, Button } from "@mui/material";
 import ADForm from "@/components/Forms/Form";
@@ -7,7 +8,6 @@ import { budget, location, loginFor, propertySize } from "@/constant/type";
 
 const SearchBar = () => {
   const onSubmit = (data: FieldValues) => {
-    console.log(data);
   };
   return (
     <div>

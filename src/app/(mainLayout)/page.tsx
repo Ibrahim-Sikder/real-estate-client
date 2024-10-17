@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Properties from "@/components/Properties/Properties";
 import FeaturedProperties from "@/components/FeaturedProperties/FeaturedProperties";
 import CoffeeSection from "@/components/Coffee/Coffee";
 import Testimonials from "@/components/Testimonial/Testimonial";
@@ -9,6 +8,7 @@ import Affiliation from "@/components/Affiliation/Affiliation";
 import Trusted from "@/components/Trusted/Trusted";
 import FAQ from "@/components/FAQ/FAQ";
 import HomeBanner from "@/components/ui/HomePage/HomeBanner/HomeBanner";
+import Projects from "@/components/ui/HomePage/Projects/Projects";
 
 
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
     <div>
       <HomeBanner />
       <Trusted />
-      <Properties />
+      <Projects />
       <FeaturedProperties />
       <Affiliation />
       <CoffeeSection />

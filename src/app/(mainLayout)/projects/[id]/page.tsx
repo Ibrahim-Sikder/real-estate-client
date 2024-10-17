@@ -1,14 +1,14 @@
 "use client";
 import Container from "@/components/share/Container";
 import React, { useState } from "react";
-import Overview from "../../../projects/_components/Overview";
-import Contact from "../../../projects/_components/Contact";
-import Map from "../../../projects/_components/Map";
-import Concept from "../../../projects/_components/Concept";
-import Floor from "../../../projects/_components/Floor";
-import VirtualTour from "../../../projects/_components/VirtualTour";
-import CommonBanner from "../../../projects/_components/CommonBanner";
 import Header from "@/components/share/Header/Header";
+import CommonBanner from "../_components/CommonBanner";
+import Overview from "../_components/Overview";
+import Concept from "../_components/Concept";
+import Floor from "../_components/Floor";
+import Map from "../_components/Map";
+import VirtualTour from "../_components/VirtualTour";
+import Contact from "../_components/Contact";
 
 const PropertyDetails = () => {
   const [activeTab, setActiveTab] = useState("tab1");

@@ -106,7 +106,7 @@ const page = () => {
 
                 {/* Button with background color */}
                 <Link
-                  href={`/properties/completed-projects/${data.id}`}
+                  href={`/projects/${data.id}`}
                   className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 >
                   <button className="text-white bg-transparent group-hover:bg-[rgba(0,0,0,0.7)] transition duration-300 p-2 rounded-full">

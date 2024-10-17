@@ -31,8 +31,6 @@ const Testimonials = async () => {
   }
 
 
-  console.log(reviewsData)
-
   const settings = {
     dots: false,
     infinite: true,

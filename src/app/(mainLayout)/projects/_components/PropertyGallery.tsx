@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import React, { useState } from "react";
 import { Swiper as SwiperComponent, SwiperSlide } from "swiper/react";
@@ -14,6 +15,8 @@ import img3 from "../../../../assets/images/gallery/gallery (3).jpg";
 import img4 from "../../../../assets/images/gallery/gallery (4).jpg";
 import img5 from "../../../../assets/images/gallery/gallery (5).jpg";
 import { Swiper as SwiperType } from "swiper";
+import { OverviewProps } from "@/types/project";
+
 
 const slides = [
   { img: img1 },
@@ -23,7 +26,7 @@ const slides = [
   { img: img5 },
 ];
 
-const PropertyGallery = () => {
+const PropertyGallery: React.FC<OverviewProps> = ({ projectData }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
   return (
@@ -37,11 +40,13 @@ const PropertyGallery = () => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
       >
-        {slides.map((slide, index) => (
+        {projectData?.overviewImages?.slice(0, 1).map((slide, index: number) => (
           <SwiperSlide key={index}>
             <div className="relative w-full h-auto md:h-[400px] lg:h-[500px]">
               <Image
-                src={slide.img}
+                width={10000}
+                height={500}
+                src={slide}
                 alt={`Slide ${index + 1}`}
                 objectFit="cover"
                 className="h-auto md:h-[400px] lg:h-[500px]"
@@ -62,11 +67,11 @@ const PropertyGallery = () => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper"
       >
-        {slides.map((slide, index) => (
+        {projectData?.overviewImages?.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="relative w-full h-[100px]">
               <Image
-                src={slide.img}
+                src={slide}
                 alt={`Thumbnail ${index + 1}`}
                 width={100}
                 height={100}

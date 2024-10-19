@@ -20,7 +20,7 @@ const Projects = () => {
         });
         const data = await response.json();
         setProjectData(data);
-        console.log(data); 
+
       } catch (err:any) {
         setError("Failed to fetch project data.");
       } finally {
@@ -56,7 +56,7 @@ const Projects = () => {
         </p>
       </div>
 
-      {/* Tab Header */}
+
       <div className="lg:w-[700px] mx-auto grid grid-cols-3 mb-10 bg-[#76B486]">
         <button
           className={`p-3 lg:text-sm text-xs text-center uppercase border-r ${activeTab === "tab1"

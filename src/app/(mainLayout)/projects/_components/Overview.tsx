@@ -1,12 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import PropertyGallery from "./PropertyGallery";
 import Common from "@/components/Common/Common";
 import Modal from "@/components/share/Modal/Modal";
+import ReactHtmlParser from "react-html-parser";
+import { OverviewProps } from "@/types/project";
 
-const Overview = () => {
+
+const Overview: React.FC<OverviewProps> = ({ projectData }) => {
   const [openModal, setOpenModal] = useState(false);
-
   const handleOpenModal = () => {
     setOpenModal(true);
   };
@@ -14,161 +17,180 @@ const Overview = () => {
   const handleCloseModal = () => {
     setOpenModal(false);
   };
+  const renderContent = (content: string) => {
+    const parsedContent = ReactHtmlParser(content);
+
+    return parsedContent.map((element, index) => {
+      if (element.type === "h1") {
+        return (
+          <h1 key={index} className="text-2xl font-bold mb-2 ">
+            {element.props.children}
+          </h1>
+        );
+      } else if (element.type === "h2") {
+        return (
+          <h2 key={index} className="text-xl font-bold mb-2 ">
+            {element.props.children}
+          </h2>
+        );
+      } else if (element.type === "h3") {
+        return (
+          <h3 key={index} className="text-xl font-bold mb-2 ">
+            {element.props.children}
+          </h3>
+        );
+      } else if (element.type === "p") {
+        return (
+          <p key={index} className="mb-2">
+            {element.props.children}
+          </p>
+        );
+      } else if (element.type === "ul") {
+        return (
+          <ul key={index} className="list-disc list-inside mb-2">
+            {element.props.children.map((li: any, liIndex: number) => (
+              <li key={liIndex} className="mb-1">
+                {li.props.children}
+              </li>
+            ))}
+          </ul>
+        );
+      } else if (element.type === "ol") {
+        return (
+          <ol key={index} className="list-decimal list-inside mb-2">
+            {element.props.children.map((li: any, liIndex: number) => (
+              <li key={liIndex} className="mb-1">
+                {li.props.children}
+              </li>
+            ))}
+          </ol>
+        );
+      } else if (element.type === "div" && element.props.className === "ql-align-center") {
+        return (
+          <div key={index} className="text-center mb-2">
+            {element.props.children}
+          </div>
+        );
+      } else if (element.type === "div" && element.props.className === "ql-align-right") {
+        return (
+          <div key={index} className="text-right mb-2">
+            {element.props.children}
+          </div>
+        );
+      } else if (element.type === "div" && element.props.className === "ql-align-left") {
+        return (
+          <div key={index} className="text-left mb-2">
+            {element.props.children}
+          </div>
+        );
+      } else {
+        return null;
+      }
+    });
+  };
+
 
   return (
     <>
       <div className="lg:w-[1000px] lg:mt-0 mt-10">
         <div className="space-y-5">
           <h2 className="uppercase text-[#135F4A]">
-            Anaa Developer Ltd Pubayan City
+            {projectData?.title}
           </h2>
           <p className="text-justify">
-            Gulshan is one of the best residential areas in the heart of the
-            capital Dhaka. ANAA Jolchaya Heights, is a lucrative residential
-            property for sale in North Gulshan, Dhaka. This property is
-            definately the best place for you to live.
+            {projectData.short_description}
           </p>
           <h2 className="uppercase text-[#135F4A]">
-            A Lucrative Residential Property in Gulshan
+            {projectData.sub_title}
           </h2>
           <p className="text-justify">
-            ANAA Jolchaya Heights is a luxury residential project by ANAA
-            Group comprising spacious 3 BHK apartments conveniently located at
-            North Gulshan, Dhaka. With every detail planned keeping you in mind,
-            this development encapsulates contemporary aesthetics and indulgent
-            amenities and fulfills the promise of an elevated lifestyle.
+            {projectData.short_description}
           </p>
-          <p className="text-justify">
-            The City Dhaka is expanding day by day. Gulshan is one of the areas
-            located in Dhaka where all kinds of universal civic facilities are
-            available easily. Here is our “ANAA Jolchaya Heights ” project
-            overview in details:
-          </p>
+
         </div>
 
         <div className="mt-10">
-          <PropertyGallery />
+          <PropertyGallery projectData={projectData} />
         </div>
       </div>
       <div className="bg-white shadow-lg p-5 border mt-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="mb-4">
             <h4 className="font-semibold">Project Type:</h4>
-            <p>Residential</p>
+            <p>{projectData.project_type}</p>
           </div>
 
           <div className="mb-4">
             <h4 className="font-semibold">Project Address:</h4>
-            <p>North Gulshan, Dhaka</p>
+            <p>{projectData.project_address}</p>
           </div>
 
           <div className="mb-4">
             <h4 className="font-semibold">Land Area:</h4>
-            <p>9.65 Katha</p>
+            <p>{projectData.land_area}</p>
           </div>
 
           <div className="mb-4">
             <h4 className="font-semibold">Storied:</h4>
-            <p>B1 + B2 + G + 09 Storied</p>
+            <p>{projectData.storied}</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="mb-4">
             <h4 className="font-semibold">Apartment Contains:</h4>
-            <ul className="space-y-2 mt-2">
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> 3 Beds
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> 3 Baths
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> 3 Verandas
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> Dining
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> Living
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> Family Living
-              </li>
-            </ul>
+            {
+              projectData?.apartment_contains.map((contain, index: number) => (
+                <ul key={index} className="space-y-2 mt-2">
+                  <li>
+                    <CheckCircleIcon className="text-[#135F4A]" /> {contain}
+                  </li>
+
+                </ul>
+              ))
+            }
+
           </div>
           <div className="mb-4">
             <h4 className="font-semibold">Special Amenities:</h4>
-            <ul className="space-y-2 mt-2">
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> Gym
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> Pool
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> Guest Waiting
-                Room
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> Community Area
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> Prayer Room
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" />
-                Library
-              </li>
-            </ul>
+            {
+              projectData?.special_amenities.map((contain, index: number) => (
+                <ul key={index} className="space-y-2 mt-2">
+                  <li>
+                    <CheckCircleIcon className="text-[#135F4A]" /> {contain}
+                  </li>
+
+                </ul>
+              ))
+            }
           </div>
 
           <div className="mb-4">
             <h4 className="font-semibold">Common Features:</h4>
-            <ul className="space-y-2 mt-2">
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> Garden Space
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> Guard Post
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> Generator Room
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> Substation
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> Plantation
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> Cloth Drying Area
-              </li>
-            </ul>
+            {
+              projectData?.common_features.map((contain, index: number) => (
+                <ul key={index} className="space-y-2 mt-2">
+                  <li>
+                    <CheckCircleIcon className="text-[#135F4A]" /> {contain}
+                  </li>
+
+                </ul>
+              ))
+            }
           </div>
 
           <div className="mb-4">
             <h4 className="font-semibold">Home Loan Partner:</h4>
-            <ul className="space-y-2 mt-2">
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> DBH
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> Dhaka Bank
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> IPDC
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> City Bank Limited
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> Mutual Trust Bank
-              </li>
-              <li>
-                <CheckCircleIcon className="text-[#135F4A]" /> BRAC Bank Limited
-              </li>
-            </ul>
+            {
+              projectData?.home_loan_partner.map((contain, index: number) => (
+                <ul key={index} className="space-y-2 mt-2">
+                  <li>
+                    <CheckCircleIcon className="text-[#135F4A]" /> {contain}
+                  </li>
+
+                </ul>
+              ))
+            }
           </div>
         </div>
       </div>
@@ -176,27 +198,13 @@ const Overview = () => {
       <div className="mt-10 border shadow-lg p-5">
         <h2 className="uppercase">Buy an Apartment on Easy Installments</h2>
         <p className="text-justify mt-3">
-          If you want to buy a flat with a cheap, affordable price and the best
-          installment facility, come to us today. We are determined to ensure
-          all kinds of facilities for the customer. Group offers the easiest
-          installment facility.
+          {renderContent(projectData?.overview_description)}
+
         </p>
-        <ul className="mt-5 space-y-1">
-          <li>
-            <CheckCircleIcon className="text-[#135F4A] mr-2" /> Reasonable Price
-          </li>
-          <li>
-            <CheckCircleIcon className="text-[#135F4A] mr-2" /> Easy Down
-            Payment
-          </li>
-          <li>
-            <CheckCircleIcon className="text-[#135F4A] mr-2" /> Affordable
-            Installation Methods
-          </li>
-          <li>
-            <CheckCircleIcon className="text-[#135F4A] mr-2" /> Many More
-          </li>
-        </ul>
+
+
+
+
         <div className="mt-5">
           <button
             onClick={handleOpenModal}
@@ -208,46 +216,16 @@ const Overview = () => {
       </div>
       <div className="mt-10 shadow-lg border p-5">
         <h2 className="uppercase text-center">Institutes & Nearby Locations</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-5">
-          <ul className="space-y-2">
-            <li>
-              <CheckCircleIcon className="text-[#135F4A] mr-2" /> The Westin
-              Dhaka
-            </li>
-            <li>
-              <CheckCircleIcon className="text-[#135F4A] mr-2" /> Amari Dhaka
-            </li>
-            <li>
-              <CheckCircleIcon className="text-[#135F4A] mr-2" /> Gulshan Lake
-            </li>
-          </ul>
-          <ul className="space-y-2">
-            <li>
-              <CheckCircleIcon className="text-[#135F4A] mr-2" /> USA Embassy
-            </li>
-            <li>
-              <CheckCircleIcon className="text-[#135F4A] mr-2" /> Diplomatic
-              Zone
-            </li>
-            <li>
-              <CheckCircleIcon className="text-[#135F4A] mr-2" /> American
-              International School
-            </li>
-          </ul>
-          <ul className="space-y-2">
-            <li>
-              <CheckCircleIcon className="text-[#135F4A] mr-2" /> Scholastica
-              School
-            </li>
-            <li>
-              <CheckCircleIcon className="text-[#135F4A] mr-2" /> Izumi Japanese
-              Kitchen
-            </li>
-            <li>
-              <CheckCircleIcon className="text-[#135F4A] mr-2" /> Jamuna Future
-              Park
-            </li>
-          </ul>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap- mt-5">
+          {projectData?.floor_Location?.map((contain, index: number) => (
+            <ul key={index} className="space-y-2 mt-2">
+              <li>
+                <CheckCircleIcon className="text-[#135F4A]" /> {contain}
+              </li>
+            </ul>
+          )) ?? (
+              <p>No nearby locations available.</p>
+            )}
         </div>
       </div>
       <Common />

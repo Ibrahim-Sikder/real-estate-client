@@ -6,8 +6,6 @@ import EastIcon from "@mui/icons-material/East";
 import { ProjectData } from "@/types/project";
 
 const CompletedProject: React.FC<{ projectData: ProjectData }> = async ({ projectData }) => {
-  console.log('complete', projectData)
-
 
   return (
     <>
@@ -15,14 +13,19 @@ const CompletedProject: React.FC<{ projectData: ProjectData }> = async ({ projec
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {projectData?.data?.projects?.map((data) => (
             <div key={data._id} className="relative group">
-              <Image
-               width={500}
-               height={500}
-                src={data.floorImage}
-                alt={data.title}
-                className="w-full h-full object-cover"
-              />
-
+              {
+                data?.conceptImages.slice(0, 1).map((img) => (
+                  <>
+                    <Image
+                      width={500}
+                      height={500}
+                      src={img}
+                      alt={data.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </>
+                ))
+              }
               {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.8)] via-transparent to-transparent"></div>
 

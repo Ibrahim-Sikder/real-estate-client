@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Container from "@/components/share/Container";
 import React from "react";
 import ServiceBanner from "../ServiceBanner";
-import img1 from "../../../../..//src/assets/images/services/image (1).jpg";
+
 import Image from "next/image";
 import Header from "@/components/share/Header/Header";
-
+import ReactHtmlParser from "react-html-parser";
+import SingleServiceCard from "../_components/SingleServiceCard";
 interface PageProps {
   params: {
     id: string;
@@ -19,9 +21,84 @@ const page = async ({ params }: PageProps) => {
   const serviceData = await res.json();
 
   if (!serviceData) {
-    return <h1 className="mt-10 flex items-center justify-center text-3xl capitalize ">Oops! Blog data not found! </h1>
+    return <h1 className="mt-10 flex items-center justify-center text-3xl capitalize ">Oops! Service data not found! </h1>
 
   }
+  const renderContent = (content: string) => {
+    const parsedContent = ReactHtmlParser(content);
+
+    return parsedContent.map((element, index) => {
+      if (element.type === "h1") {
+        return (
+          <h1 key={index} className="text-2xl font-bold mb-2 ">
+            {element.props.children}
+          </h1>
+        );
+      } else if (element.type === "h2") {
+        return (
+          <h2 key={index} className="text-xl font-bold mb-2 ">
+            {element.props.children}
+          </h2>
+        );
+      } else if (element.type === "h3") {
+        return (
+          <h3 key={index} className="text-xl font-bold mb-2 ">
+            {element.props.children}
+          </h3>
+        );
+      } else if (element.type === "p") {
+        return (
+          <p key={index} className="mb-2">
+            {element.props.children}
+          </p>
+        );
+      } else if (element.type === "ul") {
+        return (
+          <ul key={index} className="list-disc list-inside mb-2">
+            {element.props.children.map((li: any, liIndex: number) => (
+              <li key={liIndex} className="mb-1">
+                {li.props.children}
+              </li>
+            ))}
+          </ul>
+        );
+      } else if (element.type === "ol") {
+        return (
+          <ol key={index} className="list-decimal list-inside mb-2">
+            {element.props.children.map((li: any, liIndex: number) => (
+              <li key={liIndex} className="mb-1">
+                {li.props.children}
+              </li>
+            ))}
+          </ol>
+        );
+      } else if (element.type === "div" && element.props.className === "ql-align-center") {
+        return (
+          <div key={index} className="text-center mb-2">
+            {element.props.children}
+          </div>
+        );
+      } else if (element.type === "div" && element.props.className === "ql-align-right") {
+        return (
+          <div key={index} className="text-right mb-2">
+            {element.props.children}
+          </div>
+        );
+      } else if (element.type === "div" && element.props.className === "ql-align-left") {
+        return (
+          <div key={index} className="text-left mb-2">
+            {element.props.children}
+          </div>
+        );
+      } else {
+        return null;
+      }
+    });
+  };
+
+
+  console.dir(serviceData)
+
 
 
   return (
@@ -33,21 +110,18 @@ const page = async ({ params }: PageProps) => {
         <div className="grid grid-cols-1 gap-10">
           <div>
             <Image
-              src={img1}
+              height={1000}
+              width={10000}
+              src={serviceData?.data?.image}
               alt="Construction Services"
-              className="h-full lg:h-[500px] rounded"
+              className="h-full object-fill lg:h-[500px] rounded"
             />
           </div>
           <div className="text-center">
-            <h2 className="text-[#135F4A] uppercase">Services We Offer</h2>
+            <h2 className="text-[#135F4A] uppercase">{serviceData?.data?.title}</h2>
             <div className="lg:w-28 mx-auto h-1 bg-[#135F4A] rounded-full mt-2 mb-7" />
             <p className="mt-6 text-gray-600 text-justify">
-              ANAA Developers Limited offers construction and interior services
-              that meet the requirements of the clients and at the same time,
-              maintain superior quality. The company has provided construction
-              and interior services to a significant number of clients in the
-              country and has already achieved the trust of them by rendering
-              quality service.
+              {renderContent(serviceData?.data?.description)}
             </p>
           </div>
         </div>
@@ -58,22 +132,7 @@ const page = async ({ params }: PageProps) => {
             Our Recent Projects
           </h2>
           <div className="lg:w-28 mx-auto h-1 bg-[#135F4A] rounded-full mt-2 mb-7" />
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="text-center">
-              <Image src={img1} alt="Project 1" className="rounded shadow-lg" />
-              <h3 className="text-lg font-semibold mt-4">
-                Residential Complex
-              </h3>
-            </div>
-            <div className="text-center">
-              <Image src={img1} alt="Project 2" className="rounded shadow-lg" />
-              <h3 className="text-lg font-semibold mt-4">Office Building</h3>
-            </div>
-            <div className="text-center">
-              <Image src={img1} alt="Project 3" className="rounded shadow-lg" />
-              <h3 className="text-lg font-semibold mt-4">Commercial Plaza</h3>
-            </div>
-          </div>
+          <SingleServiceCard />
         </div>
       </Container>
     </>

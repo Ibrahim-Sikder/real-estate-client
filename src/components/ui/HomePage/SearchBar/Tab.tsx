@@ -8,31 +8,28 @@ const Tab = () => {
       <div className="absolute lg:-bottom-20 -bottom-[450px] lg:w-[1000px] mx-auto w-full z-10 px-5">
         <div className="lg:w-[400px] mx-auto grid grid-cols-3 gap-2 mb-2">
           <button
-            className={`p-3 lg:text-sm text-xs text-center uppercase font-bold rounded ${
-              activeTab === "tab1"
+            className={`p-3 lg:text-sm text-xs text-center uppercase font-bold rounded ${activeTab === "tab1"
                 ? "bg-white text-[#eeb808]"
                 : "bg-[rgba(227,200,13,0.56)] opacity-80 text-white"
-            }`}
+              }`}
             onClick={() => setActiveTab("tab1")}
           >
             All Status
           </button>
           <button
-            className={`p-3 lg:text-sm text-xs text-center uppercase font-bold rounded ${
-              activeTab === "tab2"
+            className={`p-3 lg:text-sm text-xs text-center uppercase font-bold rounded ${activeTab === "tab2"
                 ? "bg-white text-[#eeb808]"
                 : "bg-[rgba(227,200,13,0.56)] opacity-80 text-white"
-            }`}
+              }`}
             onClick={() => setActiveTab("tab2")}
           >
-            For Rent
+            Land Share
           </button>
           <button
-            className={`p-3 lg:text-sm text-xs text-center uppercase font-bold rounded ${
-              activeTab === "tab3"
+            className={`p-3 lg:text-sm text-xs text-center uppercase font-bold rounded ${activeTab === "tab3"
                 ? "bg-white text-[#eeb808]"
                 : "bg-[rgba(227,200,13,0.56)] opacity-80 text-white"
-            }`}
+              }`}
             onClick={() => setActiveTab("tab3")}
           >
             For Sale

@@ -1,13 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+
+
 import React from "react";
-import { Grid, Button } from "@mui/material";
+import { Grid, Button, Box } from "@mui/material";
 import ADForm from "@/components/Forms/Form";
 import { FieldValues } from "react-hook-form";
 import ADSelect from "@/components/Forms/Select";
 import { budget, location, loginFor, propertySize } from "@/constant/type";
+import { useRouter } from "next/navigation";
+import ADInput from "@/components/Forms/Input";
 
 const SearchBar = () => {
+  const router = useRouter()
   const onSubmit = (data: FieldValues) => {
+    const queryString = new URLSearchParams(data).toString();
+    router.push(`/projects?${queryString}`);
   };
   return (
     <div>
@@ -59,11 +66,11 @@ const SearchBar = () => {
               <label className="block uppercase lg:text-sm text-xs">
                 Your budget
               </label>
-              <ADSelect
+              <ADInput
                 size="small"
-                name="budget"
+                name="high_budget"
                 label="Your budget"
-                items={budget}
+                // items={budget}
                 fullWidth
               />
             </Grid>
@@ -83,6 +90,7 @@ const SearchBar = () => {
               }}
             >
               <Button
+                type="submit"
                 variant="contained"
                 disableElevation
                 sx={{

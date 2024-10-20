@@ -50,7 +50,7 @@ const CompletedProject: React.FC<{ projectData: ProjectData }> = async ({ projec
           ))}
         </div>
         <div className="flex justify-end mt-5">
-          <Link href="/properties/completed-projects/all-completed-projects">
+          <Link href="/projects">
             <button className="bg-[#135F4A] px-4 py-2 text-white uppercase text-sm">
               See All <EastIcon />
             </button>

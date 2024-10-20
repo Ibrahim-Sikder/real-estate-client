@@ -11,7 +11,7 @@ export type TServices = {
   _id: string,
   title: string;
   description: string,
-  image: string,
+  images: string[],
   slug: string,
   date: string,
   meta_title: string;
@@ -113,13 +113,19 @@ const page = async () => {
                 className="bg-white shadow-lg grid grid-cols-1 md:grid-cols-2 gap-5 p-5 rounded"
               >
                 <div>
-                  <Image
-                    src={service.image}
-                    alt=""
-                    className="h-[200px] object-cover rounded"
-                    width={500}
-                    height={500}
-                  />
+                  {
+                    service.images.slice(0, 1).map((img) => (
+                      <>
+                        <Image
+                          src={img}
+                          alt=""
+                          className="h-[200px] object-cover rounded"
+                          width={500}
+                          height={500}
+                        />
+                      </>
+                    ))
+                  }
                 </div>
                 <div>
                   <h3 className="mt-4 text-2xl font-semibold text-[#135F4A]">

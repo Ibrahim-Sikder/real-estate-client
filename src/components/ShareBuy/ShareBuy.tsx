@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from "react";
 import "./ShareBuy.css";
 import animation from "../../../src/assets/images/icon/animation.png";

@@ -26,13 +26,14 @@ const HomeBanner = () => {
 
   return (
     <section className="homeBannerWrap lg:h-[600px] h-[400px]">
-      <div className="fixed w-full z-50 text-white border-b lg:pb-0 pb-2">
+      <div className="fixed w-full z-50 text-white border-b lg:pb-0 pb-4 ">
         <Container>
           <div className="flex justify-between items-center">
             <Link href="/">
-              <div className="w-28">
+              {/* <div className="w-28">
                 <Image src={logo} alt="Logo" />
-              </div>
+              </div> */}
+              <h2 className="text-[#eeb808]">Anaa Developer</h2>
             </Link>
 
             <div
@@ -47,9 +48,8 @@ const HomeBanner = () => {
             </div>
 
             <ul
-              className={`lg:flex justify-between gap-10 lg:p-7 text-sm lg:font-semibold nav-items ${
-                isMenuOpen ? "open" : "hidden"
-              }`}
+              className={`lg:flex justify-between gap-10 lg:p-7 text-sm lg:font-semibold nav-items ${isMenuOpen ? "open" : "hidden"
+                }`}
             >
               <Link href="/#" onClick={closeMenu}>
                 <li>HOME</li>
@@ -80,7 +80,7 @@ const HomeBanner = () => {
       <div className="bannerContent space-y-1 lg:w-[700px] w-full lg:px-0 px-5">
         <h3>Welcome To</h3>
         <h1 className="text-[#E3C80D] font-bold">Anaa Developers Ltd </h1>
-        <p>
+        <p className="hidden md:block ">
           We believe in creating opportunities for all types of investors,
           making land ownership accessible and affordable, while promoting
           sustainable development.

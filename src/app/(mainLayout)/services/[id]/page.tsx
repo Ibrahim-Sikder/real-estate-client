@@ -109,13 +109,19 @@ const page = async ({ params }: PageProps) => {
         {/* Services Details Section */}
         <div className="grid grid-cols-1 gap-10">
           <div>
-            <Image
-              height={1000}
-              width={10000}
-              src={serviceData?.data?.image}
-              alt="Construction Services"
-              className="h-full object-fill lg:h-[500px] rounded"
-            />
+            {
+              serviceData?.data?.images.slice(0, 1).map((img:any) => (
+                <>
+                  <Image
+                    height={1000}
+                    width={10000}
+                    src={img}
+                    alt="Construction Services"
+                    className="h-full object-fill lg:h-[500px] rounded"
+                  />
+                </>
+              ))
+            }
           </div>
           <div className="text-center">
             <h2 className="text-[#135F4A] uppercase">{serviceData?.data?.title}</h2>

@@ -8,7 +8,7 @@ export type TTeam = {
   designation: string,
   date: string,
   social_link: string,
-  image: string
+  images: string[]
 }
 
 
@@ -34,13 +34,15 @@ export default async function TeamSection() {
         {teamData?.data?.teams.map((team: TTeam) => (
           <div key={team._id} className="bg-white p-5 shadow-md">
             <div className="flex justify-center">
-              <Image
-                src={team.image}
-                alt={team.name}
-                width={150}
-                height={150}
-                className="rounded-full h-32 w-32"
-              />
+              {
+                team.images.slice(0, 1).map((img) => (
+                  <>
+                    <Image width={150}
+                      height={150}
+                      className="rounded-full h-32 w-32" src={img} alt='Team' />
+                  </>
+                ))
+              }
             </div>
             <h3 className="text-xl font-semibold text-center mt-4">
               {team.name}

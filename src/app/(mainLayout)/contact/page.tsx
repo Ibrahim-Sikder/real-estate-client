@@ -13,7 +13,7 @@ const page = () => {
     <div>
       <Header />
       <ContactBanner />
-      <div className="bg-gray-100 py-20">
+      <div className="bg-gray-100 py-12 md:py-20">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             {/* Left Side: Contact Form */}

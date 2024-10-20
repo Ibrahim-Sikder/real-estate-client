@@ -10,7 +10,8 @@ import ProjectsBanner from "./ProjectsBanner";
 import Affiliation from "@/components/Affiliation/Affiliation";
 import Header from "@/components/share/Header/Header";
 import { useSearchParams } from "next/navigation";
-
+import queryString from 'query-string';
+import ShareBuy from "@/components/ShareBuy/ShareBuy";
 export type TProject = {
   _id: string;
   title: string;
@@ -29,13 +30,15 @@ const ProjectPage = () => {
   const [projectData, setProjectData] = useState<ProjectResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const searchParams = useSearchParams(); 
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     const fetchProjectData = async () => {
       const query = Object.fromEntries(searchParams.entries());
-      const queryString = new URLSearchParams(query).toString();
-      
+      // const queryString = new URLSearchParams(query).toString();
+      const queryString = new URLSearchParams(query).toString()
+      console.log(queryString)
+
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/project?${queryString}`, {
           cache: "no-store",
@@ -50,7 +53,7 @@ const ProjectPage = () => {
     };
 
     fetchProjectData();
-  }, [searchParams]); 
+  }, [searchParams]);
 
   if (loading) {
     return <h1 className="mt-10 flex items-center justify-center text-3xl">Loading...</h1>;
@@ -121,6 +124,7 @@ const ProjectPage = () => {
         </div>
         <Affiliation />
       </Container>
+   
     </div>
   );
 };

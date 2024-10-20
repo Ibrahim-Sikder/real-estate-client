@@ -6,7 +6,7 @@ import { Grid, Button, Box } from "@mui/material";
 import ADForm from "@/components/Forms/Form";
 import { FieldValues } from "react-hook-form";
 import ADSelect from "@/components/Forms/Select";
-import { budget, location, loginFor, propertySize } from "@/constant/type";
+import { budget, location, loginFor, category } from "@/constant/type";
 import { useRouter } from "next/navigation";
 import ADInput from "@/components/Forms/Input";
 
@@ -16,13 +16,26 @@ const SearchBar = () => {
     const queryString = new URLSearchParams(data).toString();
     router.push(`/projects?${queryString}`);
   };
+
+  const buttonStyle = {
+    height: "40px",
+    px: 4,
+    backgroundColor: "#eeb808",
+    color: "white",
+  }
+  const tabMargin = {
+    marginTop: {
+      xs: '3px',
+      lg: '15px',
+    }
+  }
   return (
     <div>
       <ADForm onSubmit={onSubmit}>
         <div className="bg-white lg:p-10 p-5 rounded shadow-md">
           <Grid
             container
-            spacing={2}
+            spacing={{ xs: 1, lg: 2 }}
             alignItems="center"
             sx={{ flexWrap: { xs: "wrap", md: "nowrap" } }}
           >
@@ -36,6 +49,7 @@ const SearchBar = () => {
                 label="Looking For"
                 items={loginFor}
                 fullWidth
+                sx={tabMargin}
               />
             </Grid>
             <Grid item xs={12} md={6} lg={3}>
@@ -48,18 +62,20 @@ const SearchBar = () => {
                 label="Location"
                 items={location}
                 fullWidth
+                sx={tabMargin}
               />
             </Grid>
             <Grid item xs={12} md={6} lg={3}>
               <label className="block uppercase lg:text-sm text-xs">
-                Property Size
+                Category
               </label>
               <ADSelect
                 size="small"
-                name="property_size"
-                label="Property Size"
-                items={propertySize}
+                name="category"
+                label="Category"
+                items={category}
                 fullWidth
+                sx={tabMargin}
               />
             </Grid>
             <Grid item xs={12} md={6} lg={3}>
@@ -72,6 +88,7 @@ const SearchBar = () => {
                 label="Your budget"
                 // items={budget}
                 fullWidth
+                sx={tabMargin}
               />
             </Grid>
             <Grid
@@ -84,21 +101,24 @@ const SearchBar = () => {
                 justifyContent: {
                   xs: "center",
                   md: "flex-end",
-                  marginTop: 28,
+                  flexDirection: 'column',
+                  marginTop: {
+                    xs: 5,
+                    md: 28,
+                  },
                 },
                 alignItems: "center",
               }}
             >
+
+              <label className=" uppercase lg:text-sm text-xs opacity-0 hidden md:block">
+                Category
+              </label>
               <Button
                 type="submit"
                 variant="contained"
                 disableElevation
-                sx={{
-                  height: "40px",
-                  px: 4,
-                  backgroundColor: "#eeb808",
-                  color: "white",
-                }}
+                sx={buttonStyle}
               >
                 Search
               </Button>

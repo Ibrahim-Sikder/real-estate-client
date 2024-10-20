@@ -32,7 +32,7 @@ const OnGoingProject: React.FC<{ projectData: ProjectData }> =  ({ projectData }
                             <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.8)] via-transparent to-transparent"></div>
 
                             {/* Content */}
-                            <div className="absolute lg:top-80 md:top-96 top-80 left-10">
+                            <div className="absolute lg:top-80 md:top-96 top-64 left-10">
                                 <h3 className="text-white text-lg font-semibold">
                                     {data.title}
                                 </h3>
@@ -52,7 +52,7 @@ const OnGoingProject: React.FC<{ projectData: ProjectData }> =  ({ projectData }
                     ))}
                 </div>
                 <div className="flex justify-end mt-5">
-                    <Link href="/properties/on-going-projects/all-on-going-projects">
+                    <Link href="/projects">
                         <button  className="bg-[#135F4A] px-4 py-2 text-white uppercase text-sm">
                             See All <EastIcon />
                         </button>

@@ -5,7 +5,7 @@ import EastIcon from "@mui/icons-material/East";
 import { ProjectData } from "@/types/project";
 
 
-const OnGoingProject: React.FC<{ projectData: ProjectData }> =  ({ projectData }) => {
+const OnGoingProjects: React.FC<{ projectData: ProjectData }> =  ({ projectData }) => {
 
 
     return (
@@ -63,4 +63,4 @@ const OnGoingProject: React.FC<{ projectData: ProjectData }> =  ({ projectData }
     );
 };
 
-export default OnGoingProject;
+export default OnGoingProjects;

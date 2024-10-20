@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import Container from "@/components/share/Container";
-import OnGoingProject from "./_components/OnGoingProject";
+import OnGoingProject from "./_components/OnGoingProjects";
 import CompletedProject from "./_components/CompletedProject";
 import UpcomingProject from "./_components/UpcomingProject";
 

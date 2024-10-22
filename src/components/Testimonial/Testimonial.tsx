@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import Container from "@/components/share/Container";
 import bgImage from "../../../src/assets/images/testimonial/map.png";
+import Loader from "../share/Loader/Loader";
 
 export type TReview = {
   name: string;
@@ -38,7 +39,7 @@ const Testimonials = () => {
   }, []);
 
   if (loading) {
-    return <h1 className="mt-10 flex items-center justify-center text-3xl capitalize">Loading...</h1>;
+    return <Loader/>;
   }
 
   if (error) {

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-'use client'
+"use client";
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
@@ -15,11 +15,12 @@ import Container from "@/components/share/Container";
 import GalleryBanner from "./GalleryBanner";
 import Affiliation from "@/components/Affiliation/Affiliation";
 import Header from "@/components/share/Header/Header";
+import Loader from "@/components/share/Loader/Loader";
 export type TGallery = {
   _id: string;
   images: string[];
-  createdAt: string,
-  title: string,
+  createdAt: string;
+  title: string;
 };
 
 const Gallery = () => {
@@ -30,11 +31,13 @@ const Gallery = () => {
   useEffect(() => {
     const fetchAffiliationData = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/image-gallery`);
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_API_URL}/image-gallery`
+        );
         const data = await response.json();
         setPhotoData(data.data?.galleries || []);
       } catch (err) {
-        setError('Failed to fetch photo.');
+        setError("Failed to fetch photo.");
       } finally {
         setLoading(false);
       }
@@ -44,7 +47,7 @@ const Gallery = () => {
   }, []);
 
   if (loading) {
-    return <h1 className="mt-10 flex items-center justify-center text-3xl capitalize">Loading...</h1>;
+    return <Loader />;
   }
 
   if (error) {
@@ -63,7 +66,6 @@ const Gallery = () => {
     );
   }
 
-
   return (
     <>
       <Header />
@@ -76,17 +78,17 @@ const Gallery = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
           {photoData.map((data) => (
             <div key={data._id} className="relative group">
-
-
-              {
-                data.images.slice(0, 1).map((img) => (
-                  <>
-                    <Image width={150}
-                      height={150}
-                      className="w-full h-[350px] object-cover" src={img} alt='Team' />
-                  </>
-                ))
-              }
+              {data.images.slice(0, 1).map((img) => (
+                <>
+                  <Image
+                    width={150}
+                    height={150}
+                    className="w-full h-[350px] object-cover"
+                    src={img}
+                    alt="Team"
+                  />
+                </>
+              ))}
               <p className="text-lg text-center text-white bg-[#135F4A] py-2">
                 {data.title}
               </p>
@@ -100,7 +102,6 @@ const Gallery = () => {
         </div>
         <Affiliation />
       </Container>
-
     </>
   );
 };

@@ -7,6 +7,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Container from "../share/Container";
 import faq from "../../../src/assets/images/faq/faq.png";
 import Image from "next/image";
+import Loader from "../share/Loader/Loader";
 
 export type TFaq = {
   _id: string;
@@ -23,7 +24,9 @@ const FAQ = () => {
   useEffect(() => {
     const fetchFaqData = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/faq`);
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_API_URL}/faq`
+        );
         const data = await response.json();
         setFaqData(data.data?.faqs || []);
       } catch (err) {
@@ -37,7 +40,7 @@ const FAQ = () => {
   }, []);
 
   if (loading) {
-    return <h1 className="mt-10 flex items-center justify-center text-3xl capitalize">Loading...</h1>;
+    return <Loader />;
   }
 
   if (error) {

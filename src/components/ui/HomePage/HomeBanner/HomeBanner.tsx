@@ -48,8 +48,9 @@ const HomeBanner = () => {
             </div>
 
             <ul
-              className={`lg:flex justify-between gap-10 lg:p-7 text-sm lg:font-semibold nav-items ${isMenuOpen ? "open" : "hidden"
-                }`}
+              className={`lg:flex justify-between gap-10 lg:p-7 text-sm lg:font-semibold nav-items ${
+                isMenuOpen ? "open" : "hidden"
+              }`}
             >
               <Link href="/#" onClick={closeMenu}>
                 <li>HOME</li>

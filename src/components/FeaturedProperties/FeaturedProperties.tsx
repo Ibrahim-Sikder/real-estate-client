@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import "./Styles.css";
 import { Autoplay, EffectCoverflow } from "swiper/modules";
 import Image from "next/image";
+import Loader from "../share/Loader/Loader";
 
 const FeaturedProperties = () => {
   const [projectData, setProjectData] = useState<any>(null);
@@ -34,23 +35,28 @@ const FeaturedProperties = () => {
   }, []);
 
   if (loading) {
-    return <h1 className="mt-10 flex items-center justify-center text-3xl">Loading...</h1>;
+    <Loader />;
   }
 
   if (error) {
-    return <h1 className="mt-10 flex items-center justify-center text-3xl">{error}</h1>;
+    return (
+      <h1 className="mt-10 flex items-center justify-center text-3xl">
+        {error}
+      </h1>
+    );
   }
 
   if (!projectData) {
-    return <h1 className="mt-10 flex items-center justify-center text-3xl">Oops! Project data not found!</h1>;
+    return (
+      <h1 className="mt-10 flex items-center justify-center text-3xl">
+        Oops! Project data not found!
+      </h1>
+    );
   }
-
 
   const featuredImages = projectData?.data?.projects
     .filter((project: any) => project.feature === true)
     .flatMap((project: any) => project.overviewImages || []);
-
-
 
   return (
     <>
@@ -98,7 +104,7 @@ const FeaturedProperties = () => {
               <Image
                 src={img}
                 className="h-full"
-                alt='feature'
+                alt="feature"
                 width={500}
                 height={5000}
               />

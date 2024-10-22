@@ -16,7 +16,6 @@ const ContactForm = () => {
     const handleSubmit = async (data: FieldValues) => {
         try {
             const res = await contact(data).unwrap()
-            console.log(res)
             if (res) {
                 toast.success('Your form submit successfully!')
                 router.push('/')
@@ -25,12 +24,23 @@ const ContactForm = () => {
         } catch (err: any) {
             toast.error(err?.message || 'Something went to wrong')
         }
+
+
     }
+
+    const tabMargin = {
+        marginTop: {
+            xs: '3px',
+            lg: '15px',
+        }
+    }
+
+
     return (
-        <div className="bg-white p-8 shadow-md">
+        <div className="bg-white p-3  md:p-8 shadow-md">
             <ADForm onSubmit={handleSubmit}>
 
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-2 gap-3 md:gap-6">
                     <div className="col-span-2 sm:col-span-1">
                         <label className="block text-gray-700">First Name</label>
                         <ADInput
@@ -38,6 +48,7 @@ const ContactForm = () => {
                             label='First Name'
                             name='first_name'
                             size='medium'
+                            sx={tabMargin}
                         />
                     </div>
                     <div className="col-span-2 sm:col-span-1">
@@ -47,6 +58,8 @@ const ContactForm = () => {
                             label='Last Name'
                             name='last_name'
                             size='medium'
+                            sx={tabMargin}
+
                         />
                     </div>
                     <div className="col-span-2">
@@ -56,6 +69,7 @@ const ContactForm = () => {
                             label='Email Address '
                             name='email'
                             size='medium'
+                            sx={tabMargin}
 
                         />
                     </div>

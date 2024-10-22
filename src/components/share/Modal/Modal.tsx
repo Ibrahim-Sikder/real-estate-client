@@ -29,7 +29,6 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
  
     try {
       const res = await appointment(data).unwrap()
-      console.log(res)
       if (res) {
         toast.success('Appointment book successfully!')
         onClose()
@@ -50,24 +49,28 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
             label="Your Name"
             name="name"
             fullWidth
+            size="medium"
           />
           <ADInput
             label="Your Email"
             name="email"
             fullWidth
+            size="medium"
           />
           <ADInput
             label="Your Number"
             name="phone"
             fullWidth
+            size="medium"
           />
           <ADDatePicker
             label="Date"
             name="dob"
             fullWidth
+            size="medium"
           />
 
-          <ADSelect name="category" label="Category " items={appointmentBook} />
+          <ADSelect size="medium" name="category" label="Category " items={appointmentBook} />
         </DialogContent>
         <DialogActions>
           <button

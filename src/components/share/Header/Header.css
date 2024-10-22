@@ -16,9 +16,13 @@
   }
 
   .nav-items li {
-    /* color: #fff; */
     padding: 10px;
     font-size: 12px;
+    border-bottom: 1px solid #fff;
+  }
+
+  .nav-items > li:last-child {
+    border-bottom: none;
   }
 
   .close-icon,

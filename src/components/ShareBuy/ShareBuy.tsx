@@ -1,6 +1,7 @@
+'use client'
+
 import React, { useState } from "react";
 import "./ShareBuy.css";
-import Link from "next/link";
 import animation from "../../../src/assets/images/icon/animation.png";
 import animation2 from "../../../src/assets/images/icon/animation.png";
 import animation3 from "../../../src/assets/images/icon/animation2.png";
@@ -73,14 +74,12 @@ const ShareBuy = () => {
               </p>
             </div>
             <div className="flex justify-center">
-              <Link href="/#">
-                <button
-                  onClick={handleOpenModal}
-                  className="bg-[#135F4A] text-white py-3 px-6 mt-5 uppercase"
-                >
-                  Book Meeting
-                </button>
-              </Link>
+              <button
+                onClick={handleOpenModal}
+                className="bg-[#135F4A] text-white py-3 px-6 mt-5 uppercase"
+              >
+                Book Meeting
+              </button>
             </div>
           </div>
         </div>

@@ -1,4 +1,6 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -6,32 +8,57 @@ import "swiper/css/pagination";
 import "./Styles.css";
 import { Autoplay, EffectCoverflow } from "swiper/modules";
 import Image from "next/image";
-import img1 from "../../../src/assets/images/featured/image (1).jpg";
-import img2 from "../../../src/assets/images/featured/image (2).jpg";
-import img3 from "../../../src/assets/images/featured/image (3).jpg";
-import img4 from "../../../src/assets/images/featured/image (4).jpg";
-import img5 from "../../../src/assets/images/featured/image (5).jpg";
-import img6 from "../../../src/assets/images/featured/image (6).jpg";
-import img7 from "../../../src/assets/images/featured/image (7).jpg";
 
 const FeaturedProperties = () => {
-  const featured = [
-    { id: 1, image: img1 },
-    { id: 2, image: img2 },
-    { id: 3, image: img3 },
-    { id: 4, image: img4 },
-    { id: 5, image: img5 },
-    { id: 6, image: img6 },
-    { id: 7, image: img7 },
-  ];
+  const [projectData, setProjectData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchProjectData = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_API_URL}/project`,
+          { cache: "no-store" }
+        );
+        const data = await response.json();
+        setProjectData(data);
+      } catch (err: any) {
+        setError("Failed to fetch project data.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjectData();
+  }, []);
+
+  if (loading) {
+    return <h1 className="mt-10 flex items-center justify-center text-3xl">Loading...</h1>;
+  }
+
+  if (error) {
+    return <h1 className="mt-10 flex items-center justify-center text-3xl">{error}</h1>;
+  }
+
+  if (!projectData) {
+    return <h1 className="mt-10 flex items-center justify-center text-3xl">Oops! Project data not found!</h1>;
+  }
+
+
+  const featuredImages = projectData?.data?.projects
+    .filter((project: any) => project.feature === true)
+    .flatMap((project: any) => project.overviewImages || []);
+
+
 
   return (
     <>
-      <div className="bg my-20 py-10">
+      <div className="bg  py-10">
         <div className="flex justify-center py-5">
-          <h2 className="text-center mb-8 text-white z-10 absolute uppercase">
+          <h1 className="text-center mb-16 text-white z-10 absolute uppercase">
             Featured Properties
-          </h2>
+          </h1>
         </div>
         <Swiper
           effect={"coverflow"}
@@ -54,24 +81,26 @@ const FeaturedProperties = () => {
           pagination={true}
           breakpoints={{
             320: {
-              slidesPerView: 1, // Mobile phones
+              slidesPerView: 1,
             },
             640: {
-              slidesPerView: 2, // Tablets
+              slidesPerView: 2,
             },
             1024: {
-              slidesPerView: 3, // Desktops
+              slidesPerView: 3,
             },
           }}
           modules={[EffectCoverflow, Autoplay]}
           className="mySwiper"
         >
-          {featured.map((data) => (
-            <SwiperSlide key={data.id}>
+          {featuredImages.map((img: any, i: number) => (
+            <SwiperSlide key={i}>
               <Image
-                src={data.image}
+                src={img}
                 className="h-full"
-                alt={`Featured ${data.id}`}
+                alt='feature'
+                width={500}
+                height={5000}
               />
             </SwiperSlide>
           ))}

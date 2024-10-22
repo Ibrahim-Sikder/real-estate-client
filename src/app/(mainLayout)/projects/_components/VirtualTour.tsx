@@ -1,29 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Container from "@/components/share/Container";
-import React from "react";
-import ServiceBanner from "../ServiceBanner";
-
-import Image from "next/image";
-import Header from "@/components/share/Header/Header";
+import React, { useState } from "react";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import ReactPlayer from "react-player";
+import Modal from "@/components/share/Modal/Modal";
 import ReactHtmlParser from "react-html-parser";
-import SingleServiceCard from "../_components/SingleServiceCard";
-interface PageProps {
-  params: {
-    id: string;
+import { OverviewProps } from "@/types/project";
+const VirtualTour: React.FC<OverviewProps> = ({ projectData }) => {
+
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
   };
-}
-const page = async ({ params }: PageProps) => {
-  const { id } = params;
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/service/${id}`, {
-    cache: "no-store",
-  });
-  const serviceData = await res.json();
-
-  if (!serviceData) {
-    return <h1 className="mt-10 flex items-center justify-center text-3xl capitalize ">Oops! Service data not found! </h1>
-
-  }
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
   const renderContent = (content: string) => {
     const parsedContent = ReactHtmlParser(content);
 
@@ -96,53 +88,66 @@ const page = async ({ params }: PageProps) => {
     });
   };
 
-
-  console.dir(serviceData)
-
-
-
   return (
-    <>
-      <Header />
-      <ServiceBanner />
-      <Container className="my-20">
-        {/* Services Details Section */}
-        <div className="grid grid-cols-1 gap-10">
-          <div>
-            {
-              serviceData?.data?.images.slice(0, 1).map((img:any) => (
-                <>
-                  <Image
-                    height={1000}
-                    width={10000}
-                    src={img}
-                    alt="Construction Services"
-                    className="h-full object-fill lg:h-[500px] rounded"
-                  />
-                </>
-              ))
-            }
+    <div>
+      <div className="mb-10">
+        <h4 className="text-center text-[#135F4A]">ANAA Developers Limited</h4>
+        <h2 className="uppercase text-center">
+          {projectData.title}
+        </h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {projectData?.videoUrls?.map((video, i: number) => (
+          <div key={i} className="text-center">
+            <ReactPlayer
+              url={video}
+              controls={true}
+              width="100%"
+              height="auto"
+              className="rounded-lg shadow-lg"
+            />
+            {/* <p className="text-sm bg-[#135F4A] text-white py-2">
+              {video.title}
+            </p> */}
           </div>
-          <div className="text-center">
-            <h2 className="text-[#135F4A] uppercase">{serviceData?.data?.title}</h2>
-            <div className="lg:w-28 mx-auto h-1 bg-[#135F4A] rounded-full mt-2 mb-7" />
-            <p className="mt-6 text-gray-600 text-justify">
-              {renderContent(serviceData?.data?.description)}
-            </p>
-          </div>
-        </div>
+        ))}
+      </div>
+      <div className="mt-10 border shadow-lg p-5">
+        <h2 className="uppercase">Buy an Apartment on Easy Installments</h2>
+        <p className="text-justify mt-3">
+          {renderContent(projectData?.overview_description)}
 
-        {/* Recent Projects Section */}
-        <div className="mt-20">
-          <h2 className="text-[#135F4A] uppercase text-center">
-            Our Recent Projects
-          </h2>
-          <div className="lg:w-28 mx-auto h-1 bg-[#135F4A] rounded-full mt-2 mb-7" />
-          <SingleServiceCard />
+        </p>
+
+
+
+
+        <div className="mt-5">
+          <button
+            onClick={handleOpenModal}
+            className="bg-[#135F4A] px-4 py-2 text-white"
+          >
+            Buy This Apartment
+          </button>
         </div>
-      </Container>
-    </>
+      </div>
+      <div className="mt-10 shadow-lg border p-5">
+        <h2 className="uppercase text-center">Institutes & Nearby Locations</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap- mt-5">
+          {projectData?.floor_Location?.map((contain, index: number) => (
+            <ul key={index} className="space-y-2 mt-2">
+              <li>
+                <CheckCircleIcon className="text-[#135F4A]" /> {contain}
+              </li>
+            </ul>
+          )) ?? (
+              <p>No nearby locations available.</p>
+            )}
+        </div>
+      </div>
+      <Modal open={openModal} onClose={handleCloseModal} />
+    </div>
   );
 };
 
-export default page;
+export default VirtualTour;

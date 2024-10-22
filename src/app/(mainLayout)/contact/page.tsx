@@ -5,13 +5,14 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import CallIcon from "@mui/icons-material/Call";
 import ContactBanner from "./ContactBanner";
 import Affiliation from "@/components/Affiliation/Affiliation";
+
 import ContactForm from "./_components/ContactForm";
 
 const page = () => {
   return (
     <div>
       <ContactBanner />
-      <div className="bg-gray-100 py-20">
+      <div className="bg-gray-100 py-12 md:py-20">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             {/* Left Side: Contact Form */}

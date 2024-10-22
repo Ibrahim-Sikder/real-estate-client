@@ -7,13 +7,19 @@ import Link from "next/link";
 import "./Header.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import LoginIcon from "@mui/icons-material/Login";
+import { WifiCalling3 } from "@mui/icons-material";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
   };
 
   return (
@@ -39,38 +45,30 @@ const Header = () => {
               isMenuOpen ? "open" : "hidden"
             }`}
           >
-            <Link href="/#">
+            <Link href="/#" onClick={closeMenu}>
               <li>HOME</li>
             </Link>
-            <Link href="/about-us">
+            <Link href="/about-us" onClick={closeMenu}>
               <li>ABOUT</li>
             </Link>
-            <Link href="/projects">
+            <Link href="/projects" onClick={closeMenu}>
               <li>PROJECTS</li>
             </Link>
-            <Link href="/gallery">
+            <Link href="/gallery" onClick={closeMenu}>
               <li>GALLERY</li>
             </Link>
-            <Link href="/services">
+            <Link href="/services" onClick={closeMenu}>
               <li>SERVICES</li>
             </Link>
-            <Link href="/contact">
+            <Link href="/contact" onClick={closeMenu}>
               <li>CONTACT</li>
             </Link>
-            <Link href="/login">
-              <li className="lg:hidden block">
-                LOGIN <LoginIcon />
+            <Link href="/login" onClick={closeMenu}>
+              <li className="flex gap-x-1 items-center">
+                <WifiCalling3 /> <span>+8801738399899</span>
               </li>
             </Link>
           </ul>
-
-          {/* <div className="hidden lg:block">
-            <Link href="/login">
-            <button className="bg-[#135F4A] px-6 py-2 text-white text-sm font-semibold">
-              LOGIN <LoginIcon />
-            </button>
-            </Link>
-          </div> */}
         </div>
       </Container>
     </div>

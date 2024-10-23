@@ -98,6 +98,7 @@ const page = async () => {
   }
   return (
     <>
+    <Header/>
       <div className="bg-gray-100">
         <ServiceBanner />
         <Container className="py-20">

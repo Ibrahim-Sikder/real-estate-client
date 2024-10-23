@@ -33,7 +33,7 @@ const HomeBanner = () => {
               {/* <div className="w-28">
                 <Image src={logo} alt="Logo" />
               </div> */}
-              <h2 className="text-[#eeb808]">Anaa Developer</h2>
+              <h2 className="text-[#eeb808] mt-3 md:mt-0">Anaa Developer</h2>
             </Link>
 
             <div

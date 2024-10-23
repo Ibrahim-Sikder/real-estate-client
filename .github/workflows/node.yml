@@ -1,4 +1,5 @@
 name: Node.js CD
+
 on:
   push:
     branches: [main]
@@ -15,11 +16,22 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
+            # Navigate to the project directory on the server
             cd /var/www/html/anaa-developers/client
+
+            # Fetch all updates from the remote repository
             git fetch --all
+
+            # Reset the current branch to match the remote main branch
             git reset --hard origin/main
+
+            # Ensure environment variables are set up correctly
             cp .env.example .env
+
+            # Install necessary dependencies
             npm install --legacy-peer-deps
+
+            # Build the project
             npm run build
 
             # Check if PM2 process exists, if so, restart it, otherwise start a new one
@@ -29,5 +41,5 @@ jobs:
               pm2 start npm --name "anaa-developers-client" -- run start
             fi
 
-            # Save PM2 process list
+            # Save PM2 process list to ensure process persists
             pm2 save

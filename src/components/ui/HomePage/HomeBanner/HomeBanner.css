@@ -29,6 +29,25 @@
   text-align: center;
   /* width: 700px; */
 }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.stickyMenu {
+  background: #fff;
+  width: 100%;
+  color: #111;
+  height: 90px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .35);
+}
+
 
 @media screen and (max-width: 1024px) {
   .nav-items {
@@ -68,6 +87,8 @@
     transition: all 0.5s cubic-bezier(0.43, 0.38, 0.68, 0.63);
   }
 }
+
+
 
 @media only screen and (max-width:500px) {
   .bannerContent {

@@ -85,6 +85,7 @@ const ProjectPage = () => {
 
   return (
     <div>
+         <Header/>
       <ProjectsBanner />
       <Container>
         <div className="my-10">

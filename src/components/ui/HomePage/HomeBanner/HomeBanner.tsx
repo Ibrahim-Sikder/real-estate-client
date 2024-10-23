@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import MenuIcon from "@mui/icons-material/Menu";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./HomeBanner.css";
 import Link from "next/link";
 import CloseIcon from "@mui/icons-material/Close";
@@ -13,6 +13,7 @@ import Tab from "../SearchBar/Tab";
 
 const HomeBanner = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [stickyMenu, setStickyMenu] = useState(true);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -24,15 +25,29 @@ const HomeBanner = () => {
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setStickyMenu(window.scrollY > 200);
+    };
+
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on unmount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="homeBannerWrap lg:h-[600px] h-[400px]">
-      <div className="fixed w-full z-50 text-white border-b lg:pb-0 pb-4 ">
+    <section className="homeBannerWrap lg:h-[600px] h-[400px] relative ">
+      <div
+        className={`${stickyMenu
+            ? "stickyMenu"
+            : "fixed w-full z-50 text-white border-b lg:pb-0 pb-4"
+          }`}
+      >
         <Container>
-          <div className="flex justify-between items-center">
+          <div className="navbar">
             <Link href="/">
-              {/* <div className="w-28">
-                <Image src={logo} alt="Logo" />
-              </div> */}
               <h2 className="text-[#eeb808] mt-3 md:mt-0">Anaa Developer</h2>
             </Link>
 
@@ -48,9 +63,8 @@ const HomeBanner = () => {
             </div>
 
             <ul
-              className={`lg:flex justify-between gap-10 lg:p-7 text-sm lg:font-semibold nav-items ${
-                isMenuOpen ? "open" : "hidden"
-              }`}
+              className={`lg:flex justify-between gap-10 lg:p-7 text-sm lg:font-semibold nav-items ${isMenuOpen ? "open" : "hidden"
+                }`}
             >
               <Link href="/#" onClick={closeMenu}>
                 <li>HOME</li>
@@ -70,7 +84,7 @@ const HomeBanner = () => {
               <Link href="/contact" onClick={closeMenu}>
                 <li>CONTACT</li>
               </Link>
-              <li className="flex gap-x-1  items-center">
+              <li className="flex gap-x-1 items-center">
                 <WifiCalling3 /> <span>+8801738399899</span>
               </li>
             </ul>

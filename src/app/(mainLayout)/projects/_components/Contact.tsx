@@ -2,8 +2,7 @@
 'use client'
 
 import Image from "next/image";
-<<<<<<< HEAD:src/app/(mainLayout)/properties/completed-projects/_components/Contact.tsx
-import img from "../../../../../../src/assets/images/contact/contact.png";
+import img from "../../../../../src/assets/images/contact/contact.png";
 import ADForm from "@/components/Forms/Form";
 import { useContactMutation } from "@/redux/api/allApi";
 import { useRouter } from "next/navigation";
@@ -11,9 +10,6 @@ import { FieldValues } from "react-hook-form";
 import { toast } from "sonner";
 import ADInput from "@/components/Forms/Input";
 import ADTextarea from "@/components/Forms/TextArea";
-=======
-import img from "../../../../assets/images/contact/contact.png";
->>>>>>> d89a106f7085f143a2c9b73be1639ab0a88adff5:src/app/(mainLayout)/projects/_components/Contact.tsx
 
 const Contact = () => {
   const [contact] = useContactMutation()

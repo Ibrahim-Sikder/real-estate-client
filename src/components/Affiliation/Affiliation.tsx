@@ -79,20 +79,20 @@ const Affiliation = () => {
             {affiliationData.map((data) => (
               <div key={data._id} className="flex justify-center">
                 {data.images.slice(0, 1).map((img) => (
-                  <>
-                    <Image
-                      width={200}
-                      height={60}
-                      className="hover:scale-105 w-32 h-24 transform transition duration-300"
-                      src={img}
-                      alt="activity"
-                    />
-                  </>
+                  <Image
+                    key={img}
+                    width={200}
+                    height={60}
+                    className="hover:scale-105 w-32 h-24 transform transition duration-300"
+                    src={img}
+                    alt="activity"
+                  />
                 ))}
               </div>
             ))}
           </div>
         </Marquee>
+
       </Container>
     </div>
   );

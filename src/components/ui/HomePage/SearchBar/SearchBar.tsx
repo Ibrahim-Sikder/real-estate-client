@@ -6,14 +6,19 @@ import { Grid, Button, Box } from "@mui/material";
 import ADForm from "@/components/Forms/Form";
 import { FieldValues } from "react-hook-form";
 import ADSelect from "@/components/Forms/Select";
-import { budget, location, loginFor, category } from "@/constant/type";
+import { location, lookingFor, category, low_budget, high_budget } from "@/constant/type";
 import { useRouter } from "next/navigation";
-import ADInput from "@/components/Forms/Input";
+
 
 const SearchBar = () => {
   const router = useRouter()
   const onSubmit = (data: FieldValues) => {
-    const queryString = new URLSearchParams(data).toString();
+    const filteredData = Object.fromEntries(
+      Object.entries(data).filter(([_, value]) => value)
+    );
+    const queryString = new URLSearchParams(filteredData).toString();
+
+    console.log(queryString);
     router.push(`/projects?${queryString}`);
   };
 
@@ -26,16 +31,16 @@ const SearchBar = () => {
   const tabMargin = {
     marginTop: {
       xs: '3px',
-      lg: '15px',
+      lg: '8px',
     }
   }
   return (
     <div>
       <ADForm onSubmit={onSubmit}>
-        <div className="bg-white lg:p-10 p-5 rounded shadow-md">
+        <div className="bg-white lg:py-8 lg:px-5 p-3 rounded shadow-md">
           <Grid
             container
-            spacing={{ xs: 1, lg: 2 }}
+            spacing={1}
             alignItems="center"
             sx={{ flexWrap: { xs: "wrap", md: "nowrap" } }}
           >
@@ -47,7 +52,7 @@ const SearchBar = () => {
                 size="small"
                 name="looking_for"
                 label="Looking For"
-                items={loginFor}
+                items={lookingFor}
                 fullWidth
                 sx={tabMargin}
               />
@@ -80,13 +85,26 @@ const SearchBar = () => {
             </Grid>
             <Grid item xs={12} md={6} lg={3}>
               <label className="block uppercase lg:text-sm text-xs">
-                Your budget
+                Low budget
               </label>
-              <ADInput
+              <ADSelect
+                size="small"
+                name="low_budget"
+                label="Low Budget"
+                items={low_budget}
+                fullWidth
+                sx={tabMargin}
+              />
+            </Grid>
+            <Grid item xs={12} md={6} lg={3}>
+              <label className="block uppercase lg:text-sm text-xs">
+                High budget
+              </label>
+              <ADSelect
                 size="small"
                 name="high_budget"
-                label="Your budget"
-                // items={budget}
+                label="High Budget"
+                items={high_budget}
                 fullWidth
                 sx={tabMargin}
               />

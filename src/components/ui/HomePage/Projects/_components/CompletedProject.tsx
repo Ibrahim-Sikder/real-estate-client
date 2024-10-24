@@ -3,28 +3,28 @@ import Image from "next/image";
 
 import Link from "next/link";
 import EastIcon from "@mui/icons-material/East";
-import { ProjectData } from "@/types/project";
+import {  TProject } from "@/types/project";
 
-const CompletedProject: React.FC<{ projectData: ProjectData }> = async ({ projectData }) => {
+const CompletedProject: React.FC<{ projectData: TProject[] }> = async ({ projectData }) => {
 
   return (
     <>
       <div className="my-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {projectData?.data?.projects?.map((data) => (
+          {projectData?.map((data:TProject) => (
             <div key={data._id} className="relative group">
               {
-                data?.conceptImages.slice(0, 1).map((img) => (
+                data?.conceptImages && data?.conceptImages.length > 0 && (
                   <>
                     <Image
                       width={500}
                       height={500}
-                      src={img}
+                      src={data.conceptImages[0]} 
                       alt={data.title}
                       className="w-full h-full object-cover"
                     />
                   </>
-                ))
+                )
               }
               {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.8)] via-transparent to-transparent"></div>
@@ -60,5 +60,6 @@ const CompletedProject: React.FC<{ projectData: ProjectData }> = async ({ projec
     </>
   );
 };
+
 
 export default CompletedProject;

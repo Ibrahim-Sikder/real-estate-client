@@ -24,9 +24,11 @@ const Footer = () => {
             {/* Social Media Icons */}
             <div className="flex lg:justify-start justify-center">
               <div className="lg:mt-0 mt-10">
-                <div className="flex lg:justify-start justify-center">
-                  <Image src={logo} alt="" className="w-28" />
-                </div>
+                <Link href='/'>
+                  <div className="flex lg:justify-start justify-center">
+                    <Image src={logo} alt="" className="w-28" />
+                  </div>
+                </Link>
                 <h4 className="mt-5 lg:text-start text-center">
                   Connect Wit Us
                 </h4>

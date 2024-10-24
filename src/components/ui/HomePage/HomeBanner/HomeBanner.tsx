@@ -9,7 +9,7 @@ import { WifiCalling3 } from "@mui/icons-material";
 import Image from "next/image";
 import logo from "../../../../assets/images/logo/logo.png";
 import Container from "@/components/share/Container";
-import Tab from "../SearchBar/Tab";
+import SearchProjectTab from "../SearchBar/SearchProjectTab";
 
 const HomeBanner = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,7 +38,7 @@ const HomeBanner = () => {
   }, []);
 
   return (
-    <section className="homeBannerWrap lg:h-[600px] h-[400px] relative ">
+    <section className="homeBannerWrap  ">
       <div
         className='fixed w-full z-50 text-black border-b bg-white '
       >
@@ -100,7 +100,7 @@ const HomeBanner = () => {
           sustainable development.
         </p>
       </div>
-      <Tab />
+      <SearchProjectTab />
     </section>
   );
 };

@@ -17,7 +17,7 @@ const Contact = () => {
   const handleSubmit = async (data: FieldValues) => {
     try {
       const res = await contact(data).unwrap()
-      console.log(res)
+  
       if (res) {
         toast.success('Your form submit successfully!')
         router.push('/')

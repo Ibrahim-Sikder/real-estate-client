@@ -1,6 +1,8 @@
 
 
-export const loginFor = ['Commercial','Residential']
+export const lookingFor = ['Commercial','Residential']
 export const location = ['All Cities','Dhaka','Uttara','Gulshan','Badda','Mirpur']
-export const budget = ['Any','50,000Tk','100,000','200,000','30000000']
-export const category = ['on_going_project','upcoming_project','complete_project']
+
+export const category = ['On Going Project','Upcoming Project','Complete Project']
+export const low_budget = ['30000','40000','50000','100000']
+export const high_budget = ['200000','300000','400000','500000']

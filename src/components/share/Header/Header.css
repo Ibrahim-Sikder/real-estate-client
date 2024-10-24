@@ -34,3 +34,12 @@
     transition: all 0.5s cubic-bezier(0.43, 0.38, 0.68, 0.63);
   }
 }
+@media screen and (max-width: 500px) {
+  
+
+  .close-icon,
+  .open-icon {
+    right: 10px;
+    top: 10px;
+  }
+}

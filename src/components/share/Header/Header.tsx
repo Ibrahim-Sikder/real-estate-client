@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   return (
-    <div className="fixed z-50 text-white w-full border-b-2 lg:pb-0 pb-2">
+    <div className="fixed z-50 text-black bg-white w-full border-b-2 lg:pb-0 pb-2">
       <Container>
         <div className="flex justify-between items-center">
           <Link href="/">

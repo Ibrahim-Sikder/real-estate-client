@@ -10,8 +10,6 @@ import ProjectsBanner from "./ProjectsBanner";
 import Affiliation from "@/components/Affiliation/Affiliation";
 import Header from "@/components/share/Header/Header";
 import { useSearchParams } from "next/navigation";
-import queryString from "query-string";
-import ShareBuy from "@/components/ShareBuy/ShareBuy";
 import Loader from "@/components/share/Loader/Loader";
 export type TProject = {
   _id: string;
@@ -36,9 +34,9 @@ const ProjectPage = () => {
   useEffect(() => {
     const fetchProjectData = async () => {
       const query = Object.fromEntries(searchParams.entries());
-      // const queryString = new URLSearchParams(query).toString();
+
       const queryString = new URLSearchParams(query).toString();
-      console.log(queryString);
+      const decodedQueryString = queryString.replace(/\+/g, ' ');
 
       try {
         const response = await fetch(

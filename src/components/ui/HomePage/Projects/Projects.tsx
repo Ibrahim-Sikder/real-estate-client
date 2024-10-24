@@ -6,10 +6,20 @@ import OnGoingProject from "./_components/OnGoingProjects";
 import CompletedProject from "./_components/CompletedProject";
 import UpcomingProject from "./_components/UpcomingProject";
 import Loader from "@/components/share/Loader/Loader";
+import { TProject } from "@/types/project";
+
+
+
+
+
+type ProjectResponse = {
+  [x: string]: any;
+  projects: TProject[];
+};
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState("tab1");
-  const [projectData, setProjectData] = useState(null);
+  const [projectData, setProjectData] = useState<ProjectResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -38,6 +48,8 @@ const Projects = () => {
     <Loader />;
   }
 
+
+
   if (error) {
     return (
       <h1 className="mt-10 flex items-center justify-center text-3xl">
@@ -53,6 +65,18 @@ const Projects = () => {
       </h1>
     );
   }
+
+
+
+  const onGoingProject = projectData?.data?.projects.filter(
+    (item: any) => item.category?.toLowerCase() === "On Going Project".toLowerCase()
+  );
+  const completeProject = projectData?.data?.projects.filter(
+    (item: any) => item.category?.toLowerCase() === "Complete Project".toLowerCase()
+  );
+  const upcomingProject = projectData?.data?.projects.filter(
+    (item: any) => item.category?.toLowerCase() === "Upcoming Project".toLowerCase()
+  );
 
   return (
     <Container className="my-20">
@@ -72,31 +96,28 @@ const Projects = () => {
 
       <div className="lg:w-[700px] mx-auto grid grid-cols-3 mb-10 bg-[#76B486]">
         <button
-          className={`p-3 lg:text-sm text-xs text-center uppercase border-r ${
-            activeTab === "tab1"
-              ? "bg-[#135F4A] text-white"
-              : "hover:bg-[#135F4A] hover:text-white"
-          }`}
+          className={`p-3 lg:text-sm text-xs text-center uppercase border-r ${activeTab === "tab1"
+            ? "bg-[#135F4A] text-white"
+            : "hover:bg-[#135F4A] hover:text-white"
+            }`}
           onClick={() => setActiveTab("tab1")}
         >
           On Going Projects
         </button>
         <button
-          className={`p-3 lg:text-sm text-xs text-center uppercase border-r ${
-            activeTab === "tab2"
-              ? "bg-[#135F4A] text-white"
-              : "hover:bg-[#135F4A] hover:text-white"
-          }`}
+          className={`p-3 lg:text-sm text-xs text-center uppercase border-r ${activeTab === "tab2"
+            ? "bg-[#135F4A] text-white"
+            : "hover:bg-[#135F4A] hover:text-white"
+            }`}
           onClick={() => setActiveTab("tab2")}
         >
           Completed Projects
         </button>
         <button
-          className={`p-3 lg:text-sm text-xs text-center uppercase ${
-            activeTab === "tab3"
-              ? "bg-[#135F4A] text-white"
-              : "hover:bg-[#135F4A] hover:text-white"
-          }`}
+          className={`p-3 lg:text-sm text-xs text-center uppercase ${activeTab === "tab3"
+            ? "bg-[#135F4A] text-white"
+            : "hover:bg-[#135F4A] hover:text-white"
+            }`}
           onClick={() => setActiveTab("tab3")}
         >
           Upcoming Projects
@@ -105,9 +126,9 @@ const Projects = () => {
 
       {/* Tab Content */}
       <div>
-        {activeTab === "tab1" && <OnGoingProject projectData={projectData} />}
-        {activeTab === "tab2" && <CompletedProject projectData={projectData} />}
-        {activeTab === "tab3" && <UpcomingProject projectData={projectData} />}
+        {activeTab === "tab1" && <OnGoingProject projectData={onGoingProject} />}
+        {activeTab === "tab2" && <CompletedProject projectData={completeProject} />}
+        {activeTab === "tab3" && <UpcomingProject projectData={upcomingProject} />}
       </div>
     </Container>
   );

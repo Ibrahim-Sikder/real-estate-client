@@ -1,12 +1,12 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 
-const Tab = () => {
+const SearchProjectTab = () => {
   const [activeTab, setActiveTab] = useState("tab1");
   return (
     <div className="flex justify-center">
-      <div className="absolute lg:-bottom-20 -bottom-[320px]  lg:w-[1000px] mx-auto w-full z-10 px-5">
-        <div className="lg:w-[400px] mx-auto grid grid-cols-3 gap-2 mb-2">
+      <div className="absolute lg:-bottom-20 -bottom-[320px]  xl:w-[1200px] mx-auto w-full z-10">
+        <div className="lg:w-[400px] mx-auto grid grid-cols-3 gap-1 mb-2">
           <button
             className={`lg:p-3 py-2 px-1  lg:text-sm text-xs text-center uppercase font-bold rounded ${activeTab === "tab1"
               ? "bg-white text-[#eeb808]"
@@ -47,4 +47,4 @@ const Tab = () => {
   );
 };
 
-export default Tab;
+export default SearchProjectTab;

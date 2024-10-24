@@ -84,16 +84,16 @@ const Testimonials = () => {
                 <div className="w-full lg:flex items-center">
                   <div className="lg:border-r lg:border-dashed lg:border-gray-500 lg:w-[900px] flex flex-col content-center items-center justify-center text-center space-x-3">
 
-                    {
-                      review.images.slice(0, 1).map((img) => (
-                        <>
-                          <Image width={150}
-                            src={img}
-                            alt={review.name}
-                           
-                            height={130}
-                            className="rounded-full w-[150px] h-[150px] object-fill mb-4" />
-                        </>
+                  {
+                      review.images.slice(0, 1).map((img, imgIndex) => (
+                        <Image
+                          key={imgIndex} 
+                          width={150}
+                          src={img}
+                          alt={review.name}
+                          height={130}
+                          className="rounded-full w-[150px] h-[150px] object-fill mb-4"
+                        />
                       ))
                     }
                     <h3 className="text-2xl font-semibold">{review.name}</h3>

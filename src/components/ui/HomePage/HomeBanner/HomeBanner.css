@@ -36,7 +36,7 @@
 
 }
 
-.stickyMenu {
+/* .stickyMenu {
   background: #fff;
   width: 100%;
   color: #111;
@@ -46,7 +46,7 @@
   left: 0;
   z-index: 9999999;
   box-shadow: 0 5px 15px rgba(0, 0, 0, .35);
-}
+} */
 
 
 @media screen and (max-width: 1024px) {
@@ -82,7 +82,7 @@
   .open-icon {
     position: absolute;
     right: 18px;
-    top: 20px;
+    top: 15px;
     display: block;
     transition: all 0.5s cubic-bezier(0.43, 0.38, 0.68, 0.63);
   }

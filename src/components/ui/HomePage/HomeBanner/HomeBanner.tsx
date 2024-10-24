@@ -40,16 +40,15 @@ const HomeBanner = () => {
   return (
     <section className="homeBannerWrap lg:h-[600px] h-[400px] relative ">
       <div
-        className={`${stickyMenu
-            ? "stickyMenu"
-            : "fixed w-full z-50 text-white border-b lg:pb-0 pb-4"
-          }`}
+        className='fixed w-full z-50 text-black border-b bg-white '
       >
         <Container>
           <div className="navbar">
-            <Link href="/">
-              <h2 className="text-[#eeb808] mt-3 md:mt-0">Anaa Developer</h2>
-            </Link>
+          <Link href="/">
+            <div className="w-24 md:w-28">
+              <Image src={logo} alt="Logo" />
+            </div>
+          </Link>
 
             <div
               className="lg:hidden block cursor-pointer"

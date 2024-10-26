@@ -58,7 +58,9 @@ const Footer = () => {
                 <h4 className="mb-3 lg:text-start text-center">Contact</h4>
                 <ul className="space-y-3 lg:text-start text-center">
                   <li>
-                    <CallIcon /> +8801738399899
+                    <CallIcon /> <a href="tel:+8801738399899" className="hover:underline">
+                      <span>+8801738399899</span>
+                    </a>
                   </li>
                   <li>
                     <MailOutlineIcon /> anaadevelopersltd@gmail.com
@@ -69,7 +71,9 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-
+            {/* <a href="mailto:muissaltd@gmail.com" className="text-blue-500">
+                  info@muissa.com
+                  </a> */}
             {/* Our Services */}
             <div className="flex lg:justify-start justify-center">
               <div className="lg:mt-0 mt-10">

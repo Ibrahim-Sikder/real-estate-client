@@ -44,11 +44,11 @@ const HomeBanner = () => {
       >
         <Container>
           <div className="navbar">
-          <Link href="/">
-            <div className="w-24 md:w-28">
-              <Image src={logo} alt="Logo" />
-            </div>
-          </Link>
+            <Link href="/">
+              <div className="w-24 md:w-28">
+                <Image src={logo} alt="Logo" />
+              </div>
+            </Link>
 
             <div
               className="lg:hidden block cursor-pointer"
@@ -84,8 +84,11 @@ const HomeBanner = () => {
                 <li>CONTACT</li>
               </Link>
               <li className="flex gap-x-1 items-center">
-                <WifiCalling3 /> <span>+8801738399899</span>
+                <WifiCalling3 /> <a href="tel:+8801738399899" className="hover:underline">
+                  <span>+8801738399899</span>
+                </a>
               </li>
+
             </ul>
           </div>
         </Container>

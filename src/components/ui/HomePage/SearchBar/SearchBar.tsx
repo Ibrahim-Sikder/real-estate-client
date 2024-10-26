@@ -83,32 +83,8 @@ const SearchBar = () => {
                 sx={tabMargin}
               />
             </Grid>
-            <Grid item xs={12} md={6} lg={3}>
-              <label className="block uppercase lg:text-sm text-xs">
-                Low budget
-              </label>
-              <ADSelect
-                size="small"
-                name="low_budget"
-                label="Low Budget"
-                items={low_budget}
-                fullWidth
-                sx={tabMargin}
-              />
-            </Grid>
-            <Grid item xs={12} md={6} lg={3}>
-              <label className="block uppercase lg:text-sm text-xs">
-                High budget
-              </label>
-              <ADSelect
-                size="small"
-                name="high_budget"
-                label="High Budget"
-                items={high_budget}
-                fullWidth
-                sx={tabMargin}
-              />
-            </Grid>
+            
+            
             <Grid
               item
               xs={12}

@@ -4,8 +4,8 @@ import SearchBar from "./SearchBar";
 const SearchProjectTab = () => {
   const [activeTab, setActiveTab] = useState("tab1");
   return (
-    <div className="flex justify-center">
-      <div className="absolute lg:-bottom-20 -bottom-[320px]  xl:w-[1200px] mx-auto w-full z-10">
+    <div className="flex justify-center items-center">
+      <div className="absolute lg:-bottom-20 -bottom-[320px]  xl:w-[1000px] mx-auto w-full z-10">
         <div className="lg:w-[400px] mx-auto grid grid-cols-3 gap-1 mb-2">
           <button
             className={`lg:p-3 py-2 px-1  lg:text-sm text-xs text-center uppercase font-bold rounded ${activeTab === "tab1"

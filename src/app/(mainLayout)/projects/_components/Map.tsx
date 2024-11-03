@@ -6,6 +6,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Modal from "@/components/share/Modal/Modal";
 import ReactHtmlParser from "react-html-parser";
 import { OverviewProps } from "@/types/project";
+
 const Map: React.FC<OverviewProps> = ({ projectData }) => {
   const [openModal, setOpenModal] = useState(false);
 
@@ -87,6 +88,7 @@ const Map: React.FC<OverviewProps> = ({ projectData }) => {
       }
     });
   };
+
 
   const googleMapEmbedURL = `https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(
     projectData.location || "Dhaka, Bangladesh"

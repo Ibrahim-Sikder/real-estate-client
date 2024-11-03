@@ -27,6 +27,7 @@ const SearchBar = () => {
     px: 4,
     backgroundColor: "#eeb808",
     color: "white",
+    width: '100%'
   }
   const tabMargin = {
     marginTop: {
@@ -44,7 +45,7 @@ const SearchBar = () => {
             alignItems="center"
             sx={{ flexWrap: { xs: "wrap", md: "nowrap" } }}
           >
-            <Grid item xs={12} md={6} lg={3}>
+            <Grid item xs={12} md={6} lg={4}>
               <label className="block uppercase lg:text-sm text-xs">
                 LOOKING FOR
               </label>
@@ -55,9 +56,11 @@ const SearchBar = () => {
                 items={lookingFor}
                 fullWidth
                 sx={tabMargin}
+                defaultValue="Commercial"
               />
+
             </Grid>
-            <Grid item xs={12} md={6} lg={3}>
+            <Grid item xs={12} md={6} lg={4}>
               <label className="block uppercase lg:text-sm text-xs">
                 Location
               </label>
@@ -68,9 +71,10 @@ const SearchBar = () => {
                 items={location}
                 fullWidth
                 sx={tabMargin}
+                defaultValue="Dhaka"
               />
             </Grid>
-            <Grid item xs={12} md={6} lg={3}>
+            <Grid item xs={12} md={6} lg={4}>
               <label className="block uppercase lg:text-sm text-xs">
                 Category
               </label>
@@ -81,15 +85,14 @@ const SearchBar = () => {
                 items={category}
                 fullWidth
                 sx={tabMargin}
+                defaultValue="On Going Project"
               />
             </Grid>
-            
-            
+
+
             <Grid
               item
-              xs={12}
-              sm={12}
-              md={2}
+              xs={12} md={6} lg={2}
               sx={{
                 display: "flex",
                 justifyContent: {

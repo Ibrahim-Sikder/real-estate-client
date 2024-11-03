@@ -14,6 +14,7 @@ interface ITextField {
   items: string[];
   margin?: "none" | "normal" | "dense";
   onChange?: (value: any) => void;
+  defaultValue?: string
 }
 
 const ADSelect = ({
@@ -25,6 +26,7 @@ const ADSelect = ({
   required,
   fullWidth = true,
   sx,
+  defaultValue,
   onChange,
 }: ITextField) => {
   const { control, formState } = useFormContext();
@@ -34,7 +36,7 @@ const ADSelect = ({
     <Controller
       control={control}
       name={name}
-      defaultValue=""
+      defaultValue={defaultValue}
       render={({ field }) => (
         <TextField
           {...field}

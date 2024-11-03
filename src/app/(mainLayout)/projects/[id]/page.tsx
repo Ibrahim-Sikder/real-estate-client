@@ -13,6 +13,7 @@ import VirtualTour from "../_components/VirtualTour";
 import Contact from "../_components/Contact";
 import { TProject } from "@/types/project";
 import Loader from "@/components/share/Loader/Loader";
+import BrowshareDownload from "../_components/BrowshareDownload";
 
 interface PageProps {
   params: {
@@ -113,6 +114,7 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
             >
               LOCATION MAP
             </button>
+           
             <button
               className={`p-2 text-center uppercase flex-shrink-0 ${
                 activeTab === "tab5" ? "bg-[#135F4A] text-white" : ""
@@ -126,6 +128,14 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
                 activeTab === "tab6" ? "bg-[#135F4A] text-white" : ""
               }`}
               onClick={() => setActiveTab("tab6")}
+            >
+           Download brochure
+            </button>
+            <button
+              className={`p-2 text-center uppercase flex-shrink-0 ${
+                activeTab === "tab7" ? "bg-[#135F4A] text-white" : ""
+              }`}
+              onClick={() => setActiveTab("tab7")}
             >
               CONTACT NOW
             </button>
@@ -142,7 +152,8 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
             {activeTab === "tab5" && (
               <VirtualTour projectData={projectData.data} />
             )}
-            {activeTab === "tab6" && <Contact />}
+            {activeTab === "tab6" && <BrowshareDownload projectData={projectData.data} />}
+            {activeTab === "tab7" && <Contact />}
           </div>
         </div>
       </Container>

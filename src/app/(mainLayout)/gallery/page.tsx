@@ -3,19 +3,12 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import img1 from "../../../../src/assets/images/projects/04 twin tower hajaribag.jpg";
-import img2 from "../../../../src/assets/images/projects/Jolchaya 04.jpg";
-import img3 from "../../../../src/assets/images/projects/Pubayan City_01.jpg";
-import img4 from "../../../../src/assets/images/projects/SHOPNODEEP UTTARA  (3).jpg";
-import img5 from "../../../../src/assets/images/projects/Jolchaya 07.jpg";
-import img6 from "../../../../src/assets/images/projects/SHOPNODEEP.jpg";
-import img7 from "../../../../src/assets/images/projects/Pubayan City_03.jpg";
-import img8 from "../../../../src/assets/images/projects/05 bagan bilash mirpur.jpg";
 import Container from "@/components/share/Container";
 import GalleryBanner from "./GalleryBanner";
 import Affiliation from "@/components/Affiliation/Affiliation";
 import Header from "@/components/share/Header/Header";
 import Loader from "@/components/share/Loader/Loader";
+
 export type TGallery = {
   _id: string;
   images: string[];
@@ -25,6 +18,7 @@ export type TGallery = {
 
 const Gallery = () => {
   const [photoData, setPhotoData] = useState<TGallery[]>([]);
+  const [displayedItems, setDisplayedItems] = useState(10); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -46,6 +40,10 @@ const Gallery = () => {
     fetchAffiliationData();
   }, []);
 
+  const handleLoadMore = () => {
+    setDisplayedItems((prevDisplayedItems) => prevDisplayedItems + 5);
+  };
+
   if (loading) {
     return <Loader />;
   }
@@ -61,7 +59,7 @@ const Gallery = () => {
   if (!photoData || photoData.length === 0) {
     return (
       <h1 className="mt-10 flex items-center justify-center text-3xl capitalize">
-        Oops! photoes data not found!
+        Oops! photos data not found!
       </h1>
     );
   }
@@ -76,18 +74,17 @@ const Gallery = () => {
         </h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
-          {photoData.map((data) => (
+          {photoData.slice(0, displayedItems).map((data) => (
             <div key={data._id} className="relative group">
               {data.images.slice(0, 1).map((img) => (
-                <>
-                  <Image
-                    width={150}
-                    height={150}
-                    className="w-full h-[350px] object-cover"
-                    src={img}
-                    alt="Team"
-                  />
-                </>
+                <Image
+                  key={img} // Unique key for each image
+                  width={150}
+                  height={150}
+                  className="w-full h-[350px] object-cover"
+                  src={img}
+                  alt="Team"
+                />
               ))}
               <p className="text-lg text-center text-white bg-[#135F4A] py-2">
                 {data.title}
@@ -95,11 +92,15 @@ const Gallery = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-center mt-7">
-          <button className="bg-[#135F4A] px-6 py-2 text-white">
-            Load More
-          </button>
-        </div>
+
+        {displayedItems < photoData.length && (
+          <div className="flex justify-center mt-7">
+            <button onClick={handleLoadMore} className="bg-[#135F4A] px-6 py-2 text-white">
+              Load More
+            </button>
+          </div>
+        )}
+
         <Affiliation />
       </Container>
     </>

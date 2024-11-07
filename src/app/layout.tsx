@@ -10,7 +10,7 @@ import Providers from "@/lib/Providers";
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Anaa Developers Ltd",
-  description: "We aim not only to build homes but also to foster thriving communities that offer a harmonious blend of comfort, security, and modern living",
+  description: "Anaa Developers Limited is a prominent real estate company specializing in the sale of land shares across various projects. Our mission is to offer high-quality...",
 };
 
 const notoSansBengali = Noto_Sans_Bengali({

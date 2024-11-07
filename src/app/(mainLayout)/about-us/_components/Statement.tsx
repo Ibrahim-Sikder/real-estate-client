@@ -29,14 +29,11 @@ export default function Statement() {
           <p className="text-lg font-semibold text-gray-500 mb-4">
             Founder & Chairman
             <br />
-            {/* Anaa Developer Ltd. */}
+    
           </p>
 
           <p className="text-base text-gray-600 mb-5 text-justify">
-            {/* <strong className="font-bold">Anaa Developer Ltd.</strong> drives
-            forward to provide superior quality real-estate products under the
-            energetic and capable leadership of the Founder & Chairman,{" "}
-            <strong>Nasrin Akter</strong>. */}
+           
             As the Chairman of Anaa Developers Ltd., it is my privilege to lead a company that is committed to redefining the real estate landscape in Bangladesh. Our journey has been guided by the core values of integrity, innovation, and excellence. We aim not only to build homes but also to foster thriving communities that offer a harmonious blend of comfort, security, and modern living.
           </p>
           <p className="text-base text-gray-600 mb-5 text-justify">
@@ -87,14 +84,11 @@ export default function Statement() {
           <p className="text-lg font-semibold text-gray-500 mb-4">
             Managing Director
             <br />
-            {/* Anaa Developer Ltd. */}
+       
           </p>
 
           <p className="text-base text-gray-600 mb-5 text-justify">
-            {/* <strong className="font-bold">Anaa Developer Ltd.</strong> drives
-            forward to provide superior quality real-estate products under the
-            energetic and capable leadership of the Founder & Chairman,{" "}
-            <strong>Mr. Williams</strong>. */}
+     
             As the Managing Director of Anaa Developers Ltd., I am proud to be part of a company that is transforming the real estate sector in Bangladesh. Our focus has always been on creating high-quality developments that meet the needs of modern living while maintaining the highest standards of construction and design. We understand that purchasing a property is one of the most significant decisions in our clients lives, and we take that responsibility seriously.
           </p>
           <p className="text-base text-gray-600 mb-5 text-justify">

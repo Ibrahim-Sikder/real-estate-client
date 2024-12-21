@@ -39,7 +39,7 @@ const Testimonials = () => {
   }, []);
 
   if (loading) {
-    return <Loader/>;
+    return <Loader />;
   }
 
   if (error) {
@@ -57,6 +57,7 @@ const Testimonials = () => {
       </h1>
     );
   }
+  console.log(reviewsData)
 
   const settings = {
     dots: false,
@@ -84,10 +85,10 @@ const Testimonials = () => {
                 <div className="w-full lg:flex items-center">
                   <div className="lg:border-r lg:border-dashed lg:border-gray-500 lg:w-[900px] flex flex-col content-center items-center justify-center text-center space-x-3">
 
-                  {
+                    {
                       review.images.slice(0, 1).map((img, imgIndex) => (
                         <Image
-                          key={imgIndex} 
+                          key={imgIndex}
                           width={150}
                           src={img}
                           alt={review.name}

@@ -1,4 +1,5 @@
 import Footer from "@/components/share/Footer/Footer";
+import Header from "@/components/share/Header/Header";
 import Loader from "@/components/share/Loader/Loader";
 import Scroll from "@/components/share/Scroll/Scroll";
 import ShareBuy from "@/components/ShareBuy/ShareBuy";
@@ -16,7 +17,7 @@ const layout = ({ children }: { children: ReactNode }) => {
     <LandingPageProvider>
 
       <Suspense fallback={<Loader />}>
-        {/* <Header /> */}
+        <Header />
         {children}
         <Scroll />
         <ShareBuy />

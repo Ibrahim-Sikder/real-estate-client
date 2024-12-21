@@ -99,7 +99,7 @@ const FeaturedProperties = () => {
           modules={[EffectCoverflow, Autoplay]}
           className="mySwiper"
         >
-          {featuredImages.map((img: any, i: number) => (
+          {featuredImages?.map((img: any, i: number) => (
             <SwiperSlide key={i}>
               <Image
                 src={img}

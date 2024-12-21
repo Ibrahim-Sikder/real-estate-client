@@ -7,12 +7,10 @@ import ContactBanner from "./ContactBanner";
 import Affiliation from "@/components/Affiliation/Affiliation";
 
 import ContactForm from "./_components/ContactForm";
-import Header from "@/components/share/Header/Header";
 
 const page = () => {
   return (
     <div>
-         <Header/>
       <ContactBanner />
       <div className="bg-gray-100 py-12 md:py-20">
         <Container>

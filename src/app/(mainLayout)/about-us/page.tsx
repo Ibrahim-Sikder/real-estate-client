@@ -7,7 +7,6 @@ import MissionVision from "./_components/MissionVision";
 import ProblemSolve from "./_components/ProblemSolve";
 import FAQ from "./_components/FAQ";
 import AboutBanner from "./_components/AboutBanner";
-import Header from "@/components/share/Header/Header";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,7 +18,6 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <>
-      <Header />
       <div className="bg-gray-100">
         <AboutBanner />
         <Container>

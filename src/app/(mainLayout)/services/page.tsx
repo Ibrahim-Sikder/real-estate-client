@@ -5,7 +5,6 @@ import Container from "@/components/share/Container";
 import Affiliation from "@/components/Affiliation/Affiliation";
 import ServiceBanner from "./ServiceBanner";
 import Link from "next/link";
-import Header from "@/components/share/Header/Header";
 import ReactHtmlParser from "react-html-parser";
 export type TServices = {
   _id: string,
@@ -98,7 +97,6 @@ const page = async () => {
   }
   return (
     <>
-    <Header/>
       <div className="bg-gray-100">
         <ServiceBanner />
         <Container className="py-20">

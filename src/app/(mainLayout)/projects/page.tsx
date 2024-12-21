@@ -8,7 +8,6 @@ import EastIcon from "@mui/icons-material/East";
 import Link from "next/link";
 import ProjectsBanner from "./ProjectsBanner";
 import Affiliation from "@/components/Affiliation/Affiliation";
-import Header from "@/components/share/Header/Header";
 import { useSearchParams } from "next/navigation";
 import Loader from "@/components/share/Loader/Loader";
 export type TProject = {
@@ -83,7 +82,6 @@ const ProjectPage = () => {
 
   return (
     <div>
-         <Header/>
       <ProjectsBanner />
       <Container>
         <div className="my-10">

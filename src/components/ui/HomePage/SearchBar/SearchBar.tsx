@@ -1,17 +1,21 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-
 import React from "react";
 import { Grid, Button, Box } from "@mui/material";
 import ADForm from "@/components/Forms/Form";
 import { FieldValues } from "react-hook-form";
 import ADSelect from "@/components/Forms/Select";
-import { location, lookingFor, category, low_budget, high_budget } from "@/constant/type";
+import {
+  location,
+  lookingFor,
+  category,
+  low_budget,
+  high_budget,
+} from "@/constant/type";
 import { useRouter } from "next/navigation";
 
-
 const SearchBar = () => {
-  const router = useRouter()
+  const router = useRouter();
   const onSubmit = (data: FieldValues) => {
     const filteredData = Object.fromEntries(
       Object.entries(data).filter(([_, value]) => value)
@@ -25,16 +29,16 @@ const SearchBar = () => {
   const buttonStyle = {
     height: "40px",
     px: 4,
-    backgroundColor: "#eeb808",
+    backgroundColor: "#135F4A",
     color: "white",
-    width: '100%'
-  }
+    width: "100%",
+  };
   const tabMargin = {
     marginTop: {
-      xs: '3px',
-      lg: '8px',
-    }
-  }
+      xs: "3px",
+      lg: "8px",
+    },
+  };
   return (
     <div>
       <ADForm onSubmit={onSubmit}>
@@ -45,7 +49,7 @@ const SearchBar = () => {
             alignItems="center"
             sx={{ flexWrap: { xs: "wrap", md: "nowrap" } }}
           >
-            <Grid item xs={12} md={6} lg={4}>
+            <Grid item xs={12} md={6}>
               <label className="block uppercase lg:text-sm text-xs">
                 LOOKING FOR
               </label>
@@ -58,9 +62,8 @@ const SearchBar = () => {
                 sx={tabMargin}
                 defaultValue="Commercial"
               />
-
             </Grid>
-            <Grid item xs={12} md={6} lg={4}>
+            <Grid item xs={12} md={6}>
               <label className="block uppercase lg:text-sm text-xs">
                 Location
               </label>
@@ -74,31 +77,17 @@ const SearchBar = () => {
                 defaultValue="Dhaka"
               />
             </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <label className="block uppercase lg:text-sm text-xs">
-                Category
-              </label>
-              <ADSelect
-                size="small"
-                name="category"
-                label="Category"
-                items={category}
-                fullWidth
-                sx={tabMargin}
-                defaultValue="On Going Project"
-              />
-            </Grid>
-
-
             <Grid
               item
-              xs={12} md={6} lg={2}
+              xs={12}
+              md={6}
+              lg={2}
               sx={{
                 display: "flex",
                 justifyContent: {
                   xs: "center",
                   md: "flex-end",
-                  flexDirection: 'column',
+                  flexDirection: "column",
                   marginTop: {
                     xs: 5,
                     md: 28,
@@ -107,7 +96,6 @@ const SearchBar = () => {
                 alignItems: "center",
               }}
             >
-
               <label className=" uppercase lg:text-sm text-xs opacity-0 hidden md:block">
                 Category
               </label>

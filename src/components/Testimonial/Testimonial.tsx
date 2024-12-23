@@ -13,7 +13,7 @@ export type TReview = {
   description: string;
   title: string;
   designation: string;
-  createdAt: string;
+  createdAt: string; 
   images: string[];
 };
 
@@ -57,7 +57,7 @@ const Testimonials = () => {
       </h1>
     );
   }
-  console.log(reviewsData)
+  // console.log(reviewsData)
 
   const settings = {
     dots: false,

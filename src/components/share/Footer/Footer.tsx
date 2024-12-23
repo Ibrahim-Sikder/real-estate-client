@@ -4,16 +4,15 @@ import Link from "next/link";
 import logo from "../../../../src/assets/images/logo/logo.png";
 import softy from "../../../../src/assets/images/logo/softy.png";
 import Container from "../Container";
-
 import facebook from "../../../../src/assets/images/icon/facebook.png";
 import instagram from "../../../../src/assets/images/icon/instagram.png";
 import linkedin from "../../../../src/assets/images/icon/linkedin.png";
 import twitter from "../../../../src/assets/images/icon/twitter.png";
 import youtube from "../../../../src/assets/images/icon/youtube.png";
-
 import CallIcon from "@mui/icons-material/Call";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const Footer = () => {
   return (
@@ -30,7 +29,7 @@ const Footer = () => {
                   </div>
                 </Link>
                 <h4 className="mt-5 lg:text-start text-center">
-                  Connect Wit Us
+                  Connect With Us
                 </h4>
                 <div className="flex justify-center space-x-3 mt-5">
                   <Link href="https://www.facebook.com/AnaaDevelopersLtd">
@@ -58,9 +57,14 @@ const Footer = () => {
                 <h4 className="mb-3 lg:text-start text-center">Contact</h4>
                 <ul className="space-y-3 lg:text-start text-center">
                   <li>
-                    <CallIcon /> <a href="tel:+8801738399899" className="hover:underline">
+                    <CallIcon /> <Link href="tel:+8801738399899" className="hover:underline">
                       <span>+8801738399899</span>
-                    </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <WhatsAppIcon /> <Link href="tel:+8801738399899" className="hover:underline">
+                      <span>+8801738399899</span>
+                    </Link>
                   </li>
                   <li>
                     <MailOutlineIcon /> anaadevelopersltd@gmail.com

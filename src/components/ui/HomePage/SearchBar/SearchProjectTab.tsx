@@ -32,7 +32,7 @@ const SearchProjectTab = () => {
               }`}
             onClick={() => setActiveTab("tab3")}
           >
-            For Sale
+            Ready Flat
           </button>
         </div>
 

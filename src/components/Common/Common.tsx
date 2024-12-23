@@ -5,8 +5,19 @@ import img2 from "../../../src/assets/images/projects/Jolchaya 04.jpg";
 import img3 from "../../../src/assets/images/projects/Pubayan City_01.jpg";
 import Link from "next/link";
 import EastIcon from "@mui/icons-material/East";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react"; 
 
 const Common = () => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: false, 
+    });
+  }, []);
+  
   const properties = [
     {
       id: 1,
@@ -33,9 +44,10 @@ const Common = () => {
     },
   ];
 
+
   return (
     <>
-      <div className="my-20">
+      <div className="my-20"  data-aos="fade-up-left">
         <h2 className="uppercase text-center mb-7 text-[#135F4A]">
           Ready Flat & Apartment Projects
         </h2>

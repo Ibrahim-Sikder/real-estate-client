@@ -27,7 +27,7 @@ const ShareBuy = () => {
 
   return (
     <>
-      <div className="donationWraps my-16 rounded overflow-hidden contributionWrap ">
+      <div className="donationWraps rounded overflow-hidden contributionWrap ">
         <div className="bg-image lg:h-[700px] h-[300px] flex justify-center items-center">
           <div className="animationIcon">
             <Image src={animation} alt="animation" />
@@ -62,7 +62,7 @@ const ShareBuy = () => {
           <div className="absolute z-10 px-5">
             <div className="lg:max-w-2xl mx-auto">
               <h1 className=" text-center text-[#135F4A]">
-                Affordable Project Shares for Sale
+                Affordable Project Shares for Sale   
               </h1>
               <p className="mt-5 text-center">
                 Build a secure future home for your next generation by
@@ -70,7 +70,7 @@ const ShareBuy = () => {
                 areas across Bangladesh.
               </p>
               <p className="mt-5 text-center">
-                Book a meeting here to know more.
+                Book a meeting here to know more.
               </p>
             </div>
             <div className="flex justify-center">

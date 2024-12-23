@@ -96,16 +96,11 @@ const Concept: React.FC<OverviewProps> = ({ projectData }) => {
 
       </div>
 
-      <div className="mt-10 border shadow-lg p-5">
+      <div className="mt-10 border shadow-lg p-5" data-aos="fade-up">
         <h2 className="uppercase">Buy an Apartment on Easy Installments</h2>
         <p className="text-justify mt-3">
           {renderContent(projectData?.overview_description)}
-
         </p>
-
-
-
-
         <div className="mt-5">
           <button
             onClick={handleOpenModal}
@@ -116,9 +111,9 @@ const Concept: React.FC<OverviewProps> = ({ projectData }) => {
         </div>
       </div>
 
-      <div className="mt-10 shadow-lg border p-5">
+      <div className="mt-10 shadow-lg border p-5" data-aos="fade-up">
         <h2 className="uppercase text-center">Institutes & Nearby Locations</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap- mt-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
           {projectData?.floor_Location?.map((contain, index: number) => (
             <ul key={index} className="space-y-2 mt-2">
               <li>

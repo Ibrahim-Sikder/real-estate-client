@@ -6,7 +6,9 @@ import Common from "@/components/Common/Common";
 import Modal from "@/components/share/Modal/Modal";
 import ReactHtmlParser from "react-html-parser";
 import { OverviewProps } from "@/types/project";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Overview: React.FC<OverviewProps> = ({ projectData }) => {
   const [openModal, setOpenModal] = useState(false);
@@ -17,6 +19,14 @@ const Overview: React.FC<OverviewProps> = ({ projectData }) => {
   const handleCloseModal = () => {
     setOpenModal(false);
   };
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+    });
+  }, []);
+
   const renderContent = (content: string) => {
     const parsedContent = ReactHtmlParser(content);
 
@@ -65,19 +75,28 @@ const Overview: React.FC<OverviewProps> = ({ projectData }) => {
             ))}
           </ol>
         );
-      } else if (element.type === "div" && element.props.className === "ql-align-center") {
+      } else if (
+        element.type === "div" &&
+        element.props.className === "ql-align-center"
+      ) {
         return (
           <div key={index} className="text-center mb-2">
             {element.props.children}
           </div>
         );
-      } else if (element.type === "div" && element.props.className === "ql-align-right") {
+      } else if (
+        element.type === "div" &&
+        element.props.className === "ql-align-right"
+      ) {
         return (
           <div key={index} className="text-right mb-2">
             {element.props.children}
           </div>
         );
-      } else if (element.type === "div" && element.props.className === "ql-align-left") {
+      } else if (
+        element.type === "div" &&
+        element.props.className === "ql-align-left"
+      ) {
         return (
           <div key={index} className="text-left mb-2">
             {element.props.children}
@@ -89,31 +108,37 @@ const Overview: React.FC<OverviewProps> = ({ projectData }) => {
     });
   };
 
-
   return (
     <>
+      <div className="flex justify-center text-[#135F4A] bg-gray-200 rounded-lg content-center items-center py-5 mb-4">
+        <div className="flex gap-2 justify-center items-center text-center content-center font-bold">
+          <h4>Exited Offer Exist On Till - </h4>
+          <div className="bg-gray-300 rounded-lg py-3 px-5 w-[80px] text-xl font-bold">
+            10
+          </div>
+          -
+          <div className="bg-gray-300 rounded-lg py-3 px-5 w-[80px] text-xl font-bold">
+            10
+          </div>
+          -
+          <div className="bg-gray-300 rounded-lg py-3 px-5 w-[80px] text-xl font-bold">
+            2024
+          </div>
+        </div>
+      </div>
       <div className="lg:w-[1000px] lg:mt-0 mt-10">
         <div className="space-y-5">
-          <h2 className="uppercase text-[#135F4A]">
-            {projectData?.title}
-          </h2>
-          <p className="text-justify">
-            {projectData.short_description}
-          </p>
-          <h2 className="uppercase text-[#135F4A]">
-            {projectData.sub_title}
-          </h2>
-          <p className="text-justify">
-            {projectData.short_description}
-          </p>
-
+          <h2 className="uppercase text-[#135F4A]">{projectData?.title}</h2>
+          <p className="text-justify">{projectData.short_description}</p>
+          <h2 className="uppercase text-[#135F4A]">{projectData.sub_title}</h2>
+          <p className="text-justify">{projectData.short_description}</p>
         </div>
 
-        <div className="mt-10">
+        <div className="">
           <PropertyGallery projectData={projectData} />
         </div>
       </div>
-      <div className="bg-white shadow-lg p-5 border mt-10">
+      <div className="bg-white shadow-lg p-5 border mt-10" data-aos="fade-up">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="mb-4">
             <h4 className="font-semibold">Project Type:</h4>
@@ -139,71 +164,54 @@ const Overview: React.FC<OverviewProps> = ({ projectData }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="mb-4">
             <h4 className="font-semibold">Apartment Contains:</h4>
-            {
-              projectData?.apartment_contains.map((contain, index: number) => (
-                <ul key={index} className="space-y-2 mt-2">
-                  <li>
-                    <CheckCircleIcon className="text-[#135F4A]" /> {contain}
-                  </li>
-
-                </ul>
-              ))
-            }
-
+            {projectData?.apartment_contains.map((contain, index: number) => (
+              <ul key={index} className="space-y-2 mt-2">
+                <li>
+                  <CheckCircleIcon className="text-[#135F4A]" /> {contain}
+                </li>
+              </ul>
+            ))}
           </div>
           <div className="mb-4">
             <h4 className="font-semibold">Special Amenities:</h4>
-            {
-              projectData?.special_amenities.map((contain, index: number) => (
-                <ul key={index} className="space-y-2 mt-2">
-                  <li>
-                    <CheckCircleIcon className="text-[#135F4A]" /> {contain}
-                  </li>
-
-                </ul>
-              ))
-            }
+            {projectData?.special_amenities.map((contain, index: number) => (
+              <ul key={index} className="space-y-2 mt-2">
+                <li>
+                  <CheckCircleIcon className="text-[#135F4A]" /> {contain}
+                </li>
+              </ul>
+            ))}
           </div>
 
           <div className="mb-4">
             <h4 className="font-semibold">Common Features:</h4>
-            {
-              projectData?.common_features.map((contain, index: number) => (
-                <ul key={index} className="space-y-2 mt-2">
-                  <li>
-                    <CheckCircleIcon className="text-[#135F4A]" /> {contain}
-                  </li>
-
-                </ul>
-              ))
-            }
+            {projectData?.common_features.map((contain, index: number) => (
+              <ul key={index} className="space-y-2 mt-2">
+                <li>
+                  <CheckCircleIcon className="text-[#135F4A]" /> {contain}
+                </li>
+              </ul>
+            ))}
           </div>
 
           <div className="mb-4">
             <h4 className="font-semibold">Home Loan Partner:</h4>
-            {
-              projectData?.home_loan_partner.map((contain, index: number) => (
-                <ul key={index} className="space-y-2 mt-2">
-                  <li>
-                    <CheckCircleIcon className="text-[#135F4A]" /> {contain}
-                  </li>
-
-                </ul>
-              ))
-            }
+            {projectData?.home_loan_partner.map((contain, index: number) => (
+              <ul key={index} className="space-y-2 mt-2">
+                <li>
+                  <CheckCircleIcon className="text-[#135F4A]" /> {contain}
+                </li>
+              </ul>
+            ))}
           </div>
         </div>
       </div>
 
-      <div className="mt-10 border shadow-lg p-5">
+      <div className="mt-10 border shadow-lg p-5" data-aos="fade-up">
         <h2 className="uppercase">Buy an Apartment on Easy Installments</h2>
         <p className="text-justify mt-3">
           {renderContent(projectData?.overview_description)}
-
         </p>
-
-
-
 
         <div className="mt-5">
           <button
@@ -214,7 +222,7 @@ const Overview: React.FC<OverviewProps> = ({ projectData }) => {
           </button>
         </div>
       </div>
-      <div className="mt-10 shadow-lg border p-5">
+      <div className="mt-10 shadow-lg border p-5" data-aos="fade-up">
         <h2 className="uppercase text-center">Institutes & Nearby Locations</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap- mt-5">
           {projectData?.floor_Location?.map((contain, index: number) => (
@@ -223,9 +231,7 @@ const Overview: React.FC<OverviewProps> = ({ projectData }) => {
                 <CheckCircleIcon className="text-[#135F4A]" /> {contain}
               </li>
             </ul>
-          )) ?? (
-              <p>No nearby locations available.</p>
-            )}
+          )) ?? <p>No nearby locations available.</p>}
         </div>
       </div>
       <Common />

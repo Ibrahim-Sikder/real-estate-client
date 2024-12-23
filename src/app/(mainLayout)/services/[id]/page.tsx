@@ -4,7 +4,6 @@ import React from "react";
 import ServiceBanner from "../ServiceBanner";
 
 import Image from "next/image";
-import Header from "@/components/share/Header/Header";
 import ReactHtmlParser from "react-html-parser";
 import SingleServiceCard from "../_components/SingleServiceCard";
 interface PageProps {
@@ -103,7 +102,7 @@ const page = async ({ params }: PageProps) => {
 
   return (
     <>
-      <Header />
+    
       <ServiceBanner />
       <Container className="my-20">
         {/* Services Details Section */}

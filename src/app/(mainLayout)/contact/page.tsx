@@ -1,16 +1,36 @@
 import React from "react";
+import Head from "next/head"; // Import Next.js Head component
 import Container from "@/components/share/Container";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import CallIcon from "@mui/icons-material/Call";
 import ContactBanner from "./ContactBanner";
 import Affiliation from "@/components/Affiliation/Affiliation";
-
 import ContactForm from "./_components/ContactForm";
 
 const page = () => {
   return (
     <div>
+      <Head>
+        <title>Contact Us | Anaa Developers Limited</title>
+        <meta
+          name="description"
+          content="Get in touch with Anaa Developers Limited, a leading real estate company specializing in the sale of land shares. Contact us for more details!"
+        />
+        <meta name="keywords" content="real estate, land sales, Anaa Developers, contact, Bangladesh" />
+        <meta name="author" content="Anaa Developers Limited" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:title" content="Contact Us | Anaa Developers Limited" />
+        <meta
+          property="og:description"
+          content="Reach out to Anaa Developers Limited, a trusted name in real estate, for inquiries and project details."
+        />
+        {/* <meta property="og:url" content="https://www.yourwebsite.com/contact" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg" />
+        <link rel="canonical" href="https://www.yourwebsite.com/contact" /> */}
+      </Head>
+
       <ContactBanner />
       <div className="bg-gray-100 py-12 md:py-20">
         <Container>

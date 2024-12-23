@@ -90,9 +90,9 @@ const Map: React.FC<OverviewProps> = ({ projectData }) => {
   };
 
 
-  const googleMapEmbedURL = `https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(
-    projectData.location || "Dhaka, Bangladesh"
-  )}`;
+  // const googleMapEmbedURL = `https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(
+  //   projectData.location || "Dhaka, Bangladesh"
+  // )}`;
   
   return (
     <div>
@@ -104,7 +104,7 @@ const Map: React.FC<OverviewProps> = ({ projectData }) => {
       </div>
       {
         projectData?.overviewImages?.slice(0, 1).map((mapImg, i: number) => (
-          <Image width={500} height={10000} key={i} src={mapImg} alt="" className="w-full" />
+          <Image width={500} height={1000} key={i} src={mapImg} alt="" className="w-full h-[800px]" />
         )
 
         )

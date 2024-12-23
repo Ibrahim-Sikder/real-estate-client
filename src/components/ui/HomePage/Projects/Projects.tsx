@@ -7,7 +7,8 @@ import CompletedProject from "./_components/CompletedProject";
 import UpcomingProject from "./_components/UpcomingProject";
 import Loader from "@/components/share/Loader/Loader";
 import { TProject } from "@/types/project";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 
@@ -22,6 +23,7 @@ const Projects = () => {
   const [projectData, setProjectData] = useState<ProjectResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
 
   useEffect(() => {
     const fetchProjectData = async () => {
@@ -43,6 +45,16 @@ const Projects = () => {
 
     fetchProjectData();
   }, []);
+
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: false, 
+    });
+  }, []);
+
+
 
   if (loading) {
     <Loader />;
@@ -79,8 +91,8 @@ const Projects = () => {
   );
 
   return (
-    <Container className="my-20">
-      <div className="mb-7">
+    <Container className="my-20" >
+      <div className="mb-7" data-aos="fade-up">
         <h4 className="uppercase text-center text-[#135F4A] mb-3">
           Our Projects
         </h4>
@@ -94,7 +106,7 @@ const Projects = () => {
         </p>
       </div>
 
-      <div className="lg:w-[700px] mx-auto grid grid-cols-3 mb-10 bg-[#76B486]">
+      <div className="lg:w-[700px] mx-auto grid grid-cols-3 mb-10 bg-[#76B486]" data-aos="fade-up">
         <button
           className={`p-3 lg:text-sm text-xs text-center uppercase border-r ${activeTab === "tab1"
             ? "bg-[#135F4A] text-white"
@@ -125,7 +137,7 @@ const Projects = () => {
       </div>
 
       {/* Tab Content */}
-      <div>
+      <div data-aos="fade-up">
         {activeTab === "tab1" && <OnGoingProject projectData={onGoingProject} />}
         {activeTab === "tab2" && <CompletedProject projectData={completeProject} />}
         {activeTab === "tab3" && <UpcomingProject projectData={upcomingProject} />}

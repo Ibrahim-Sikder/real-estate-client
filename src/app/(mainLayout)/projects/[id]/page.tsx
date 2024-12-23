@@ -3,7 +3,6 @@
 "use client";
 import Container from "@/components/share/Container";
 import React, { useEffect, useState } from "react";
-import Header from "@/components/share/Header/Header";
 import CommonBanner from "../_components/CommonBanner";
 import Overview from "../_components/Overview";
 import Concept from "../_components/Concept";
@@ -14,6 +13,8 @@ import Contact from "../_components/Contact";
 import { TProject } from "@/types/project";
 import Loader from "@/components/share/Loader/Loader";
 import BrowshareDownload from "../_components/BrowshareDownload";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface PageProps {
   params: {
@@ -33,6 +34,14 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: false, 
+    });
+  }, []);
+  
   useEffect(() => {
     const fetchProjectData = async () => {
       try {
@@ -74,24 +83,26 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
     );
   }
 
+
   return (
     <>
-      <Header />
+      
       <CommonBanner />
       <Container className="my-20">
         <div className="lg:flex gap-10">
-          {/* Responsive Horizontal Scrollable Tabs */}
-          <div className="lg:w-[250px] h-full mx-auto flex lg:flex-col gap-3 sticky lg:top-20 top-16 z-10 bg-[#76B486] overflow-x-auto lg:overflow-visible whitespace-nowrap">
+          
+          <div className="lg:w-[250px] h-full mx-auto flex lg:flex-col sticky lg:top-20 top-16 z-10 bg-[#76B486] overflow-x-auto lg:overflow-visible whitespace-nowrap" >
             <button
-              className={`p-2 text-center uppercase flex-shrink-0 ${
+              className={` text-center uppercase flex-shrink-0 border-b-2 p-3 ${
                 activeTab === "tab1" ? "bg-[#135F4A] text-white" : ""
               }`}
               onClick={() => setActiveTab("tab1")}
             >
               OVERVIEW
             </button>
+            
             <button
-              className={`p-2 text-center uppercase flex-shrink-0 ${
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
                 activeTab === "tab2" ? "bg-[#135F4A] text-white" : ""
               }`}
               onClick={() => setActiveTab("tab2")}
@@ -99,7 +110,7 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
               Concept
             </button>
             <button
-              className={`p-2 text-center uppercase flex-shrink-0 ${
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
                 activeTab === "tab3" ? "bg-[#135F4A] text-white" : ""
               }`}
               onClick={() => setActiveTab("tab3")}
@@ -107,16 +118,15 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
               FLOOR PLAN
             </button>
             <button
-              className={`p-2 text-center uppercase flex-shrink-0 ${
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
                 activeTab === "tab4" ? "bg-[#135F4A] text-white" : ""
               }`}
               onClick={() => setActiveTab("tab4")}
             >
               LOCATION MAP
             </button>
-           
             <button
-              className={`p-2 text-center uppercase flex-shrink-0 ${
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
                 activeTab === "tab5" ? "bg-[#135F4A] text-white" : ""
               }`}
               onClick={() => setActiveTab("tab5")}
@@ -124,25 +134,28 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
               VIRTUAL TOUR
             </button>
             <button
-              className={`p-2 text-center uppercase flex-shrink-0 ${
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
                 activeTab === "tab6" ? "bg-[#135F4A] text-white" : ""
               }`}
               onClick={() => setActiveTab("tab6")}
             >
-           Download brochure
+              Download brochure
             </button>
             <button
-              className={`p-2 text-center uppercase flex-shrink-0 ${
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
                 activeTab === "tab7" ? "bg-[#135F4A] text-white" : ""
               }`}
               onClick={() => setActiveTab("tab7")}
             >
               CONTACT NOW
             </button>
+
+            
+            
           </div>
 
           {/* Tab Content */}
-          <div className="w-full mt-5 lg:mt-0">
+          <div className="w-full  lg:mt-0" data-aos="fade-left">
             {activeTab === "tab1" && (
               <Overview projectData={projectData.data} />
             )}

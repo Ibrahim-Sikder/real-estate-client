@@ -1,9 +1,8 @@
-"use client";
-
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import React, { useEffect, useState } from "react";
+"use client";
 
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import bgImage from "../../../src/assets/images/testimonial/map.png";
 import Container from "../share/Container";
@@ -61,21 +60,22 @@ const Affiliation = () => {
 
   return (
     <div
-      className="w-auto lg:w-full h-full bg-bottom lg:bg-right bg-no-repeat py-24"
+      className="w-auto lg:w-full h-full bg-bottom lg:bg-right bg-no-repeat mt-10 py-14"
       style={{ backgroundImage: `url(${bgImage.src})` }}
     >
       <Container>
-        <h2 className="text-center text-[#135F4A] mb-8 uppercase">
-          Our Affiliations
-        </h2>
-        <p className="text-center text-gray-600 mb-12">
-          We are proud to be associated with these reputable organizations in
-          the real estate industry.
-        </p>
-
+        <div data-aos="fade-up">
+          <h2 className="text-center text-[#135F4A] mb-8 uppercase">
+            Our Affiliations
+          </h2>
+          <p className="text-center text-gray-600 mb-12">
+            We are proud to be associated with these reputable organizations in
+            the real estate industry.
+          </p>
+        </div>
         {/* Marquee implementation */}
-        <Marquee gradient={false} speed={50}>
-          <div className="flex justify-center gap-10">
+        <Marquee gradient={false} speed={50} >
+          <div className="flex justify-center gap-2" data-aos="fade-up-left">
             {affiliationData.map((data) => (
               <div key={data._id} className="flex justify-center">
                 {data.images.slice(0, 1).map((img) => (
@@ -83,7 +83,7 @@ const Affiliation = () => {
                     key={img}
                     width={200}
                     height={60}
-                    className="hover:scale-105 w-32 h-24 transform transition duration-300"
+                    className="hover:scale-105 w-32 h-24 transform transition duration-300 mr-8"
                     src={img}
                     alt="activity"
                   />
@@ -92,7 +92,6 @@ const Affiliation = () => {
             ))}
           </div>
         </Marquee>
-
       </Container>
     </div>
   );

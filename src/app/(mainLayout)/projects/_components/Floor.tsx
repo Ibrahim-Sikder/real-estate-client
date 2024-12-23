@@ -101,7 +101,7 @@ const Floor: React.FC<OverviewProps> = ({ projectData }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-center">
         {projectData?.floorImages?.map((floorImg, i: number) => (
           <div key={i}>
-            <Image width={500} height={1000} src={floorImg} alt="" className="w-full" />
+            <Image width={500} height={1000} src={floorImg} alt="" className="w-full h-[600px]" />
             <p className="bg-[#135F4A] text-white p-3 text-center">
               {projectData.title}
             </p>

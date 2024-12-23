@@ -1,24 +1,24 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
+import Head from "next/head";
 import Image from "next/image";
 import Container from "@/components/share/Container";
 import Affiliation from "@/components/Affiliation/Affiliation";
 import ServiceBanner from "./ServiceBanner";
 import Link from "next/link";
 import ReactHtmlParser from "react-html-parser";
+
 export type TServices = {
-  _id: string,
+  _id: string;
   title: string;
-  description: string,
-  images: string[],
-  slug: string,
-  date: string,
+  description: string;
+  images: string[];
+  slug: string;
+  date: string;
   meta_title: string;
   meta_keywords: string[];
   meta_description: string;
 };
-
-
 
 const renderContent = (content: string) => {
   const parsedContent = ReactHtmlParser(content);
@@ -48,10 +48,7 @@ const renderContent = (content: string) => {
           {element.props.children}
         </p>
       );
-    }
-
-
-    else if (
+    } else if (
       element.type === "div" &&
       element.props.className === "ql-align-center"
     ) {
@@ -88,15 +85,37 @@ const page = async () => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/service`, {
     cache: "no-store",
   });
-  const serviceData = await response.json()
-
+  const serviceData = await response.json();
 
   if (!serviceData) {
-    return <h1 className="mt-10 flex items-center justify-center text-3xl capitalize ">Oops! Review data not found! </h1>
-
+    return (
+      <h1 className="mt-10 flex items-center justify-center text-3xl capitalize ">
+        Oops! Review data not found!
+      </h1>
+    );
   }
+
   return (
     <>
+      <Head>
+        <title>Our Services | Anaa Developers Limited</title>
+        <meta
+          name="description"
+          content="Explore our wide range of services offered by Anaa Developers Limited. We specialize in real estate, land sales, and more."
+        />
+        <meta name="keywords" content="services, real estate, Anaa Developers, land sales" />
+        <meta name="author" content="Anaa Developers Limited" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:title" content="Our Services | Anaa Developers Limited" />
+        <meta
+          property="og:description"
+          content="Discover our comprehensive services including land sales, property management, and more."
+        />
+        {/* <meta property="og:url" content="https://www.yourwebsite.com/services" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg" />
+        <link rel="canonical" href="https://www.yourwebsite.com/services" /> */}
+      </Head>
       <div className="bg-gray-100">
         <ServiceBanner />
         <Container className="py-20">
@@ -111,26 +130,22 @@ const page = async () => {
                 className="bg-white shadow-lg grid grid-cols-1 md:grid-cols-2 gap-5 p-5 rounded"
               >
                 <div>
-                  {
-                    service.images.slice(0, 1).map((img) => (
-                      <>
-                        <Image
-                          src={img}
-                          alt=""
-                          className="h-[200px] object-cover rounded"
-                          width={500}
-                          height={500}
-                        />
-                      </>
-                    ))
-                  }
+                  {service.images.slice(0, 1).map((img) => (
+                    <Image
+                      key={img}
+                      src={img}
+                      alt={service.title}
+                      className="h-[200px] object-cover rounded"
+                      width={500}
+                      height={500}
+                    />
+                  ))}
                 </div>
                 <div>
                   <h3 className="mt-4 text-2xl font-semibold text-[#135F4A]">
                     {service.title}
                   </h3>
                   <div className="mt-2 text-gray-700 text-justify">
-
                     {renderContent(service.description.slice(0, 120))}
                   </div>
                   <Link href={`/services/${service._id}`}>

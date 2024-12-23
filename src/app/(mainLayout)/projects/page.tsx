@@ -35,7 +35,7 @@ const ProjectPage = () => {
       const query = Object.fromEntries(searchParams.entries());
 
       const queryString = new URLSearchParams(query).toString();
-      const decodedQueryString = queryString.replace(/\+/g, ' ');
+      const decodedQueryString = queryString.replace(/\+/g, " ");
 
       try {
         const response = await fetch(
@@ -85,27 +85,32 @@ const ProjectPage = () => {
       <ProjectsBanner />
       <Container>
         <div className="my-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-32">
             {projectData?.data?.projects
               ?.slice(0, visibleProjects)
               .map((data: TProject) => (
-                <div key={data._id} className="relative group">
+                <div key={data._id} className="relative group w-[330px] rounded-md">
+                  <div className="flex justify-end px-4">
+                    <h5 className="absolute bg-black bg-opacity-60 border border-gray-300 p-1 px-4 rounded-full mt-3 text-white">
+                      For Sale
+                    </h5>
+                  </div>
                   {data?.floorImages?.slice(0, 1).map((floor) => (
                     <Image
                       key={floor}
-                      width={500}
+                      width={400}
                       height={500}
                       src={floor}
                       alt={data.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover rounded-md"
                     />
                   ))}
 
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.8)] via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.8)] via-transparent to-transparent rounded-md"></div>
 
                   {/* Content */}
-                  <div className="absolute lg:top-80 md:top-96 top-80 left-10">
+                  <div className="absolute lg:top-[350px] md:top-96 top-80 px-4 rounded-md">
                     <h3 className="text-white text-lg font-semibold">
                       {data.title}
                     </h3>

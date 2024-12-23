@@ -22,7 +22,7 @@ const SearchBar = () => {
     );
     const queryString = new URLSearchParams(filteredData).toString();
 
-    console.log(queryString);
+    // console.log(queryString);
     router.push(`/projects?${queryString}`);
   };
 

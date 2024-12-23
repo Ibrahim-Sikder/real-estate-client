@@ -20,7 +20,6 @@ export default function Statement() {
             className="w-full h-auto object-cover"
           />
         </div>
-
         {/* Chairman's Statement */}
         <div className="md:w-2/3 w-full md:pl-10 text-center md:text-left">
           <h2 className="text-3xl font-bold text-[#135F4A] mb-1">
@@ -71,12 +70,10 @@ export default function Statement() {
             </div>
           </div>
         </div>
-
       </div>
-      <div className="flex flex-col md:flex-row items-center gap-10">
-        
 
-        {/* Chairman's Statement */}
+      <div className="flex flex-col md:flex-row items-center gap-10">
+        {/* Managing Director Statement */}
         <div className="md:w-2/3 w-full md:pl-0 text-center md:text-left">
           <h2 className="text-3xl font-bold mb-1 text-[#135F4A]">
             Md. Ashraful Alam
@@ -127,6 +124,18 @@ export default function Statement() {
           </div>
         </div>
 
+        {/* Image of the Managing Director */}
+        <div className="md:w-1/3 w-full mb-6 md:mb-0 flex justify-center rounded-lg shadow-2xl border p-5">
+          <Image
+            src={md}
+            alt="Chairman"
+            className="w-full h-auto object-cover"
+          />
+        </div>
+      </div>
+
+      
+      <div className="flex flex-col md:flex-row items-center">
         {/* Image of the Chairman */}
         <div className="md:w-1/3 w-full mb-6 md:mb-0 flex justify-center rounded-lg shadow-2xl border p-5">
           <Image
@@ -135,7 +144,56 @@ export default function Statement() {
             className="w-full h-auto object-cover"
           />
         </div>
+        {/* Chairman's Statement */}
+        <div className="md:w-2/3 w-full md:pl-10 text-center md:text-left">
+          <h2 className="text-3xl font-bold text-[#135F4A] mb-1">
+            Nasrin Akter
+          </h2>
+          <p className="text-lg font-semibold text-gray-500 mb-4">
+            Founder & Chairman
+            <br />
+    
+          </p>
 
+          <p className="text-base text-gray-600 mb-5 text-justify">
+           
+            As the Chairman of Anaa Developers Ltd., it is my privilege to lead a company that is committed to redefining the real estate landscape in Bangladesh. Our journey has been guided by the core values of integrity, innovation, and excellence. We aim not only to build homes but also to foster thriving communities that offer a harmonious blend of comfort, security, and modern living.
+          </p>
+          <p className="text-base text-gray-600 mb-5 text-justify">
+            
+
+            Our unwavering dedication to quality, timely project completion, and customer satisfaction sets us apart in the industry. We believe in creating value-driven opportunities for our clients, whether they are looking to invest or find their dream home. As we continue to grow, we remain focused on sustainable practices and contributing positively to the urban development of our country.
+
+            Thank you for your trust in Anaa Developers Ltd. Together, we are building a brighter, better future.
+          </p>
+
+          {/* Find Out More Link */}
+          <div className="flex lg:gap-10 gap-5 items-center">
+            <p>
+              {" "}
+              Connect To{" "}
+              <EastIcon fontSize="small" className="text-[#135F4A]" />
+            </p>
+            <div className="flex space-x-3">
+              <Link href="https://www.facebook.com/AnaaDevelopersLtd">
+                <Image src={facebook} alt="" className="w-5" />
+              </Link>
+              <Link href="#">
+                <Image src={twitter} alt="" className="w-5" />
+              </Link>
+              <Link href="#">
+                <Image src={linkedin} alt="" className="w-5" />
+              </Link>
+              <Link href="#">
+                <Image src={instagram} alt="" className="w-5" />
+              </Link>
+
+              {/* <Link href="https://youtube.com/@anaadevelopersltd?si=sSn6G0hth6Xw2znd">
+                <Image src={youtube} alt="" className="w-5" />
+              </Link> */}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

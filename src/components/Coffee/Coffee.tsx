@@ -20,13 +20,13 @@ const CoffeeSection = () => {
   };
   return (
     <>
-      <div className="my-20 p-5 lg:py-20 text-white text-center coffee-bg relative">
+      <div className="my-20 p-5 lg:py-20 text-white text-center coffee-bg relative" >
         {/* Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-80 z-10"></div>
 
         {/* Content inside the section */}
-        <div className="relative z-20">
-          <div>
+        <div className="relative z-20" >
+          <div data-aos="fade-up">
             <h2 className="text-2xl font-bold mb-4">Would You Like To</h2>
             <h1 className="text-4xl font-bold mb-8">
               A Meeting with Coffee in Our Office!
@@ -34,7 +34,7 @@ const CoffeeSection = () => {
           </div>
 
           {/* Contact options */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5" data-aos="fade-up">
             {/* Buy a Property */}
             <div className="bg-white text-[#135F4A] p-5 rounded">
               <HomeIcon

@@ -9,6 +9,11 @@ import "./Styles.css";
 import { Autoplay, EffectCoverflow } from "swiper/modules";
 import Image from "next/image";
 import Loader from "../share/Loader/Loader";
+import Link from "next/link";
+import { TProject } from "@/types/project";
+
+import EastIcon from "@mui/icons-material/East";
+import img from "../../assets/images/Jolchaya-hazaribag/Jolchaya 01.jpg";
 
 const FeaturedProperties = () => {
   const [projectData, setProjectData] = useState<any>(null);
@@ -58,11 +63,12 @@ const FeaturedProperties = () => {
     .filter((project: any) => project.feature === true)
     .flatMap((project: any) => project.overviewImages || []);
 
+  console.log(projectData);
   return (
     <>
       <div className="bg  py-10">
-        <div className="flex justify-center py-5">
-          <h1 className="text-center mb-16 text-white z-10 absolute uppercase">
+        <div className="flex justify-center py-5" data-aos="fade-up">
+          <h1 className="text-center mb-5 text-white z-10 absolute uppercase">
             Featured Properties
           </h1>
         </div>
@@ -82,6 +88,7 @@ const FeaturedProperties = () => {
           loop={true}
           autoplay={{
             delay: 3000,
+            pauseOnMouseEnter: true,
           }}
           speed={2000}
           pagination={true}
@@ -98,17 +105,30 @@ const FeaturedProperties = () => {
           }}
           modules={[EffectCoverflow, Autoplay]}
           className="mySwiper"
+          data-aos="fade-up"
         >
-          {featuredImages?.map((img: any, i: number) => (
-            <SwiperSlide key={i}>
-              <Image
-                src={img}
-                className="h-full"
-                alt="feature"
-                width={500}
-                height={5000}
-              />
-            </SwiperSlide>
+          {projectData?.data?.projects?.map((data: TProject) => (
+            <div key={data._id}>
+              {featuredImages?.map((img: any, i: number) => (
+                <SwiperSlide key={i} className="relative ">
+                  <Link href={`/projects/${data._id}`}>
+                    <div className="relative ">
+                      <Image
+                        src={img}
+                        className="h-[450px]"
+                        alt="feature"
+                        width={500}
+                        height={6000}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                      <h2 className="absolute bottom-0 w-full text-white text-center py-4">
+                        This is Property
+                      </h2>
+                    </div>
+                  </Link>
+                </SwiperSlide>
+              ))}
+            </div>
           ))}
         </Swiper>
       </div>

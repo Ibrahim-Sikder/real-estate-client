@@ -1,20 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import React from "react";
-import { Grid, Button, Box } from "@mui/material";
+import { Grid, Button, } from "@mui/material";
 import ADForm from "@/components/Forms/Form";
 import { FieldValues } from "react-hook-form";
 import ADSelect from "@/components/Forms/Select";
 import {
   location,
   lookingFor,
-  category,
-  low_budget,
-  high_budget,
 } from "@/constant/type";
 import { useRouter } from "next/navigation";
 
-const SearchBar = () => {
+const ReadyFlate = () => {
   const router = useRouter();
   const onSubmit = (data: FieldValues) => {
     const filteredData = Object.fromEntries(
@@ -76,19 +73,7 @@ const SearchBar = () => {
                 defaultValue="Dhaka"
               />
             </Grid>
-            <Grid item xs={12} md={6} lg={3}>
-              <label className="block uppercase lg:text-sm text-xs">
-                Category
-              </label>
-              <ADSelect
-                size="small"
-                name="category"
-                label="Category"
-                items={category}
-                fullWidth
-                sx={tabMargin}
-              />
-            </Grid>
+           
             <Grid
               item
               xs={12}
@@ -127,4 +112,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default ReadyFlate;

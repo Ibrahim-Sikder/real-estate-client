@@ -15,6 +15,7 @@ const SearchProjectTab = () => {
             onClick={() => setActiveTab("tab1")}
           >
             All Status
+            
           </button>
           <button
             className={`lg:p-3 py-2 px-1  lg:text-sm text-xs text-center uppercase font-bold rounded ${activeTab === "tab2"

@@ -32,8 +32,21 @@ jobs:
       - name: Build application
         run: npm run build
 
-      - name: Debug build output (List files)
-        run: ls -la .next  # List the contents of .next to ensure it exists
+      # Debugging: List project files after build
+      - name: Debug build output
+        run: |
+          echo "Listing the contents of the project directory:"
+          ls -la
+
+      # Check if .next exists after build
+      - name: Check if .next directory exists
+        run: |
+          if [ -d ".next" ]; then
+            echo ".next directory exists"
+          else
+            echo ".next directory not found. Build might have failed."
+            exit 1
+          fi
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
@@ -54,8 +67,11 @@ jobs:
         with:
           name: build-artifact
 
-      - name: Debug downloaded artifact (List files)
-        run: ls -la .next  # List contents of the downloaded artifact to confirm it's downloaded
+      # Debugging: List files of downloaded artifact
+      - name: Debug downloaded artifact
+        run: |
+          echo "Listing the contents of the downloaded artifact:"
+          ls -la .next
 
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master

@@ -1,86 +1,67 @@
-name: Node.js CI/CD
+name: Node.js Deployment with NGINX and SSL
 
 on:
   push:
-    branches:
+    branches: 
       - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    timeout-minutes: 120 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: |
-          if [ -f package-lock.json ]; then
-            npm ci --legacy-peer-deps
-          elif [ -f pnpm-lock.yaml ]; then
-            npm install -g pnpm && pnpm install --frozen-lockfile
-          else
-            echo "No lockfile found for dependency installation."
-            exit 1
-          fi
-
-      - name: Build application
-        run: npm run build
-
-      # Debugging: List project files after build
-      - name: Debug build output
-        run: |
-          echo "Listing the contents of the project directory:"
-          ls -la
-
-      # Check if .next directory exists after build
-      - name: Check if .next directory exists
-        run: |
-          if [ -d ".next" ]; then
-            echo ".next directory exists"
-          else
-            echo ".next directory not found. Build might have failed."
-            exit 1
-          fi
-
   deploy:
-    needs: build  # Ensure deploy depends on build
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # Skip downloading artifacts and directly deploy from the source code
-      - name: Deploy to VPS
-        uses: appleboy/ssh-action@master
+      - name: Deploy to VPS using SSH
+        uses: appleboy/ssh-action@v0.1.1 # Use a specific version
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            # Navigate to the project directory on VPS
+            # Navigate to project directory
             cd /var/www/html/anaa-developers/client
 
-            # Pull latest changes from the repository
+            # Fetch latest changes and reset to main branch
             git fetch --all
             git reset --hard origin/main
 
-            # Copy environment variables
+            # Setup environment and dependencies
             cp .env.example .env
+            npm install --legacy-peer-deps
+            npm run build
 
-            # Build the Docker image
-            docker build -t anaa-developers-client .
+            # Deploy NGINX Configuration Conditionally
+            admin_CONF="/etc/nginx/sites-available/anaadevelopersltd.com"
+            PROJECT_CONF="/var/www/html/anaa-developers/client/nginx.conf"
 
-            # Stop and remove existing containers
-            docker stop anaa-developers-client || true
-            docker rm anaa-developers-client || true
+            # Use cmp instead of diff to handle whitespace and line endings better
+            if ! cmp -s "$PROJECT_CONF" "$admin_CONF"; then
+              echo "NGINX configuration has changed. Updating..."
+              sudo cp "$PROJECT_CONF" "$admin_CONF"
 
-            # Run the new container
-            docker run -d --name anaa-developers-client -p 5011:3000 anaa-developers-client
+              # Ensure symbolic link exists in sites-enabled
+              if [ ! -f /etc/nginx/sites-enabled/anaadevelopersltd.com ]; then
+                sudo ln -s "$admin_CONF" /etc/nginx/sites-enabled/anaadevelopersltd.com
+              fi
+
+              # Test and reload NGINX
+              sudo nginx -t && sudo systemctl reload nginx
+            else
+              echo "NGINX configuration is unchanged. Skipping update."
+            fi
+
+            # Manage SSL using Certbot
+            sudo certbot --nginx -d anaadevelopersltd.com --non-interactive --agree-tos --register-unsafely-without-email --force-renewal
+
+            # Manage PM2 process
+            if pm2 describe anaa-developers-client > /dev/null; then
+              pm2 restart anaa-developers-client
+            else
+              pm2 start npm --name "anaa-developers-client" -- run start
+            fi
+
+            # Save PM2 process list 
+            pm2 save
+
+            # Cleanup: Optional but recommended
+            npm cache clean --force

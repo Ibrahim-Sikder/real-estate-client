@@ -1,14 +1,64 @@
-name: Node.js CD
+name: Node.js CI/CD
 
 on:
   push:
     branches: [main]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Deploy to VPS using ssh
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci --legacy-peer-deps
+          elif [ -f pnpm-lock.yaml ]; then
+            npm install -g pnpm && pnpm install --frozen-lockfile
+          else
+            echo "No lockfile found for dependency installation."
+            exit 1
+          fi
+
+      # Build the application
+      - name: Build application
+        run: npm run build
+
+      # Archive build artifacts
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifact
+          path: .next
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Download build artifacts
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: build-artifact
+
+      # SSH into the VPS and deploy the application
+      - name: Deploy to VPS
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -16,24 +66,22 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            # Navigate to the project directory on the client
+            # Navigate to the project directory
             cd /var/www/html/anaa-developers/client
 
-            # Fetch all updates from the remote repository
+            # Pull latest changes from the repository
             git fetch --all
-
-            # Reset the current branch to match the remote main branch
             git reset --hard origin/main
 
-            # Ensure environment variables are set up correctly
+            # Ensure environment variables are set
             cp .env.example .env
 
             # Build the Docker image
             docker build -t anaa-developers-client .
 
-            # Stop and remove any existing Docker container
+            # Stop and remove any existing container
             docker stop anaa-developers-client || true
             docker rm anaa-developers-client || true
 
-            # Run the Docker container
+            # Run the container with the built image
             docker run -d --name anaa-developers-client -p 5011:3000 anaa-developers-client

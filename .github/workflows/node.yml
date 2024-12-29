@@ -1,4 +1,4 @@
-name: Node.js CI/CD
+name: Next.js CI/CD
 
 on:
   push:
@@ -17,16 +17,16 @@ jobs:
         with:
           node-version: 20
 
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+
       - name: Install dependencies
-        run: |
-          if [ -f package-lock.json ]; then
-            npm ci --legacy-peer-deps
-          elif [ -f pnpm-lock.yaml ]; then
-            npm install -g pnpm && pnpm install --frozen-lockfile
-          else
-            echo "No lockfile found for dependency installation."
-            exit 1
-          fi
+        run: npm ci
 
       - name: Build application
         run: npm run build
@@ -44,11 +44,12 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: build-artifact
+          name: next-build
           path: |
             .next
             public
             package.json
+            package-lock.json
             next.config.mjs
 
   deploy:
@@ -62,7 +63,7 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v3
         with:
-          name: build-artifact
+          name: next-build
 
       - name: Verify downloaded artifact
         run: |
@@ -74,30 +75,21 @@ jobs:
             exit 1
           fi
 
-      - name: Deploy to VPS
-        uses: appleboy/ssh-action@master
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.PRIVATE_KEY }}
-          port: ${{ secrets.PORT }}
-          script: |
-            # Navigate to the project directory
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
+      - name: Deploy to VPS
+        env:
+          HOST: ${{ secrets.HOST }}
+          USER: ${{ secrets.USERNAME }}
+        run: |
+          rsync -avz --delete .next public package.json package-lock.json next.config.mjs $USER@$HOST:/var/www/html/anaa-developers/client/
+          ssh $USER@$HOST << EOF
             cd /var/www/html/anaa-developers/client
+            npm ci --only=production
+            pm2 restart real-estate-client || pm2 start npm --name "real-estate-client" -- start
+          EOF
 
-            # Pull latest changes from the repository
-            git fetch --all
-            git reset --hard origin/main
-
-            # Copy environment variables
-            cp .env.example .env
-
-            # Build the Docker image
-            docker build -t anaa-developers-client .
-
-            # Stop and remove existing containers
-            docker stop anaa-developers-client || true
-            docker rm anaa-developers-client || true
-
-            # Run the new container
-            docker run -d --name anaa-developers-client -p 5011:3000 anaa-developers-client

@@ -7,9 +7,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Deploy to VPS using ssh
-        uses: appleboy/ssh-action@master
+      - name: Deploy to VPS using SSH
+        uses: appleboy/ssh-action@v0.1.1 # Use a stable version of the SSH action
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
@@ -43,3 +44,6 @@ jobs:
 
             # Save PM2 process list to ensure process persists
             pm2 save
+
+            # Restart PM2 if there are any issues with the current process
+            pm2 restart all

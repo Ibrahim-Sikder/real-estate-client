@@ -1,5 +1,3 @@
-# Dockerfile
-
 # Use a base image for Node.js
 FROM node:20-alpine AS base
 
@@ -57,4 +55,4 @@ USER nextjs
 EXPOSE 5011
 
 # Start the Next.js server in production mode
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]

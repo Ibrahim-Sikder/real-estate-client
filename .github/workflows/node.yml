@@ -45,7 +45,11 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: build-artifact
-          path: .next/**
+          path: |
+            .next
+            public
+            package.json
+            next.config.mjs
 
   deploy:
     needs: build
@@ -59,7 +63,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build-artifact
-          path: .next
 
       - name: Verify downloaded artifact
         run: |
@@ -98,4 +101,3 @@ jobs:
 
             # Run the new container
             docker run -d --name anaa-developers-client -p 5011:3000 anaa-developers-client
-

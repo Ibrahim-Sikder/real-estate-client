@@ -9,14 +9,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
+      # Set up Node.js
+        - name: Set up Node.js
+          uses: actions/setup-node@v3
+          with:
+            node-version: 20
 
+      # Install dependencies
       - name: Install dependencies
         run: |
           if [ -f package-lock.json ]; then
@@ -28,12 +31,15 @@ jobs:
             exit 1
           fi
 
+      # Build the application
       - name: Build application
         run: npm run build
 
+      # Debug build output to ensure the .next folder is created
       - name: Debug build output
         run: ls -la .next
 
+      # Upload build artifacts (ensure correct folder is uploaded)
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -45,14 +51,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Download build artifact (ensure correct artifact name is used)
       - name: Download build artifact
         uses: actions/download-artifact@v3
         with:
           name: build-artifact
 
+      # Check if .next directory was downloaded properly
+      - name: Debug downloaded artifact
+        run: ls -la .next
+
+      # Deploy to VPS
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master
         with:
@@ -61,7 +74,7 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            # Navigate to the project directory
+            # Navigate to the project directory on VPS
             cd /var/www/html/anaa-developers/client
 
             # Pull latest changes from the repository

@@ -33,13 +33,13 @@ jobs:
         run: npm run build
 
       - name: Debug build output (List files)
-        run: ls -la .next
+        run: ls -la .next  # List the contents of .next to ensure it exists
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
           name: build-artifact
-          path: .next
+          path: .next  # Upload .next directory as artifact
 
   deploy:
     needs: build  # Ensure deploy depends on build
@@ -55,7 +55,7 @@ jobs:
           name: build-artifact
 
       - name: Debug downloaded artifact (List files)
-        run: ls -la .next
+        run: ls -la .next  # List contents of the downloaded artifact to confirm it's downloaded
 
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master

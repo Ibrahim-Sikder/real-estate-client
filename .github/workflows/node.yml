@@ -1,67 +1,45 @@
-name: Node.js Deployment with NGINX and SSL
+name: Node.js CD
 
 on:
   push:
-    branches: 
-      - main
+    branches: [main]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Deploy to VPS using SSH
-        uses: appleboy/ssh-action@v0.1.1 # Use a specific version
+      - name: Deploy to VPS using ssh
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            # Navigate to project directory
+            # Navigate to the project directory on the server
             cd /var/www/html/anaa-developers/client
 
-            # Fetch latest changes and reset to main branch
+            # Fetch all updates from the remote repository
             git fetch --all
+
+            # Reset the current branch to match the remote main branch
             git reset --hard origin/main
 
-            # Setup environment and dependencies
+            # Ensure environment variables are set up correctly
             cp .env.example .env
+
+            # Install necessary dependencies
             npm install --legacy-peer-deps
+
+            # Build the project
             npm run build
 
-            # Deploy NGINX Configuration Conditionally
-            admin_CONF="/etc/nginx/sites-available/anaadevelopersltd.com"
-            PROJECT_CONF="/var/www/html/anaa-developers/client/nginx.conf"
-
-            # Use cmp instead of diff to handle whitespace and line endings better
-            if ! cmp -s "$PROJECT_CONF" "$admin_CONF"; then
-              echo "NGINX configuration has changed. Updating..."
-              sudo cp "$PROJECT_CONF" "$admin_CONF"
-
-              # Ensure symbolic link exists in sites-enabled
-              if [ ! -f /etc/nginx/sites-enabled/anaadevelopersltd.com ]; then
-                sudo ln -s "$admin_CONF" /etc/nginx/sites-enabled/anaadevelopersltd.com
-              fi
-
-              # Test and reload NGINX
-              sudo nginx -t && sudo systemctl reload nginx
-            else
-              echo "NGINX configuration is unchanged. Skipping update."
-            fi
-
-            # Manage SSL using Certbot
-            sudo certbot --nginx -d anaadevelopersltd.com --non-interactive --agree-tos --register-unsafely-without-email --force-renewal
-
-            # Manage PM2 process
+            # Check if PM2 process exists, if so, restart it, otherwise start a new one
             if pm2 describe anaa-developers-client > /dev/null; then
               pm2 restart anaa-developers-client
             else
               pm2 start npm --name "anaa-developers-client" -- run start
             fi
 
-            # Save PM2 process list 
+            # Save PM2 process list to ensure process persists
             pm2 save
-
-            # Cleanup: Optional but recommended
-            npm cache clean --force

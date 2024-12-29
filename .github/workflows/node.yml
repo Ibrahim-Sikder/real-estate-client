@@ -16,7 +16,7 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            # Navigate to the project directory on the server
+            # Navigate to the project directory on the client
             cd /var/www/html/anaa-developers/client
 
             # Fetch all updates from the remote repository
@@ -28,18 +28,12 @@ jobs:
             # Ensure environment variables are set up correctly
             cp .env.example .env
 
-            # Install necessary dependencies
-            npm install --legacy-peer-deps
+            # Build the Docker image
+            docker build -t anaa-developers-client .
 
-            # Build the project
-            npm run build
+            # Stop and remove any existing Docker container
+            docker stop anaa-developers-client || true
+            docker rm anaa-developers-client || true
 
-            # Check if PM2 process exists, if so, restart it, otherwise start a new one
-            if pm2 describe anaa-developers-client > /dev/null; then
-              pm2 restart anaa-developers-client
-            else
-              pm2 start npm --name "anaa-developers-client" -- run start
-            fi
-
-            # Save PM2 process list to ensure process persists
-            pm2 save
+            # Run the Docker container
+            docker run -d --name anaa-developers-client -p 5011:3000 anaa-developers-client

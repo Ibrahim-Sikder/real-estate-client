@@ -92,4 +92,3 @@ jobs:
             npm ci --only=production
             pm2 restart real-estate-client || pm2 start npm --name "real-estate-client" -- start
           EOF
-

@@ -9,17 +9,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
-      # Install dependencies
       - name: Install dependencies
         run: |
           if [ -f package-lock.json ]; then
@@ -31,11 +28,12 @@ jobs:
             exit 1
           fi
 
-      # Build the application
       - name: Build application
         run: npm run build
 
-      # Archive build artifacts
+      - name: Debug build output
+        run: ls -la .next
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -47,17 +45,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Download build artifacts
       - name: Download build artifact
         uses: actions/download-artifact@v3
         with:
           name: build-artifact
 
-      # SSH into the VPS and deploy the application
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master
         with:
@@ -73,15 +68,15 @@ jobs:
             git fetch --all
             git reset --hard origin/main
 
-            # Ensure environment variables are set
+            # Copy environment variables
             cp .env.example .env
 
             # Build the Docker image
             docker build -t anaa-developers-client .
 
-            # Stop and remove any existing container
+            # Stop and remove existing containers
             docker stop anaa-developers-client || true
             docker rm anaa-developers-client || true
 
-            # Run the container with the built image
+            # Run the new container
             docker run -d --name anaa-developers-client -p 5011:3000 anaa-developers-client

@@ -37,11 +37,11 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
 
   useEffect(() => {
     AOS.init({
-      duration: 1000, 
-      once: false, 
+      duration: 1000,
+      once: false,
     });
   }, []);
-  
+
   useEffect(() => {
     const fetchProjectData = async () => {
       try {
@@ -86,72 +86,65 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
 
   return (
     <>
-      
+
       <CommonBanner />
       <Container className="my-20">
         <div className="lg:flex gap-10">
-          
+
           <div className="lg:w-[250px] h-full mx-auto flex lg:flex-col sticky lg:top-20 top-16 z-10 bg-[#76B486] overflow-x-auto lg:overflow-visible whitespace-nowrap" >
             <button
-              className={` text-center uppercase flex-shrink-0 border-b-2 p-3 ${
-                activeTab === "tab1" ? "bg-[#135F4A] text-white" : ""
-              }`}
+              className={` text-center uppercase flex-shrink-0 border-b-2 p-3 ${activeTab === "tab1" ? "bg-[#135F4A] text-white" : ""
+                }`}
               onClick={() => setActiveTab("tab1")}
             >
               OVERVIEW
             </button>
-            
+
             <button
-              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
-                activeTab === "tab2" ? "bg-[#135F4A] text-white" : ""
-              }`}
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab2" ? "bg-[#135F4A] text-white" : ""
+                }`}
               onClick={() => setActiveTab("tab2")}
             >
               Concept
             </button>
             <button
-              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
-                activeTab === "tab3" ? "bg-[#135F4A] text-white" : ""
-              }`}
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab3" ? "bg-[#135F4A] text-white" : ""
+                }`}
               onClick={() => setActiveTab("tab3")}
             >
               FLOOR PLAN
             </button>
             <button
-              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
-                activeTab === "tab4" ? "bg-[#135F4A] text-white" : ""
-              }`}
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab4" ? "bg-[#135F4A] text-white" : ""
+                }`}
               onClick={() => setActiveTab("tab4")}
             >
               LOCATION MAP
             </button>
             <button
-              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
-                activeTab === "tab5" ? "bg-[#135F4A] text-white" : ""
-              }`}
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab5" ? "bg-[#135F4A] text-white" : ""
+                }`}
               onClick={() => setActiveTab("tab5")}
             >
               VIRTUAL TOUR
             </button>
             <button
-              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
-                activeTab === "tab6" ? "bg-[#135F4A] text-white" : ""
-              }`}
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab6" ? "bg-[#135F4A] text-white" : ""
+                }`}
               onClick={() => setActiveTab("tab6")}
             >
               Download brochure
             </button>
             <button
-              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
-                activeTab === "tab7" ? "bg-[#135F4A] text-white" : ""
-              }`}
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab7" ? "bg-[#135F4A] text-white" : ""
+                }`}
               onClick={() => setActiveTab("tab7")}
             >
               CONTACT NOW
             </button>
 
-            
-            
+
+
           </div>
 
           {/* Tab Content */}
@@ -173,5 +166,6 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
     </>
   );
 };
+
 
 export default ProjectDetails;

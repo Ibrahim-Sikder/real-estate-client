@@ -13,25 +13,28 @@ const UpcomingProject: React.FC<{ projectData: TProject[] }> = async ({ projectD
             <div className="my-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {projectData?.map((data: TProject) => (
-                        <div key={data._id} className="relative group">
-                            {
-                                data?.conceptImages && data?.conceptImages.length > 0 && (
-                                    <>
-                                        <Image
-                                            width={500}
-                                            height={500}
-                                            src={data.conceptImages[0]}
-                                            alt={data.title}
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </>
-                                )
-                            }
+                        <div key={data._id} className="relative group w-[330px] rounded-md">
+                            <div className="flex justify-end px-4">
+                                <h5 className="absolute bg-black bg-opacity-60 border border-gray-300 p-1 px-4 rounded-full mt-3 text-white">
+                                    {data.project_offer ? data.project_offer : 'No Offer'}
+                                </h5>
+                            </div>
+                            {data?.conceptImages && data?.conceptImages.length > 0 && (
+                                <>
+                                    <Image
+                                        width={400}
+                                        height={500}
+                                        src={data.conceptImages[0]}
+                                        alt={data.title}
+                                        className="w-full h-full object-cover rounded-md"
+                                    />
+                                </>
+                            )}
                             {/* Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.8)] via-transparent to-transparent"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.8)] via-transparent to-transparent rounded-md"></div>
 
                             {/* Content */}
-                            <div className="absolute lg:top-80 md:top-96 top-80 left-10">
+                            <div className="absolute lg:top-[350px] md:top-96 top-80 px-4">
                                 <h3 className="text-white text-lg font-semibold">
                                     {data.title}
                                 </h3>

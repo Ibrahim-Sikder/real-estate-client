@@ -24,6 +24,7 @@ export type TProject = {
   sub_title: string;
   project_type: string;
   project_address: string;
+  project_offer: string;
   land_area: string;
   storied: string;
   overview_Location: string[];
@@ -37,6 +38,7 @@ export type TProject = {
   floor_description?: string;
   map_Location?: string[];
   map_description?: string;
+  project_date: string;
   floorImages?: string[];
   locationImgs?: string[];
   conceptImages?: string[];

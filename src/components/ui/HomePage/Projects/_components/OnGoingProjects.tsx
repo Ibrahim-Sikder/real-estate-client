@@ -15,7 +15,7 @@ const OnGoingProjects: React.FC<{ projectData: TProject[] }> = ({
             <div key={data._id} className="relative group w-[330px] rounded-md">
               <div className="flex justify-end px-4">
                 <h5 className="absolute bg-black bg-opacity-60 border border-gray-300 p-1 px-4 rounded-full mt-3 text-white">
-                  For Sale
+                {data.project_offer ? data.project_offer : 'No Offer'}
                 </h5>
               </div>
               {data?.conceptImages && data?.conceptImages.length > 0 && (

@@ -107,22 +107,30 @@ const Overview: React.FC<OverviewProps> = ({ projectData }) => {
       }
     });
   };
-
+  const formatDateTime = (dateString: string) => {
+    const date = new Date(dateString);
+    const options: Intl.DateTimeFormatOptions = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    };
+    return new Intl.DateTimeFormat("en-US", options).format(date);
+  };
   return (
     <>
       <div className="flex justify-center text-[#135F4A] bg-gray-200 rounded-lg content-center items-center py-5 mb-4">
-        <div className="flex gap-2 justify-center items-center text-center content-center font-bold">
-          <h4>Exited Offer Exist On Till - </h4>
-          <div className="bg-gray-300 rounded-lg py-3 px-5 w-[80px] text-xl font-bold">
-            10
-          </div>
-          -
-          <div className="bg-gray-300 rounded-lg py-3 px-5 w-[80px] text-xl font-bold">
-            10
-          </div>
-          -
-          <div className="bg-gray-300 rounded-lg py-3 px-5 w-[80px] text-xl font-bold">
-            2024
+        <div className="flex justify-center text-[#135F4A] bg-gray-200 rounded-lg content-center items-center py-5 mb-4">
+          <div className="flex flex-col justify-center items-center text-center font-bold space-y-2">
+            <h4 className="text-lg">Excited Offer Exists Until:</h4>
+            <div className="bg-white shadow-lg rounded-lg py-4 px-6">
+              <p className="text-2xl font-bold text-[#135F4A]">
+                {formatDateTime(projectData.project_date)}
+              </p>
+            </div>
           </div>
         </div>
       </div>

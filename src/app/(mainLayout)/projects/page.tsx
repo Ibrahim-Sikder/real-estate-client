@@ -11,13 +11,9 @@ import ProjectsBanner from "./ProjectsBanner";
 import Affiliation from "@/components/Affiliation/Affiliation";
 import { useSearchParams } from "next/navigation";
 import Loader from "@/components/share/Loader/Loader";
+import { TProject } from "@/types/project";
 
-export type TProject = {
-  _id: string;
-  title: string;
-  location: string;
-  floorImages?: string[];
-};
+
 
 export type ProjectResponse = {
   data: {
@@ -115,7 +111,7 @@ const ProjectPage = () => {
                   >
                     <div className="flex justify-end px-4">
                       <h5 className="absolute bg-black bg-opacity-60 border border-gray-300 p-1 px-4 rounded-full mt-3 text-white">
-                        For Sale
+                        {data.project_offer}
                       </h5>
                     </div>
                     {data?.floorImages?.slice(0, 1).map((floor) => (

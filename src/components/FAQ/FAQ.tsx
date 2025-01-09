@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -20,6 +19,7 @@ const FAQ = () => {
   const [faqData, setFaqData] = useState<TFaq[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [expanded, setExpanded] = useState<number | false>(false); // State to track expanded accordion
 
   useEffect(() => {
     const fetchFaqData = async () => {
@@ -29,6 +29,7 @@ const FAQ = () => {
         );
         const data = await response.json();
         setFaqData(data.data?.faqs || []);
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err) {
         setError("Failed to fetch FAQ data.");
       } finally {
@@ -59,6 +60,12 @@ const FAQ = () => {
     );
   }
 
+  const handleAccordionChange =
+    (panelIndex: number) =>
+    (event: React.SyntheticEvent, isExpanded: boolean) => {
+      setExpanded(isExpanded ? panelIndex : false); // Set the expanded panel index or close all if collapsed
+    };
+
   return (
     <Container className="my-20">
       <h2 className="text-center mb-5">FREQUENTLY ASKED QUESTIONS</h2>
@@ -66,7 +73,11 @@ const FAQ = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <div className="lg:order1 order-2">
           {faqData.map((faqItem: TFaq, index: number) => (
-            <Accordion key={faqItem._id}>
+            <Accordion
+              key={faqItem._id}
+              expanded={expanded === index} // Set the expanded state for each accordion
+              onChange={handleAccordionChange(index)} // Handle the change of accordion
+            >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls={`panel${index + 1}-content`}

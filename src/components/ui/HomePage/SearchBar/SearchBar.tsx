@@ -39,7 +39,7 @@ const SearchBar = () => {
     },
   };
   return (
-    <div>
+    <div className="mx-5 mb-5">
       <ADForm onSubmit={onSubmit}>
         <div className="bg-white lg:py-8 lg:px-5 p-3 rounded shadow-md">
           <Grid

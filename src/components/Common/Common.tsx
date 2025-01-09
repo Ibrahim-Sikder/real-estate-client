@@ -24,7 +24,7 @@ const Common = () => {
   if (error) {
     return <p>Do not project found!</p>
   }
-  console.log('project data from common', projectDate)
+
   return (
     <>
       <div className="my-20" data-aos="fade-up-left">

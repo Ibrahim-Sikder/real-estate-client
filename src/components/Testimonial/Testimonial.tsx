@@ -57,7 +57,7 @@ const Testimonials = () => {
       </h1>
     );
   }
-  // console.log(reviewsData)
+
 
   const settings = {
     dots: false,

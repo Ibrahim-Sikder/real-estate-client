@@ -12,6 +12,7 @@ import Affiliation from "@/components/Affiliation/Affiliation";
 import { useSearchParams } from "next/navigation";
 import Loader from "@/components/share/Loader/Loader";
 import { TProject } from "@/types/project";
+import NoProjectFound from "./_components/NoProjectFound";
 
 
 
@@ -76,6 +77,7 @@ const ProjectPage = () => {
     setVisibleProjects((prevCount) => prevCount + 5);
   };
 
+  console.log(projectData)
   return (
     <>
       <Head>
@@ -92,74 +94,77 @@ const ProjectPage = () => {
           property="og:description"
           content="Explore our exclusive real estate projects, featuring prime locations and top-notch developments."
         />
-        {/* <meta property="og:url" content="https://www.yourwebsite.com/projects" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.yourwebsite.com/og-projects-image.jpg" />
-        <link rel="canonical" href="https://www.yourwebsite.com/projects" /> */}
+
       </Head>
       <div>
         <ProjectsBanner />
-        <Container>
-          <div className="my-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-32">
-              {projectData?.data?.projects
-                ?.slice(0, visibleProjects)
-                .map((data: TProject) => (
-                  <div
-                    key={data._id}
-                    className="relative group w-[330px] rounded-md"
-                  >
-                    <div className="flex justify-end px-4">
-                      <h5 className="absolute bg-black bg-opacity-60 border border-gray-300 p-1 px-4 rounded-full mt-3 text-white">
-                        {data.project_offer}
-                      </h5>
-                    </div>
-                    {data?.floorImages?.slice(0, 1).map((floor) => (
-                      <Image
-                        key={floor}
-                        width={400}
-                        height={500}
-                        src={floor}
-                        alt={data.title}
-                        className="w-full h-full object-cover rounded-md"
-                      />
+        {
+          projectData?.data.projects?.length > 0 ? (
+            <Container>
+              <div className="my-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-32">
+                  {projectData?.data?.projects
+                    ?.slice(0, visibleProjects)
+                    .map((data: TProject) => (
+                      <div
+                        key={data._id}
+                        className="relative group w-[330px] rounded-md"
+                      >
+                        <div className="flex justify-end px-4">
+                          <h5 className="absolute bg-black bg-opacity-60 border border-gray-300 p-1 px-4 rounded-full mt-3 text-white">
+                            {data.project_offer}
+                          </h5>
+                        </div>
+                        {data?.floorImages?.slice(0, 1).map((floor) => (
+                          <Image
+                            key={floor}
+                            width={400}
+                            height={500}
+                            src={floor}
+                            alt={data.title}
+                            className="w-full h-full object-cover rounded-md"
+                          />
+                        ))}
+
+                        {/* Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.8)] via-transparent to-transparent rounded-md"></div>
+
+                        {/* Content */}
+                        <div className="absolute lg:top-[350px] md:top-96 top-80 px-4 rounded-md">
+                          <h3 className="text-white text-lg font-semibold">
+                            {data.title}
+                          </h3>
+                          <p className="text-white text-sm">{data.location}</p>
+                        </div>
+
+                        <Link
+                          href={`/projects/${data._id}`}
+                          className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        >
+                          <button className="text-white bg-transparent group-hover:bg-[rgba(0,0,0,0.7)] transition duration-300 p-2 rounded-full">
+                            <EastIcon />
+                          </button>
+                        </Link>
+                      </div>
                     ))}
-
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.8)] via-transparent to-transparent rounded-md"></div>
-
-                    {/* Content */}
-                    <div className="absolute lg:top-[350px] md:top-96 top-80 px-4 rounded-md">
-                      <h3 className="text-white text-lg font-semibold">
-                        {data.title}
-                      </h3>
-                      <p className="text-white text-sm">{data.location}</p>
-                    </div>
-
-                    <Link
-                      href={`/projects/${data._id}`}
-                      className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                </div>
+                {visibleProjects < projectData?.data?.projects?.length && (
+                  <div className="flex justify-center mt-12">
+                    <button
+                      onClick={handleLoadMore}
+                      className="bg-[#135F4A] px-6 py-2 text-white"
                     >
-                      <button className="text-white bg-transparent group-hover:bg-[rgba(0,0,0,0.7)] transition duration-300 p-2 rounded-full">
-                        <EastIcon />
-                      </button>
-                    </Link>
+                      Load More
+                    </button>
                   </div>
-                ))}
-            </div>
-            {visibleProjects < projectData?.data?.projects?.length && (
-              <div className="flex justify-center mt-12">
-                <button
-                  onClick={handleLoadMore}
-                  className="bg-[#135F4A] px-6 py-2 text-white"
-                >
-                  Load More
-                </button>
+                )}
               </div>
-            )}
-          </div>
-          <Affiliation />
-        </Container>
+              <Affiliation />
+            </Container>
+          ) : (
+            <NoProjectFound isLoading={loading} />
+          )
+        }
       </div>
     </>
   );

@@ -146,6 +146,7 @@ const Overview: React.FC<OverviewProps> = ({ projectData }) => {
           <PropertyGallery projectData={projectData} />
         </div>
       </div>
+      
       <div className="bg-white shadow-lg p-5 border mt-10" data-aos="fade-up">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="mb-4">

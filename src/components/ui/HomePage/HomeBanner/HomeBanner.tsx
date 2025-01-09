@@ -3,7 +3,7 @@ import SearchProjectTab from "../SearchBar/SearchProjectTab";
 
 const HomeBanner = () => {
   return (
-    <section className="homeBannerWrap  ">
+    <section className="homeBannerWrap">
       <div className="bannerContent space-y-1 lg:w-[700px] w-full lg:px-0 px-5">
         <h3>Welcome To</h3>
         <h1 className="text-[#E3C80D] font-bold">Anaa Developers Ltd </h1>

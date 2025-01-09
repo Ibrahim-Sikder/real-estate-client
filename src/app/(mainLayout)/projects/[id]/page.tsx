@@ -34,7 +34,6 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -63,8 +62,13 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
     fetchProjectData();
   }, [id]);
 
+  const handleTabClick = (tab: string) => {
+    setActiveTab(tab);
+    window.scrollTo(0, 400);
+  };
+
   if (loading) {
-    <Loader />;
+    return <Loader />;
   }
 
   if (error) {
@@ -84,18 +88,17 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
   }
 
 
+  console.log('single project data', projectData)
   return (
     <>
-
       <CommonBanner />
       <Container className="my-20">
-        <div className="lg:flex gap-10">
-
-          <div className="lg:w-[250px] h-full mx-auto flex lg:flex-col sticky lg:top-20 top-16 z-10 bg-[#76B486] overflow-x-auto lg:overflow-visible whitespace-nowrap" >
+        <div id="project" className="lg:flex gap-10">
+          <div className="lg:w-[250px] h-full mx-auto flex lg:flex-col sticky lg:top-20 top-16 z-10 bg-[#76B486] overflow-x-auto lg:overflow-visible whitespace-nowrap">
             <button
-              className={` text-center uppercase flex-shrink-0 border-b-2 p-3 ${activeTab === "tab1" ? "bg-[#135F4A] text-white" : ""
+              className={`text-center uppercase flex-shrink-0 border-b-2 p-3 ${activeTab === "tab1" ? "bg-[#135F4A] text-white" : ""
                 }`}
-              onClick={() => setActiveTab("tab1")}
+              onClick={() => handleTabClick("tab1")}
             >
               OVERVIEW
             </button>
@@ -103,52 +106,49 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
             <button
               className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab2" ? "bg-[#135F4A] text-white" : ""
                 }`}
-              onClick={() => setActiveTab("tab2")}
+              onClick={() => handleTabClick("tab2")}
             >
               Concept
             </button>
             <button
               className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab3" ? "bg-[#135F4A] text-white" : ""
                 }`}
-              onClick={() => setActiveTab("tab3")}
+              onClick={() => handleTabClick("tab3")}
             >
               FLOOR PLAN
             </button>
             <button
               className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab4" ? "bg-[#135F4A] text-white" : ""
                 }`}
-              onClick={() => setActiveTab("tab4")}
+              onClick={() => handleTabClick("tab4")}
             >
               LOCATION MAP
             </button>
             <button
               className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab5" ? "bg-[#135F4A] text-white" : ""
                 }`}
-              onClick={() => setActiveTab("tab5")}
+              onClick={() => handleTabClick("tab5")}
             >
               VIRTUAL TOUR
             </button>
             <button
               className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab6" ? "bg-[#135F4A] text-white" : ""
                 }`}
-              onClick={() => setActiveTab("tab6")}
+              onClick={() => handleTabClick("tab6")}
             >
               Download brochure
             </button>
             <button
               className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab7" ? "bg-[#135F4A] text-white" : ""
                 }`}
-              onClick={() => setActiveTab("tab7")}
+              onClick={() => handleTabClick("tab7")}
             >
               CONTACT NOW
             </button>
-
-
-
           </div>
 
           {/* Tab Content */}
-          <div className="w-full  lg:mt-0" data-aos="fade-left">
+          <div className="w-full lg:mt-0" data-aos="fade-left">
             {activeTab === "tab1" && (
               <Overview projectData={projectData.data} />
             )}
@@ -158,7 +158,9 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
             {activeTab === "tab5" && (
               <VirtualTour projectData={projectData.data} />
             )}
-            {activeTab === "tab6" && <BrowshareDownload projectData={projectData.data} />}
+            {activeTab === "tab6" && (
+              <BrowshareDownload projectData={projectData.data} />
+            )}
             {activeTab === "tab7" && <Contact />}
           </div>
         </div>
@@ -166,6 +168,5 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
     </>
   );
 };
-
 
 export default ProjectDetails;

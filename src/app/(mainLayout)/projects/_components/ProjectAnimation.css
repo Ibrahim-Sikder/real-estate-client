@@ -1,0 +1,35 @@
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .circle {
+    animation: rotate 4s linear infinite;
+    transform-origin: center;
+  }
+  
+  .house-group {
+    animation: pulse 2s ease-in-out infinite;
+  }
+  
+  .door {
+    animation: bounce 1s ease-in-out infinite;
+    transform-origin: bottom;
+  }
+  
+  .window {
+    animation: pulse 2s ease-in-out infinite;
+    animation-delay: 0.5s;
+  }
+  
+  

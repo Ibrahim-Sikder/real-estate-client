@@ -63,7 +63,6 @@ const FeaturedProperties = () => {
     .filter((project: any) => project.feature === true)
     .flatMap((project: any) => project.overviewImages || []);
 
-  console.log(projectData);
   return (
     <>
       <div className="bg  py-10">

@@ -60,6 +60,9 @@ const Header = () => {
             <Link href="/services" onClick={closeMenu}>
               <li>SERVICES</li>
             </Link>
+            <Link href="/blog" onClick={closeMenu}>
+              <li>BLOG</li>
+            </Link>
             <Link href="/contact" onClick={closeMenu}>
               <li>CONTACT</li>
             </Link>

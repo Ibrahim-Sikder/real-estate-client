@@ -39,10 +39,17 @@ export type IGenericErrorMessage = {
 };
 
 export const adminRole = ["Admin"];
-
-
-// type Option = {
-//   label: string;
-//   subCategories?: Option[];
-// };
-
+export type TQueryParam = {
+  name: string;
+  value: boolean | React.Key;
+};
+export type TBlog = {
+  _id:string,
+  title: string;
+  thumbnail: [string];
+  description: string;
+  content: string;
+  slug: string;
+  tags: string[];
+  createdAt:string,
+}

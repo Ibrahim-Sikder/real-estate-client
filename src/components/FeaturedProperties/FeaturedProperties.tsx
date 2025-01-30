@@ -65,7 +65,7 @@ const FeaturedProperties = () => {
 
   return (
     <>
-      <div className="bg  py-10">
+      <div className="bg  py-10 sectionMargin">
         <div className="flex justify-center py-5" data-aos="fade-up">
           <h1 className="text-center mb-5 text-white z-10 absolute uppercase">
             Featured Properties

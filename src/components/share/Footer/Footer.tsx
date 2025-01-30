@@ -83,7 +83,7 @@ const Footer = () => {
               <div className="lg:mt-0 mt-10">
                 <h4 className="lg:text-start text-center">Company</h4>
                 <ul className="mt-3 space-y-2 lg:text-start text-center">
-                  <Link href="#">
+                  <Link href="/faq">
                     <li>FAQ</li>
                   </Link>
                   <Link href="#">

@@ -9,6 +9,7 @@ import Trusted from "@/components/Trusted/Trusted";
 import FAQ from "@/components/FAQ/FAQ";
 import HomeBanner from "@/components/ui/HomePage/HomeBanner/HomeBanner";
 import Projects from "@/components/ui/HomePage/Projects/Projects";
+import VideoSection from "@/components/ui/HomePage/VideoSection/VideoSection";
 
 const Home = () => {
   return (
@@ -36,6 +37,7 @@ const Home = () => {
         <HomeBanner />
         <Trusted />
         <Projects />
+        <VideoSection />
         <FeaturedProperties />
         <Affiliation />
         <CoffeeSection />

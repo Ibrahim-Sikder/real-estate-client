@@ -89,7 +89,7 @@ export default function TermsAndConditions() {
             };
     return (
         <ThemeProvider theme={theme}>
-     
+
             <CssBaseline />
             <Container maxWidth="md" sx={{ py: 8 }}>
                 <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -19,7 +21,7 @@ const FAQ = () => {
   const [faqData, setFaqData] = useState<TFaq[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [expanded, setExpanded] = useState<number | false>(false); // State to track expanded accordion
+  const [expanded, setExpanded] = useState<number | false>(false); 
 
   useEffect(() => {
     const fetchFaqData = async () => {
@@ -29,8 +31,7 @@ const FAQ = () => {
         );
         const data = await response.json();
         setFaqData(data.data?.faqs || []);
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (err) {
+      } catch (err:any) {
         setError("Failed to fetch FAQ data.");
       } finally {
         setLoading(false);
@@ -63,7 +64,7 @@ const FAQ = () => {
   const handleAccordionChange =
     (panelIndex: number) =>
     (event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panelIndex : false); // Set the expanded panel index or close all if collapsed
+      setExpanded(isExpanded ? panelIndex : false); 
     };
 
   return (
@@ -75,8 +76,8 @@ const FAQ = () => {
           {faqData.map((faqItem: TFaq, index: number) => (
             <Accordion
               key={faqItem._id}
-              expanded={expanded === index} // Set the expanded state for each accordion
-              onChange={handleAccordionChange(index)} // Handle the change of accordion
+              expanded={expanded === index} 
+              onChange={handleAccordionChange(index)}
             >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}

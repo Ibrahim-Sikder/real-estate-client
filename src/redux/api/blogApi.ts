@@ -20,13 +20,10 @@ const blogApi = baseApi.injectEndpoints({
       },
     }),
 
-    // getBlog: builder.query({
-    //   query: (id: string) => `/blogs/${id}`, 
-    //   providesTags: (_result, _error, id) => [{ type: 'Blog', id }],
-    // }),
+    // query: (slug: string) => `/blog/${slug}`,
     getBlog: builder.query({
-      query: (id) => ({
-        url: `/blogs/${id}`,
+      query: (slug) => ({
+        url: `/blogs/${slug}`,
         method: "GET",
       }),
       providesTags: ["blog"],

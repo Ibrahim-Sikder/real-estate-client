@@ -25,6 +25,7 @@ import RecentPost from "./RecentPost";
 
 const BlogDetailsPage = () => {
   const { id } = useParams()
+  console.log(id)
   const { data, isLoading } = useGetBlogQuery(id as string, {
     skip: !id,
   });

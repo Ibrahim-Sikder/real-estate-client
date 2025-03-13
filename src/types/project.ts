@@ -56,6 +56,8 @@ export type TProject = {
   common_features: string[];
   home_loan_partner: string[];
   brochure_link: string;
+  sub_short_description:string;
+  projectLocation:string;
 };
 
 export type OverviewProps = {

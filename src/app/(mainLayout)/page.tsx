@@ -28,10 +28,7 @@ const Home = () => {
           property="og:description"
           content="Explore premium real estate projects and properties for sale. Join hands with Anaa Developers for exceptional services."
         />
-        {/* <meta property="og:url" content="https://www.yourwebsite.com" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.yourwebsite.com/og-homepage-image.jpg" />
-        <link rel="canonical" href="https://www.yourwebsite.com" /> */}
+        
       </Head>
       <div>
         <HomeBanner />

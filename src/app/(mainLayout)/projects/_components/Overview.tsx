@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -9,6 +10,7 @@ import { OverviewProps } from "@/types/project";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import SpecialOfferCountdown from "./SpecialOfferCountdown";
 
 const Overview: React.FC<OverviewProps> = ({ projectData }) => {
   const [openModal, setOpenModal] = useState(false);
@@ -120,9 +122,10 @@ const Overview: React.FC<OverviewProps> = ({ projectData }) => {
     };
     return new Intl.DateTimeFormat("en-US", options).format(date);
   };
+  const isExpired = new Date(projectData.project_date) < new Date()
   return (
     <>
-      <div className="flex justify-center text-[#135F4A] bg-gray-200 rounded-lg content-center items-center py-5 mb-4">
+      {/* <div className="flex justify-center text-[#135F4A] bg-gray-200 rounded-lg content-center items-center py-5 mb-4">
         <div className="flex justify-center text-[#135F4A] bg-gray-200 rounded-lg content-center items-center py-5 mb-4">
           <div className="flex flex-col justify-center items-center text-center font-bold space-y-2">
             <h4 className="text-lg">Excited Offer Exists Until:</h4>
@@ -134,19 +137,21 @@ const Overview: React.FC<OverviewProps> = ({ projectData }) => {
           </div>
         </div>
       </div>
+       */}
+      {/* <SpecialOfferCountdown expiryDate={projectData.project_date} isExpired={isExpired} /> */}
       <div className="lg:w-[1000px] lg:mt-0 mt-10">
         <div className="space-y-5">
           <h2 className="uppercase text-[#135F4A]">{projectData?.title}</h2>
           <p className="text-justify">{projectData.short_description}</p>
           <h2 className="uppercase text-[#135F4A]">{projectData.sub_title}</h2>
-          <p className="text-justify">{projectData.short_description}</p>
+          <p className="text-justify">{projectData.sub_short_description}</p>
         </div>
 
         <div className="">
           <PropertyGallery projectData={projectData} />
         </div>
       </div>
-      
+
       <div className="bg-white shadow-lg p-5 border mt-10" data-aos="fade-up">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="mb-4">

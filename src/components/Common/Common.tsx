@@ -6,6 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { useProjectData } from "@/hooks/useProjectData";
+import Loader from "../share/Loader/Loader";
 
 const Common = () => {
   const { projectDate, loading, error } = useProjectData()
@@ -19,7 +20,7 @@ const Common = () => {
 
 
   if (loading) {
-    return <p>Loading......</p>
+    return <Loader/>
   }
   if (error) {
     return <p>Do not project found!</p>

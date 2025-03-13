@@ -152,6 +152,7 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
             {activeTab === "tab1" && (
               <Overview projectData={projectData.data} />
             )}
+            
             {activeTab === "tab2" && <Concept projectData={projectData.data} />}
             {activeTab === "tab3" && <Floor projectData={projectData.data} />}
             {activeTab === "tab4" && <Map projectData={projectData.data} />}

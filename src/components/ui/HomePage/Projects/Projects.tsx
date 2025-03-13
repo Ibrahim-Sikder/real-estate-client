@@ -140,7 +140,7 @@ const Projects = () => {
           (onGoingProject && onGoingProject.length > 0 ? (
             <OnGoingProject projectData={onGoingProject} />
           ) : (
-            <h3 className="text-center mt-10 text-xl">
+            <h3 className="text-center mt-5 text-xl">
               No ongoing projects available at the moment.
             </h3>
           ))}
@@ -148,7 +148,7 @@ const Projects = () => {
           (completeProject && completeProject.length > 0 ? (
             <CompletedProject projectData={completeProject} />
           ) : (
-            <h3 className="text-center mt-10 text-xl">
+            <h3 className="text-center mt-5 text-xl">
               No completed projects available at the moment.
             </h3>
           ))}
@@ -156,7 +156,7 @@ const Projects = () => {
           (upcomingProject && upcomingProject.length > 0 ? (
             <UpcomingProject projectData={upcomingProject} />
           ) : (
-            <h3 className="text-center mt-10 text-xl">
+            <h3 className="text-center mt-5 text-xl">
               No upcoming projects available at the moment.
             </h3>
           ))}

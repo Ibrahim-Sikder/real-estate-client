@@ -111,10 +111,7 @@ const page = async () => {
           property="og:description"
           content="Discover our comprehensive services including land sales, property management, and more."
         />
-        {/* <meta property="og:url" content="https://www.yourwebsite.com/services" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg" />
-        <link rel="canonical" href="https://www.yourwebsite.com/services" /> */}
+       
       </Head>
       <div className="bg-gray-100">
         <ServiceBanner />
@@ -146,7 +143,7 @@ const page = async () => {
                     {service.title}
                   </h3>
                   <div className="mt-2 text-gray-700 text-justify">
-                    {renderContent(service.description.slice(0, 120))}
+                    {renderContent(service.description.slice(0, 80))}
                   </div>
                   <Link href={`/services/${service._id}`}>
                     <button className="bg-[#135F4A] text-white px-4 py-2 rounded mt-4 text-sm">

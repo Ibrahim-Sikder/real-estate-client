@@ -9,20 +9,20 @@ const CompletedProject: React.FC<{ projectData: TProject[] }> = async ({ project
 
   return (
     <>
-      <div className="my-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+       <div className="my-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-32 rounded-md">
           {projectData?.map((data: TProject) => (
             <div key={data._id} className="relative group w-[330px] rounded-md">
               <div className="flex justify-end px-4">
                 <h5 className="absolute bg-black bg-opacity-60 border border-gray-300 p-1 px-4 rounded-full mt-3 text-white">
-                  {data.project_offer ? data.project_offer : 'No Offer'}
+                {data.project_offer ? data.project_offer : 'No Offer'}
                 </h5>
               </div>
               {data?.conceptImages && data?.conceptImages.length > 0 && (
                 <>
                   <Image
-                    width={400}
-                    height={500}
+                   width={400}
+                   height={500}
                     src={data.conceptImages[0]}
                     alt={data.title}
                     className="w-full h-full object-cover rounded-md"

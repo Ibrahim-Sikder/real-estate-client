@@ -26,7 +26,7 @@ export default function Statement() {
             Nasrin Akter
           </h2>
           <p className="text-lg font-semibold text-gray-500 mb-4">
-            Founder & Chairman of Anaa Developers Ltd.
+            Founder & Chairman
             <br />
           </p>
 
@@ -88,7 +88,7 @@ export default function Statement() {
             Md. Ashraful Alam
           </h2>
           <p className="text-lg font-semibold text-gray-500 mb-4">
-            Managing Director of Anaa Developers Ltd.
+            Managing Director
             <br />
           </p>
 

@@ -10,7 +10,7 @@ const OnGoingProjects: React.FC<{ projectData: TProject[] }> = ({
   return (
     <>
       <div className="my-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 rounded-md">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-32 gap-5 rounded-md">
           {projectData?.map((data: TProject) => (
             <div key={data._id} className="relative group w-[330px] rounded-md">
               <div className="flex justify-end px-4">

@@ -124,7 +124,7 @@ const page = async () => {
             {serviceData?.data?.services?.map((service: TServices, index: number) => (
               <div
                 key={index}
-                className="bg-white shadow-lg grid grid-cols-1 md:grid-cols-2 gap-5 p-5 rounded"
+                className="bg-white shadow-lg grid grid-cols-1 lg:grid-cols-2 gap-5 p-5 rounded"
               >
                 <div>
                   {service.images.slice(0, 1).map((img) => (

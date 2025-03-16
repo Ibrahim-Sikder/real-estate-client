@@ -4,7 +4,9 @@ import Link from "next/link";
 import EastIcon from "@mui/icons-material/East";
 import { TProject } from "@/types/project";
 
-const UpcomingProject: React.FC<{ projectData: TProject[] }> = ({ projectData }) => {
+const UpcomingProject: React.FC<{ projectData: TProject[] }> = ({
+  projectData,
+}) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -25,7 +27,7 @@ const UpcomingProject: React.FC<{ projectData: TProject[] }> = ({ projectData })
   return (
     <>
       <div className="my-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-32 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 rounded-md ">
           {projectData?.map((data: TProject) => (
             <div key={data._id} className="relative group w-[330px] rounded-md">
               <div className="flex justify-end px-4">
@@ -47,7 +49,9 @@ const UpcomingProject: React.FC<{ projectData: TProject[] }> = ({ projectData })
 
               {/* Content */}
               <div className="absolute lg:top-[350px] md:top-96 top-80 px-4">
-                <h3 className="text-white text-lg font-semibold">{data.title}</h3>
+                <h3 className="text-white text-lg font-semibold">
+                  {data.title}
+                </h3>
                 <p className="text-white text-sm">{data.location}</p>
               </div>
 

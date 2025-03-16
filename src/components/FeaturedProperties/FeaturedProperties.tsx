@@ -93,7 +93,7 @@ const FeaturedProperties = () => {
           pagination={true}
           breakpoints={{
             320: {
-              slidesPerView: 1,
+              slidesPerView: 2,
             },
             640: {
               slidesPerView: 2,
@@ -114,15 +114,15 @@ const FeaturedProperties = () => {
                     <div className="relative ">
                       <Image
                         src={img}
-                        className="h-[450px]"
+                        className="md:h-[450px] h-[250px]"
                         alt="feature"
                         width={500}
                         height={6000}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                      <h2 className="absolute bottom-0 w-full text-white text-center py-4">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent md:h-[450px] h-[250px]"></div>
+                      <p className="absolute bottom-0 w-full text-white text-center py-4 md:text-2xl text-sm font-semibold">
                         This is Property
-                      </h2>
+                      </p>
                     </div>
                   </Link>
                 </SwiperSlide>

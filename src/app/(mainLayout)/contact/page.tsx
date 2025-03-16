@@ -17,10 +17,16 @@ const page = () => {
           name="description"
           content="Get in touch with Anaa Developers Limited, a leading real estate company specializing in the sale of land shares. Contact us for more details!"
         />
-        <meta name="keywords" content="real estate, land sales, Anaa Developers, contact, Bangladesh" />
+        <meta
+          name="keywords"
+          content="real estate, land sales, Anaa Developers, contact, Bangladesh"
+        />
         <meta name="author" content="Anaa Developers Limited" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta property="og:title" content="Contact Us | Anaa Developers Limited" />
+        <meta
+          property="og:title"
+          content="Contact Us | Anaa Developers Limited"
+        />
         <meta
           property="og:description"
           content="Reach out to Anaa Developers Limited, a trusted name in real estate, for inquiries and project details."
@@ -44,7 +50,8 @@ const page = () => {
                 Let&apos;s Get In Touch With Our Professionals Team
               </h3>
               <p className="text-gray-600 mb-8">
-                Anaa Developers Limited is a prominent real estate company specializing in the sale of land shares across various projects.
+                Anaa Developers Limited is a prominent real estate company
+                specializing in the sale of land shares across various projects.
               </p>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
@@ -81,7 +88,7 @@ const page = () => {
           </div>
           <div className="mt-10 border">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1075.1518268683578!2d90.42238324968673!3d23.820644750680454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c700ff992a63%3A0xbdcb1d9ae66b2d5c!2sSoftypi%20Technology!5e0!3m2!1sen!2sbd!4v1711790838610!5m2!1sen!2sbd"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.3784535770337!2d90.3598281!3d23.7338801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bfe303e1a6c3%3A0x24d40b5c24b3fe5!2sShopnodanga%20Housing%2C%20Building%20-%204!5e0!3m2!1sen!2sbd!4v1742117034534!5m2!1sen!2sbd"
               className="map w-full h-[450px]"
               style={{ border: "0" }}
               allowFullScreen

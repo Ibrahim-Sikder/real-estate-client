@@ -87,8 +87,7 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
     );
   }
 
-
-  console.log('single project data', projectData)
+  console.log("single project data", projectData);
   return (
     <>
       <CommonBanner />
@@ -96,51 +95,58 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
         <div id="project" className="lg:flex gap-10">
           <div className="lg:w-[250px] h-full mx-auto flex lg:flex-col sticky lg:top-20 top-16 z-10 bg-[#76B486] overflow-x-auto lg:overflow-visible whitespace-nowrap">
             <button
-              className={`text-center uppercase flex-shrink-0 border-b-2 p-3 ${activeTab === "tab1" ? "bg-[#135F4A] text-white" : ""
-                }`}
+              className={`text-center uppercase flex-shrink-0 border-b-2 p-3 ${
+                activeTab === "tab1" ? "bg-[#135F4A] text-white" : ""
+              }`}
               onClick={() => handleTabClick("tab1")}
             >
               OVERVIEW
             </button>
 
             <button
-              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab2" ? "bg-[#135F4A] text-white" : ""
-                }`}
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
+                activeTab === "tab2" ? "bg-[#135F4A] text-white" : ""
+              }`}
               onClick={() => handleTabClick("tab2")}
             >
               Concept
             </button>
             <button
-              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab3" ? "bg-[#135F4A] text-white" : ""
-                }`}
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
+                activeTab === "tab3" ? "bg-[#135F4A] text-white" : ""
+              }`}
               onClick={() => handleTabClick("tab3")}
             >
               FLOOR PLAN
             </button>
             <button
-              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab4" ? "bg-[#135F4A] text-white" : ""
-                }`}
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
+                activeTab === "tab4" ? "bg-[#135F4A] text-white" : ""
+              }`}
               onClick={() => handleTabClick("tab4")}
             >
               LOCATION MAP
             </button>
             <button
-              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab5" ? "bg-[#135F4A] text-white" : ""
-                }`}
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
+                activeTab === "tab5" ? "bg-[#135F4A] text-white" : ""
+              }`}
               onClick={() => handleTabClick("tab5")}
             >
               VIRTUAL TOUR
             </button>
             <button
-              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab6" ? "bg-[#135F4A] text-white" : ""
-                }`}
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
+                activeTab === "tab6" ? "bg-[#135F4A] text-white" : ""
+              }`}
               onClick={() => handleTabClick("tab6")}
             >
               Download brochure
             </button>
             <button
-              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${activeTab === "tab7" ? "bg-[#135F4A] text-white" : ""
-                }`}
+              className={`p-3 text-center uppercase flex-shrink-0 border-b-2 ${
+                activeTab === "tab7" ? "bg-[#135F4A] text-white" : ""
+              }`}
               onClick={() => handleTabClick("tab7")}
             >
               CONTACT NOW
@@ -152,7 +158,7 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
             {activeTab === "tab1" && (
               <Overview projectData={projectData.data} />
             )}
-            
+
             {activeTab === "tab2" && <Concept projectData={projectData.data} />}
             {activeTab === "tab3" && <Floor projectData={projectData.data} />}
             {activeTab === "tab4" && <Map projectData={projectData.data} />}

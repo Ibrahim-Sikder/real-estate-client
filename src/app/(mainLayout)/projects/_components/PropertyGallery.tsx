@@ -43,7 +43,7 @@ const PropertyGallery: React.FC<OverviewProps> = ({ projectData }) => {
           ?.slice(0, 1)
           .map((slide, index: number) => (
             <SwiperSlide key={index}>
-              <div className="relative w-full h-auto md:h-[400px] lg:h-[750px]">
+              <div className="relative w-full h-auto md:h-[300px] lg:h-[400px]">
                 <Image
                   width={10000}
                   height={500}
@@ -70,7 +70,7 @@ const PropertyGallery: React.FC<OverviewProps> = ({ projectData }) => {
       >
         {projectData?.overviewImages?.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative md:w-[240px] md:h-[265px] mt-2.5">
+            <div className="relative md:h-[100px] mt-2.5">
               <Image
                 src={slide}
                 alt={`Thumbnail ${index + 1}`}

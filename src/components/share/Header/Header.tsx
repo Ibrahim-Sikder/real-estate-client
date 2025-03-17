@@ -8,9 +8,11 @@ import "./Header.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { WifiCalling3 } from "@mui/icons-material";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -45,25 +47,63 @@ const Header = () => {
               isMenuOpen ? "open" : "hidden"
             }`}
           >
-            <Link href="/#" onClick={closeMenu}>
+            <Link
+              className={`link ${pathname === "/" ? "active" : ""}`}
+              href="/#"
+              onClick={closeMenu}
+            >
               <li>HOME</li>
             </Link>
-            <Link href="/about-us" onClick={closeMenu}>
+            <Link
+              className={`link ${
+                pathname === "/about-us" ? "text-[#135F4A]" : ""
+              }`}
+              href="/about-us"
+              onClick={closeMenu}
+            >
               <li>ABOUT</li>
             </Link>
-            <Link href="/projects" onClick={closeMenu}>
+            <Link
+              className={`link ${
+                pathname === "/projects" ? "text-[#135F4A]" : ""
+              }`}
+              href="/projects"
+              onClick={closeMenu}
+            >
               <li>PROJECTS</li>
             </Link>
-            <Link href="/gallery" onClick={closeMenu}>
+            <Link
+              className={`link ${
+                pathname === "/gallery" ? "text-[#135F4A]" : ""
+              }`}
+              href="/gallery"
+              onClick={closeMenu}
+            >
               <li>GALLERY</li>
             </Link>
-            <Link href="/services" onClick={closeMenu}>
+            <Link
+              className={`link ${
+                pathname === "/services" ? "text-[#135F4A]" : ""
+              }`}
+              href="/services"
+              onClick={closeMenu}
+            >
               <li>SERVICES</li>
             </Link>
-            <Link href="/blog" onClick={closeMenu}>
+            <Link
+              className={`link ${pathname === "/blog" ? "text-[#135F4A]" : ""}`}
+              href="/blog"
+              onClick={closeMenu}
+            >
               <li>BLOG</li>
             </Link>
-            <Link href="/contact" onClick={closeMenu}>
+            <Link
+              className={`link ${
+                pathname === "/contact" ? "text-[#135F4A]" : ""
+              }`}
+              href="/contact"
+              onClick={closeMenu}
+            >
               <li>CONTACT</li>
             </Link>
             <Link href="/login" onClick={closeMenu}>

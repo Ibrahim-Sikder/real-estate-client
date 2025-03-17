@@ -122,7 +122,7 @@ const Overview: React.FC<OverviewProps> = ({ projectData }) => {
     };
     return new Intl.DateTimeFormat("en-US", options).format(date);
   };
-  const isExpired = new Date(projectData.project_date) < new Date()
+  const isExpired = new Date(projectData.project_date) < new Date();
   return (
     <>
       {/* <div className="flex justify-center text-[#135F4A] bg-gray-200 rounded-lg content-center items-center py-5 mb-4">
@@ -140,14 +140,14 @@ const Overview: React.FC<OverviewProps> = ({ projectData }) => {
        */}
       {/* <SpecialOfferCountdown expiryDate={projectData.project_date} isExpired={isExpired} /> */}
       <div className="lg:w-[1000px] lg:mt-0 mt-10">
-        <div className="space-y-5">
+        <div className="space-y-3">
           <h2 className="uppercase text-[#135F4A]">{projectData?.title}</h2>
           <p className="text-justify">{projectData.short_description}</p>
           <h2 className="uppercase text-[#135F4A]">{projectData.sub_title}</h2>
           <p className="text-justify">{projectData.sub_short_description}</p>
         </div>
 
-        <div className="">
+        <div className="mt-10">
           <PropertyGallery projectData={projectData} />
         </div>
       </div>

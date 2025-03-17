@@ -121,7 +121,7 @@ const FeaturedProperties = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent md:h-[450px] h-[250px]"></div>
                       <p className="absolute bottom-0 w-full text-white text-center py-4 md:text-2xl text-sm font-semibold">
-                        This is Property
+                        {data.title}
                       </p>
                     </div>
                   </Link>

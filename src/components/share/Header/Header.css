@@ -35,11 +35,13 @@
   }
 }
 @media screen and (max-width: 500px) {
-  
-
   .close-icon,
   .open-icon {
     right: 10px;
     top: 10px;
   }
+}
+
+.nav-items li:hover {
+  color: #135f4a;
 }

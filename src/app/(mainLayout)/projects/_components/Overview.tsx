@@ -122,7 +122,7 @@ const Overview: React.FC<OverviewProps> = ({ projectData }) => {
     };
     return new Intl.DateTimeFormat("en-US", options).format(date);
   };
-  const isExpired = new Date(projectData.project_date) < new Date()
+  const isExpired = new Date(projectData?.project_date) < new Date()
   return (
     <>
       {/* <div className="flex justify-center text-[#135F4A] bg-gray-200 rounded-lg content-center items-center py-5 mb-4">

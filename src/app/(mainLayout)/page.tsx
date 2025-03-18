@@ -28,7 +28,7 @@ const Home = () => {
           property="og:description"
           content="Explore premium real estate projects and properties for sale. Join hands with Anaa Developers for exceptional services."
         />
-        
+
       </Head>
       <div>
         <HomeBanner />

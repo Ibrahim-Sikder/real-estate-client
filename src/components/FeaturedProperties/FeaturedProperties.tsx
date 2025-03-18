@@ -12,14 +12,11 @@ import Loader from "../share/Loader/Loader";
 import Link from "next/link";
 import { TProject } from "@/types/project";
 
-import EastIcon from "@mui/icons-material/East";
-import img from "../../assets/images/Jolchaya-hazaribag/Jolchaya 01.jpg";
-
 const FeaturedProperties = () => {
   const [projectData, setProjectData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
+  console.log('project data', projectData)
   useEffect(() => {
     const fetchProjectData = async () => {
       try {
@@ -92,44 +89,35 @@ const FeaturedProperties = () => {
           speed={2000}
           pagination={true}
           breakpoints={{
-            320: {
-              slidesPerView: 2,
-            },
-            640: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 3,
-            },
+            320: { slidesPerView: 2 },
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
           }}
           modules={[EffectCoverflow, Autoplay]}
           className="mySwiper"
           data-aos="fade-up"
         >
-          {projectData?.data?.projects?.map((data: TProject) => (
-            <div key={data._id}>
-              {featuredImages?.map((img: any, i: number) => (
-                <SwiperSlide key={i} className="relative ">
-                  <Link href={`/projects/${data._id}`}>
-                    <div className="relative ">
-                      <Image
-                        src={img}
-                        className="md:h-[450px] h-[250px]"
-                        alt="feature"
-                        width={500}
-                        height={6000}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent md:h-[450px] h-[250px]"></div>
-                      <p className="absolute bottom-0 w-full text-white text-center py-4 md:text-2xl text-sm font-semibold">
-                        {data.title}
-                      </p>
-                    </div>
-                  </Link>
-                </SwiperSlide>
-              ))}
-            </div>
+          {projectData?.data?.projects?.map((data: TProject, index: number) => (
+            <SwiperSlide key={data._id} className="relative">
+              <Link href={`/projects/${data._id}`}>
+                <div className="relative">
+                  <Image
+                    src={featuredImages[index] || "/default-image.jpg"} 
+                    className="md:h-[450px] h-[250px]"
+                    alt="feature"
+                    width={500}
+                    height={6000}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent md:h-[450px] h-[250px]"></div>
+                  <p className="absolute bottom-0 w-full text-white text-center py-4 md:text-2xl text-sm font-semibold">
+                    {data.title}
+                  </p>
+                </div>
+              </Link>
+            </SwiperSlide>
           ))}
         </Swiper>
+
       </div>
     </>
   );

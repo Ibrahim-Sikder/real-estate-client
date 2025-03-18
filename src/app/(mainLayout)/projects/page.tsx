@@ -21,7 +21,7 @@ export type ProjectResponse = {
 };
 
 const ProjectPage = () => {
-  const [visibleProjects, setVisibleProjects] = useState<number>(3);
+  const [visibleProjects, setVisibleProjects] = useState<number>(6);
   const [projectData, setProjectData] = useState<ProjectResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -72,7 +72,7 @@ const ProjectPage = () => {
   }
 
   const handleLoadMore = () => {
-    setVisibleProjects((prevCount) => prevCount + 3);
+    setVisibleProjects((prevCount) => prevCount + 6);
   };
 
   console.log(projectData);
@@ -119,7 +119,7 @@ const ProjectPage = () => {
                         <></>
                       )}
 
-                      {data?.floorImages?.slice(0, 1).map((floor) => (
+                      {data?.overviewImages?.slice(0, 1).map((floor) => (
                         <Image
                           key={floor}
                           width={400}

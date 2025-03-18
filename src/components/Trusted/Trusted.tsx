@@ -9,7 +9,7 @@ import Link from "next/link";
 const Trusted = () => {
   return (
     <Container>
-      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-36 gap-10 items-center lg:mb-40 mb-20 lg:mt-44 mt-[400px] ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-36 gap-10 items-center lg:mb-40 mb-36 lg:mt-44 mt-[400px] ">
         <div className="space-y-5">
           <h4 className="uppercase text-[#135F4A]">trusted By thousands</h4>
           <h2 className="uppercase">
@@ -30,12 +30,12 @@ const Trusted = () => {
           </Link>
           </div>
         </div>
-        <div className="lg:relative space-y-5">
-          <Image src={img1} alt="" className="border-2 border-[#135F4A]" />
+        <div className="relative space-y-5">
+          <Image src={img1} alt="" className="border-2 border-[#135F4A] lg:w-full md:w-[600px] w-[300px] mx-auto" />
           <Image
             src={img2}
             alt=""
-            className="lg:absolute top-40 -left-24 lg:w-[400px] border-2 border-[#135F4A]"
+            className="absolute md:top-40 top-20 lg:-left-24 lg:w-[400px] md:w-[400px] w-[200px] border-2 border-[#135F4A]"
           />
         </div>
       </div>

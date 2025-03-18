@@ -21,7 +21,7 @@ const FAQ = () => {
   const [faqData, setFaqData] = useState<TFaq[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [expanded, setExpanded] = useState<number | false>(false); 
+  const [expanded, setExpanded] = useState<number | false>(false);
 
   useEffect(() => {
     const fetchFaqData = async () => {
@@ -31,7 +31,7 @@ const FAQ = () => {
         );
         const data = await response.json();
         setFaqData(data.data?.faqs || []);
-      } catch (err:any) {
+      } catch (err: any) {
         setError("Failed to fetch FAQ data.");
       } finally {
         setLoading(false);
@@ -64,7 +64,7 @@ const FAQ = () => {
   const handleAccordionChange =
     (panelIndex: number) =>
     (event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panelIndex : false); 
+      setExpanded(isExpanded ? panelIndex : false);
     };
 
   return (
@@ -76,7 +76,7 @@ const FAQ = () => {
           {faqData.map((faqItem: TFaq, index: number) => (
             <Accordion
               key={faqItem._id}
-              expanded={expanded === index} 
+              expanded={expanded === index}
               onChange={handleAccordionChange(index)}
             >
               <AccordionSummary

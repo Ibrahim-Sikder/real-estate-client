@@ -6,7 +6,6 @@ import Modal from "@/components/share/Modal/Modal";
 import { OverviewProps } from "@/types/project";
 import ReactHtmlParser from "react-html-parser";
 const Floor: React.FC<OverviewProps> = ({ projectData }) => {
-
   const [openModal, setOpenModal] = useState(false);
 
   const handleOpenModal = () => {
@@ -65,19 +64,28 @@ const Floor: React.FC<OverviewProps> = ({ projectData }) => {
             ))}
           </ol>
         );
-      } else if (element.type === "div" && element.props.className === "ql-align-center") {
+      } else if (
+        element.type === "div" &&
+        element.props.className === "ql-align-center"
+      ) {
         return (
           <div key={index} className="text-center mb-2">
             {element.props.children}
           </div>
         );
-      } else if (element.type === "div" && element.props.className === "ql-align-right") {
+      } else if (
+        element.type === "div" &&
+        element.props.className === "ql-align-right"
+      ) {
         return (
           <div key={index} className="text-right mb-2">
             {element.props.children}
           </div>
         );
-      } else if (element.type === "div" && element.props.className === "ql-align-left") {
+      } else if (
+        element.type === "div" &&
+        element.props.className === "ql-align-left"
+      ) {
         return (
           <div key={index} className="text-left mb-2">
             {element.props.children}
@@ -89,19 +97,24 @@ const Floor: React.FC<OverviewProps> = ({ projectData }) => {
     });
   };
 
-
   return (
     <div>
-      <div className="mb-10">
+      <div className="my-10">
         <h4 className="text-center text-[#135F4A]">ANAA Developers Limited</h4>
         <h2 className="uppercase text-center">
           ANAA Jolchaya Heights Floor Plan
         </h2>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center">
         {projectData?.floorImages?.map((floorImg, i: number) => (
           <div key={i}>
-            <Image width={500} height={1000} src={floorImg} alt="" className="w-full h-[600px]" />
+            <Image
+              width={500}
+              height={500}
+              src={floorImg}
+              alt=""
+              className="w-full h-[400px]"
+            />
             <p className="bg-[#135F4A] text-white p-3 text-center">
               {projectData.title}
             </p>
@@ -112,11 +125,7 @@ const Floor: React.FC<OverviewProps> = ({ projectData }) => {
         <h2 className="uppercase">Buy an Apartment on Easy Installments</h2>
         <p className="text-justify mt-3">
           {renderContent(projectData?.overview_description)}
-
         </p>
-
-
-
 
         <div className="mt-5">
           <button
@@ -136,9 +145,7 @@ const Floor: React.FC<OverviewProps> = ({ projectData }) => {
                 <CheckCircleIcon className="text-[#135F4A]" /> {contain}
               </li>
             </ul>
-          )) ?? (
-              <p>No nearby locations available.</p>
-            )}
+          )) ?? <p>No nearby locations available.</p>}
         </div>
       </div>
       <Modal open={openModal} onClose={handleCloseModal} />

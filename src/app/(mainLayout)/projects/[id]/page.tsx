@@ -91,9 +91,9 @@ const ProjectDetails: React.FC<PageProps> = ({ params }) => {
   return (
     <>
       <CommonBanner />
-      <Container className="my-20">
+      <Container className="my-10">
         <div id="project" className="lg:flex gap-10">
-          <div className="lg:w-[250px] h-full mx-auto flex lg:flex-col sticky lg:top-20 top-16 z-10 bg-[#76B486] overflow-x-auto lg:overflow-visible whitespace-nowrap">
+          <div className="lg:w-[250px] h-full mx-auto flex lg:flex-col sticky lg:top-20 md:top-[65px] top-[50px] z-10 bg-[#76B486] overflow-x-auto lg:overflow-visible whitespace-nowrap">
             <button
               className={`text-center uppercase flex-shrink-0 border-b-2 p-3 ${
                 activeTab === "tab1" ? "bg-[#135F4A] text-white" : ""

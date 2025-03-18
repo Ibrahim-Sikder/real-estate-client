@@ -17,7 +17,7 @@ export type TGallery = {
 
 const Gallery = () => {
   const [photoData, setPhotoData] = useState<TGallery[]>([]);
-  const [displayedItems, setDisplayedItems] = useState(10); 
+  const [displayedItems, setDisplayedItems] = useState(10);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -79,7 +79,7 @@ const Gallery = () => {
                   key={img} // Unique key for each image
                   width={150}
                   height={150}
-                  className="w-full h-[350px] object-cover"
+                  className="w-full h-[350px]"
                   src={img}
                   alt="Team"
                 />
@@ -93,7 +93,10 @@ const Gallery = () => {
 
         {displayedItems < photoData.length && (
           <div className="flex justify-center mt-7">
-            <button onClick={handleLoadMore} className="bg-[#135F4A] px-6 py-2 text-white">
+            <button
+              onClick={handleLoadMore}
+              className="bg-[#135F4A] px-6 py-2 text-white"
+            >
               Load More
             </button>
           </div>

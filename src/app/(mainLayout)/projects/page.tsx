@@ -21,7 +21,7 @@ export type ProjectResponse = {
 };
 
 const ProjectPage = () => {
-  const [visibleProjects, setVisibleProjects] = useState<number>(6);
+  const [visibleProjects, setVisibleProjects] = useState<number>(3);
   const [projectData, setProjectData] = useState<ProjectResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -72,7 +72,7 @@ const ProjectPage = () => {
   }
 
   const handleLoadMore = () => {
-    setVisibleProjects((prevCount) => prevCount + 6);
+    setVisibleProjects((prevCount) => prevCount + 3);
   };
 
   console.log(projectData);
@@ -156,7 +156,7 @@ const ProjectPage = () => {
                 <div className="flex justify-center mt-12">
                   <button
                     onClick={handleLoadMore}
-                    className="bg-[#135F4A] px-6 py-2 text-white"
+                    className="bg-[#135F4A] px-6 py-2 text-white rounded-md"
                   >
                     Load More
                   </button>

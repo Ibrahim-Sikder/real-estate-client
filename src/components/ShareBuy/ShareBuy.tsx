@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React, { useState } from "react";
 import "./ShareBuy.css";
@@ -28,7 +28,7 @@ const ShareBuy = () => {
   return (
     <>
       <div className="donationWraps rounded overflow-hidden contributionWrap ">
-        <div className="bg-image lg:h-[700px] h-[300px] flex justify-center items-center">
+        <div className="bg-image lg:h-[700px] h-[350px] flex justify-center items-center">
           <div className="animationIcon">
             <Image src={animation} alt="animation" />
           </div>
@@ -62,7 +62,7 @@ const ShareBuy = () => {
           <div className="absolute z-10 px-5">
             <div className="lg:max-w-2xl mx-auto">
               <h1 className=" text-center text-[#135F4A]">
-                Affordable Project Shares for Sale   
+                Affordable Project Shares for Sale
               </h1>
               <p className="mt-5 text-center">
                 Build a secure future home for your next generation by
@@ -76,7 +76,7 @@ const ShareBuy = () => {
             <div className="flex justify-center">
               <button
                 onClick={handleOpenModal}
-                className="bg-[#135F4A] text-white py-3 px-6 mt-5 uppercase"
+                className="bg-[#135F4A] text-white py-3 px-6 rounded-md mt-5 uppercase"
               >
                 Book Meeting
               </button>

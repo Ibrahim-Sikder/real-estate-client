@@ -25,21 +25,20 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-white shadow-md text-black sticky top-0 z-50">
+    <div className="bg-white shadow-md text-black sticky top-0 z-50 lg:py-0 py-2">
       <Container>
         <div className="flex justify-between items-center">
           <Link href="/">
-            <div className="w-28">
+            <div className="md:w-28 w-20">
               <Image src={logo} alt="Logo" />
             </div>
           </Link>
 
-          <div className="lg:hidden block cursor-pointer" onClick={toggleMenu}>
-            {isMenuOpen ? (
-              <CloseIcon fontSize="medium" className="close-icon" />
-            ) : (
-              <MenuIcon fontSize="medium" className="open-icon" />
-            )}
+          <div
+            className="lg:hidden block cursor-pointer mt-1"
+            onClick={toggleMenu}
+          >
+            {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
           </div>
 
           <ul

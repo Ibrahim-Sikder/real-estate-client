@@ -7,7 +7,7 @@ const SearchProjectTab = () => {
   return (
     <div className="mx-5">
       <div className="flex justify-center items-center">
-        <div className="absolute lg:-bottom-20 -bottom-[320px] xl:w-[1000px] mx-auto w-full z-10">
+        <div className="absolute lg:top-[470px] md:top-[450px] top-[185px] xl:w-[1000px] mx-auto w-full z-10">
           <div className="mx-5">
             <div className="lg:w-[400px] mx-auto grid grid-cols-3 lg:gap-5 md:gap-5 gap-2 md:mb-2">
               <button
@@ -44,7 +44,7 @@ const SearchProjectTab = () => {
           </div>
 
           {/* Tab Content */}
-          <div>
+          <div className="mt-5">
             {activeTab === "tab1" && <SearchBar />}
             {activeTab === "tab2" && <SearchBar />}
             {activeTab === "tab3" && <ReadyFlate />}

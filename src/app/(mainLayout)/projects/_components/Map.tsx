@@ -65,19 +65,28 @@ const Map: React.FC<OverviewProps> = ({ projectData }) => {
             ))}
           </ol>
         );
-      } else if (element.type === "div" && element.props.className === "ql-align-center") {
+      } else if (
+        element.type === "div" &&
+        element.props.className === "ql-align-center"
+      ) {
         return (
           <div key={index} className="text-center mb-2">
             {element.props.children}
           </div>
         );
-      } else if (element.type === "div" && element.props.className === "ql-align-right") {
+      } else if (
+        element.type === "div" &&
+        element.props.className === "ql-align-right"
+      ) {
         return (
           <div key={index} className="text-right mb-2">
             {element.props.children}
           </div>
         );
-      } else if (element.type === "div" && element.props.className === "ql-align-left") {
+      } else if (
+        element.type === "div" &&
+        element.props.className === "ql-align-left"
+      ) {
         return (
           <div key={index} className="text-left mb-2">
             {element.props.children}
@@ -89,7 +98,6 @@ const Map: React.FC<OverviewProps> = ({ projectData }) => {
     });
   };
 
-
   // const googleMapEmbedURL = `https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(
   //   projectData.location || "Dhaka, Bangladesh"
   // )}`;
@@ -98,44 +106,36 @@ const Map: React.FC<OverviewProps> = ({ projectData }) => {
     <div>
       <div className="mb-10">
         <h4 className="text-center text-[#135F4A]">ANAA Developers Limited</h4>
-        <h2 className="uppercase text-center">
-          {projectData.title}
-        </h2>
+        <h2 className="uppercase text-center">{projectData.title}</h2>
       </div>
-      {
-        projectData?.overviewImages?.slice(0, 1).map((mapImg, i: number) => (
-          <Image width={500} height={1000} key={i} src={mapImg} alt="" className="w-full h-[800px]" />
-        )
+      {projectData?.overviewImages?.slice(0, 1).map((mapImg, i: number) => (
+        <Image
+          width={500}
+          height={1000}
+          key={i}
+          src={mapImg}
+          alt=""
+          className="w-full h-[450px]"
+        />
+      ))}
 
-        )
-      }
-
-
-
-
-      {
-        projectData?.projectLocation && (
-          <div className="mt-10 border">
-            <iframe
-              src={projectData.projectLocation}
-              className="map w-full h-[450px]"
-              style={{ border: "0" }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-        )
-      }
+      {projectData?.projectLocation && (
+        <div className="mt-10 border">
+          <iframe
+            src={projectData.projectLocation}
+            className="map w-full h-[450px]"
+            style={{ border: "0" }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      )}
       <div className="mt-10 border shadow-lg p-5">
         <h2 className="uppercase">Buy an Apartment on Easy Installments</h2>
         <p className="text-justify mt-3">
           {renderContent(projectData?.overview_description)}
-
         </p>
-
-
-
 
         <div className="mt-5">
           <button
@@ -155,9 +155,7 @@ const Map: React.FC<OverviewProps> = ({ projectData }) => {
                 <CheckCircleIcon className="text-[#135F4A]" /> {contain}
               </li>
             </ul>
-          )) ?? (
-              <p>No nearby locations available.</p>
-            )}
+          )) ?? <p>No nearby locations available.</p>}
         </div>
       </div>
       <Modal open={openModal} onClose={handleCloseModal} />

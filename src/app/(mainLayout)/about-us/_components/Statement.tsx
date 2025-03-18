@@ -13,7 +13,7 @@ export default function Statement() {
     <section className="py-12 space-y-10">
       <div className="flex flex-col md:flex-row items-center">
         {/* Image of the Chairman */}
-        <div className="md:w-1/3 w-full mb-6 md:mb-0 flex justify-center rounded-lg shadow-2xl border">
+        <div className="md:w-1/3 w-full mb-6 md:mb-0 flex justify-center rounded-lg shadow-2xl border overflow-hidden">
           <Image
             src={nasrin}
             alt="Chairman"
@@ -81,9 +81,9 @@ export default function Statement() {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center gap-10">
+      <div className="flex flex-col md:flex-row items-center">
         {/* Managing Director Statement */}
-        <div className="md:w-2/3 w-full md:pl-0 text-center md:text-left md:order-1 order-2">
+        <div className="md:w-2/3 w-full md:pr-10 text-center md:text-left md:order-1 order-2">
           <h2 className="text-3xl font-bold mb-1 text-[#135F4A]">
             Md. Ashraful Alam
           </h2>

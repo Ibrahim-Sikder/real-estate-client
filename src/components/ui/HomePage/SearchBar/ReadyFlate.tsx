@@ -1,14 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import React from "react";
-import { Grid, Button, } from "@mui/material";
+import { Grid, Button } from "@mui/material";
 import ADForm from "@/components/Forms/Form";
 import { FieldValues } from "react-hook-form";
 import ADSelect from "@/components/Forms/Select";
-import {
-  location,
-  lookingFor,
-} from "@/constant/type";
+import { location, lookingFor } from "@/constant/type";
 import { useRouter } from "next/navigation";
 
 const ReadyFlate = () => {
@@ -36,9 +33,9 @@ const ReadyFlate = () => {
     },
   };
   return (
-    <div className="mx-5">
+    <div className="mx-5 mb-5">
       <ADForm onSubmit={onSubmit}>
-        <div className="bg-white lg:py-8 lg:px-5 p-3 rounded shadow-md">
+      <div className="bg-white lg:py-8 lg:px-5 p-3 rounded shadow-md">
           <Grid
             container
             spacing={1}
@@ -73,7 +70,7 @@ const ReadyFlate = () => {
                 defaultValue="Dhaka"
               />
             </Grid>
-           
+
             <Grid
               item
               xs={12}
